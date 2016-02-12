@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-       
+
 
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -14,7 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.5 -->
-        <link rel="stylesheet" href="<?php echo base_url('dashboard/lte/bootstrap/css/bootstrap.min.css');?>">
+        <link rel="stylesheet" href="<?php echo base_url('dashboard/lte/bootstrap/css/bootstrap.min.css'); ?>">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
         <!-- <link rel="stylesheet" href="dist/css/font-awesome.min.css"> -->
@@ -22,12 +22,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> 
         <!-- <link rel="stylesheet" href="dist/css/ionicons.min.css"> -->
         <!-- Theme style -->
-        <link rel="stylesheet" href="<?php echo base_url('dashboard/lte/dist/css/AdminLTE.min.css');?>">
+        <link rel="stylesheet" href="<?php echo base_url('dashboard/lte/dist/css/AdminLTE.min.css'); ?>">
         <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
               page. However, you can choose any other skin. Make sure you
               apply the skin class to the body tag so the changes take effect.
         -->
-        <link rel="stylesheet" href="<?php echo base_url('dashboard/lte/dist/css/skins/skin-blue.min.css');?>">
+        <link rel="stylesheet" href="<?php echo base_url('dashboard/lte/dist/css/skins/skin-blue.min.css'); ?>">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,6 +35,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        <style>
+            .thesisLink:hover {
+                color: #00A3CB;
+            }
+        </style>
+
     </head>
     <!--
     BODY TAG OPTIONS:
@@ -96,54 +103,54 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            
+
                             <div class="row">
-                               <?php if($this->session->userdata('em_role')== "ผู้ดูแลระบบ"):?> 
-                                <!--ข้อมูลหลัก-->
-                                <div class="col-sm-3">
-                                    <div class="small-box bg-aqua">
-                                        <div class="inner">
-                                            <h4>ข้อมูลหลัก</h4>
+                                <?php if ($this->session->userdata('em_role') == "ผู้ดูแลระบบ"): ?> 
+                                    <!--ข้อมูลหลัก-->
+                                    <div class="col-sm-3">
+                                        <div class="small-box bg-aqua">
+                                            <div class="inner">
+                                                <h4>ข้อมูลหลัก</h4>
 
-                                           <p>&nbsp;</p> 
-                                        </div>
-                                        <div class="icon">
-                                            <i class="fa fa-database"></i>
-                                        </div>
-                                        <a href="main_data" class="small-box-footer">
-                                            แสดงข้อมูลลูกค้าและพนักงาน <i class="fa fa-arrow-circle-right"></i>
-                                        </a>
+                                                <a href="main_data">  <p>&nbsp;</p> </a>
+                                            </div>
+                                            <div class="icon">
+                                                <a class="thesisLink" href="main_data"><i class="fa fa-database"></i></a>
+                                            </div>
+                                            <a href="main_data" class="small-box-footer">
+                                                แสดงข้อมูลลูกค้าและพนักงาน <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div> </a>
                                     </div>
-                                </div>
-                                <?php endif;?>
-                                <?php if($this->session->userdata('em_role')== "ผู้ดูแลระบบ"):?> 
-                                <!--เปิดงาน-->
-                                <div class="col-sm-3">
-                                    <div class="small-box bg-aqua">
-                                        <div class="inner">
-                                            <h4>เปิดโครงการ</h4>
+                                <?php endif; ?>
+                                <?php if ($this->session->userdata('em_role') == "ผู้ดูแลระบบ"): ?> 
+                                    <!--เปิดงาน-->
+                                    <div class="col-sm-3">
+                                        <div class="small-box bg-aqua">
+                                            <div class="inner">
+                                                <h4>เปิดโครงการ</h4>
 
-                                           <p>&nbsp;</p> 
+                                                <a href="project">   <p>&nbsp;</p>  </a>
+                                            </div>
+                                            <div class="icon">
+                                                <a class="thesisLink" href="project">  <i class="fa fa fa-group"></i> </a>
+                                            </div>
+                                            <a href="project" class="small-box-footer">
+                                                เปิดโครงการและจัดการทีมงาน <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
                                         </div>
-                                        <div class="icon">
-                                            <i class="fa fa fa-group"></i>
-                                        </div>
-                                        <a href="project" class="small-box-footer">
-                                            เปิดโครงการและจัดการทีมงาน <i class="fa fa-arrow-circle-right"></i>
-                                        </a>
                                     </div>
-                                </div>
-                                <?php endif;?>
+                                <?php endif; ?>
                                 <!--งานประจำวัน-->
-                                 <div class="col-sm-3">
+                                <div class="col-sm-3">
                                     <div class="small-box bg-aqua">
                                         <div class="inner">
                                             <h4>งานประจำวัน</h4>
 
-                                           <p>&nbsp;</p> 
+                                            <a href="dailywork">  <p>&nbsp;</p> </a>
                                         </div>
                                         <div class="icon">
-                                            <i class="fa fa-tasks"></i>
+                                            <a href="dailywork" class="thesisLink">  <i class="fa fa-tasks"></i> </a>
                                         </div>
                                         <a href="dailywork" class="small-box-footer">
                                             บันทึกข้อมูลงานประจำวัน <i class="fa fa-arrow-circle-right"></i>
@@ -156,54 +163,54 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="inner">
                                             <h4>รายงาน</h4>
 
-                                           <p>&nbsp;</p> 
+                                            <a href="#">    <p>&nbsp;</p> </a>
                                         </div>
                                         <div class="icon">
-                                            <i class="fa fa-line-chart"></i>
+                                            <a href="#" class="thesisLink">   <i class="fa fa-line-chart"></i> </a>
                                         </div>
                                         <a href="#" class="small-box-footer">
                                             รายงานของระบบ <i class="fa fa-arrow-circle-right"></i>
                                         </a>
                                     </div>
                                 </div>
-                                
-                            </div>
-                            <?php if($this->session->userdata('em_role')== "ผู้ดูแลระบบ"):?> 
-                            <div class="row">
-                                   <!--เพิ่มข้อมูลลูกค้า-->
-                                <div class="col-sm-3">
-                                    <div class="small-box bg-aqua">
-                                        <div class="inner">
-                                            <h4>เพิ่มข้อมูลลูกค้า</h4>
 
-                                           <p>&nbsp;</p> 
+                            </div>
+                            <?php if ($this->session->userdata('em_role') == "ผู้ดูแลระบบ"): ?> 
+                                <div class="row">
+                                    <!--เพิ่มข้อมูลลูกค้า-->
+                                    <div class="col-sm-3">
+                                        <div class="small-box bg-aqua">
+                                            <div class="inner">
+                                                <h4>เพิ่มข้อมูลลูกค้า</h4>
+
+                                                <a href="main_data/add_customer"> <p>&nbsp;</p> </a>
+                                            </div>
+                                            <div class="icon">
+                                                <a href="main_data/add_customer" class="thesisLink"> <i class="fa fa-briefcase"></i> </a>
+                                            </div>
+                                            <a href="main_data/add_customer" class="small-box-footer">
+                                                เพิ่มข้อมูลกิจการของลูกค้าเข้าสู่ระบบ <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
                                         </div>
-                                        <div class="icon">
-                                            <i class="fa fa-briefcase"></i>
+                                    </div>
+                                    <!--เพิ่มข้อมูลพนักงาน-->
+                                    <div class="col-sm-3">
+                                        <div class="small-box bg-aqua">
+                                            <div class="inner">
+                                                <h4>เพิ่มพนักงาน</h4>
+
+                                                <a href="main_data/add_employee">   <p>&nbsp;</p> </a>
+                                            </div>
+                                            <div class="icon">
+                                                <a href="main_data/add_employee" class="thesisLink">    <i class="fa fa-user-plus"></i><a href="main_data/add_employee"> 
+                                            </div>
+                                            <a href="main_data/add_employee" class="small-box-footer">
+                                                เพิ่มข้อมูลพนักงานเข้าสู่ระบบ <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
                                         </div>
-                                        <a href="main_data/add_customer" class="small-box-footer">
-                                            เพิ่มข้อมูลกิจการของลูกค้าเข้าสู่ระบบ <i class="fa fa-arrow-circle-right"></i>
-                                        </a>
                                     </div>
                                 </div>
-                                     <!--เพิ่มข้อมูลพนักงาน-->
-                                <div class="col-sm-3">
-                                    <div class="small-box bg-aqua">
-                                        <div class="inner">
-                                            <h4>เพิ่มพนักงาน</h4>
-
-                                           <p>&nbsp;</p> 
-                                        </div>
-                                        <div class="icon">
-                                            <i class="fa fa-user-plus"></i>
-                                        </div>
-                                        <a href="main_data/add_employee" class="small-box-footer">
-                                            เพิ่มข้อมูลพนักงานเข้าสู่ระบบ <i class="fa fa-arrow-circle-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php endif;?>
+                            <?php endif; ?>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -227,11 +234,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- REQUIRED JS SCRIPTS -->
 
         <!-- jQuery 2.1.4 -->
-        <script src="<?php echo base_url('dashboard/lte/plugins/jQuery/jQuery-2.1.4.min.js');?>"></script>
+        <script src="<?php echo base_url('dashboard/lte/plugins/jQuery/jQuery-2.1.4.min.js'); ?>"></script>
         <!-- Bootstrap 3.3.5 -->
-        <script src="<?php echo base_url('dashboard/lte/bootstrap/js/bootstrap.min.js');?>"></script>
+        <script src="<?php echo base_url('dashboard/lte/bootstrap/js/bootstrap.min.js'); ?>"></script>
         <!-- AdminLTE App -->
-        <script src="<?php echo base_url('dashboard/lte/dist/js/app.min.js');?>"></script>
+        <script src="<?php echo base_url('dashboard/lte/dist/js/app.min.js'); ?>"></script>
 
         <!-- Optionally, you can add Slimscroll and FastClick plugins.
              Both of these plugins are recommended to enhance the
@@ -240,7 +247,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </body>
 </html>
 
-    
 
-    
- 
+
+
