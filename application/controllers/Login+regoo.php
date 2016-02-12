@@ -28,7 +28,7 @@ class Login extends CI_Controller {
     }
 
     public function sigin() {
-        $this->load->view('singin_view');
+        $this->load->view('singin_view_rechaptha');
     }
 
     public function check_auth() {
