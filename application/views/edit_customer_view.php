@@ -81,7 +81,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        เพิ่มข้อมูลลูกค้า
+                        แก้ไขข้อมูลลูกค้า
                         <small></small>
                     </h1>
                     <ol class="breadcrumb">
