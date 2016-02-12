@@ -35,6 +35,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!--Datpicker-->
         <link rel="stylesheet" href="<?php echo base_url(); ?>dashboard/lte/plugins/datepicker/datepicker3.css">
+        
+        <!--jasny-bootstrap-->
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dashboard/jasny-bootstrap/jasny-bootstrap.min.css"/>
     </head>
     <!--
     BODY TAG OPTIONS:
@@ -98,7 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <h3 class="box-title">รูปพนักงาน</h3>
                                 </div>
                                 <div class="box-body box-profile">
-                                    <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dashboard/lte/dist/img/avatar5.png" title="รูปประจำตัว">
+                                    <img class="profile-user-img img-responsive img-circle" src="<?php echo $em_photo['file_path'];?>" title="รูปประจำตัว">
                                     <div style="padding-top: 9px"></div>
                                     
                                     
@@ -521,6 +524,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
          fixed layout. -->
     <!--Datpicker-->
     <script src="<?php echo base_url(); ?>dashboard/lte/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <!--jasny-bootstrap-->
+        <script src="<?php echo base_url(); ?>dashboard/jasny-bootstrap/jasny-bootstrap.min.js"></script>
     <!-- Check PassWord-->
     <script>
             function fncSubmit()

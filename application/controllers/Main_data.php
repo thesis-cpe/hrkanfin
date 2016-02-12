@@ -179,6 +179,16 @@ class Main_data extends CI_Controller {
     public function edit_emplyee($em_id) {
         $data['em'] = $this->users->_sel_em_by_id($em_id);
         $data['id'] = $em_id;
+        /* ค้นหารูป */
+        $data['em_photo'] = $this->users->_sel_photo($em_id);
+        if (empty($data['em_photo'])) {
+            $data['em_photo']['file_path'] = base_url('dashboard/lte/dist/img/avatar5.png');
+        } elseif (!empty($data['em_photo'])) {
+            $data['em_photo']['file_path'] = base_url('uploads')."/".$data['em_photo']['file_path'];
+        }
+        
+        
+        
         $this->load->view('edit_employee_view', $data);
     }
 
@@ -227,6 +237,15 @@ class Main_data extends CI_Controller {
     public function profile() { /* หน้าโปรไฟล์แต่ละคน + แก้ไข */
         $data['em'] = $this->users->_sel_em_by_id($this->session->userdata('em_id'));
         $data['id'] = $this->session->userdata('em_id');
+
+        /* ค้นหารูป */
+        $data['em_photo'] = $this->users->_sel_photo($this->session->userdata('em_id'));
+        if (empty($data['em_photo'])) {
+            $data['em_photo']['file_path'] = base_url('dashboard/lte/dist/img/avatar5.png');
+        } elseif (!empty($data['em_photo'])) {
+            $data['em_photo']['file_path'] = base_url('uploads')."/".$data['em_photo']['file_path'];
+        }
+        //echo ($data['em_photo']['file_path']) ;
         $this->load->view('edit_employee_view', $data);
     }
 
@@ -340,8 +359,8 @@ class Main_data extends CI_Controller {
         $selProject = $this->project->_selProjectCustomer($customerId); //ได้ project_id
         //$selDrProid
         //$selTeam
-        
-        
+
+
         print_r($selProject);
         if (!empty($selSign)) {
             $delSign = $this->customer->_del_sign2($customerId);
@@ -364,33 +383,29 @@ class Main_data extends CI_Controller {
                     }
                 }
             }
-            
+
             $delDrProid = $this->daily->_del_daily_pro($selProject);
             $delTeam = $this->project->_delteam($selProject);
             $delProject = $this->project->_del_project($customerId);
             $delCustomer = $this->customer->_del_customer($customerId);
-            
-            
         }
 
         /* header('Location: ' . $_SERVER['HTTP_REFERER']);
           exit; */
     }
 
-    public function delem($emId){
+    public function delem($emId) {
         $del_em = $this->users->_del_em_cascade($emId);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit; 
+        exit;
     }
-    
-    public function delcus_cascade(){
-         $customerId = $this->input->post('hdf1');
-         $delcus = $this->customer->_del_customer($customerId);
-         
-          header('Location: ' . $_SERVER['HTTP_REFERER']);
-          exit; 
-         
+
+    public function delcus_cascade() {
+        $customerId = $this->input->post('hdf1');
+        $delcus = $this->customer->_del_customer($customerId);
+
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
     }
+
 }
-
-
