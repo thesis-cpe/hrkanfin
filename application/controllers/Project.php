@@ -286,9 +286,12 @@ class Project extends CI_Controller {
         $newProNumber = $this->projects->_add_project($curentYearSub, $customer_id, $customer_tax_id,$selCatetagory); //ได้รหัสงานใหม่
         /* เลือก Em Name */
         $emname = $this->users->_sel_employee_details();
-
+        
+        
+       
+        
         /* เอา Data ไปยัด */
-        $dataOpenPro = array(
+       $dataOpenPro = array(
             'newProNumber' => $newProNumber,
             'taxId' => $customer_tax_id,
             'customerName' => $customer_name,
@@ -298,7 +301,7 @@ class Project extends CI_Controller {
                 
         );
 
-        $this->load->view('add_project_view', $dataOpenPro);
+        $this->load->view('add_project_view', $dataOpenPro); 
     }
     
     
