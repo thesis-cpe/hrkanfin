@@ -6,7 +6,7 @@
           <img src="<?php echo base_url().$this->session->userdata('em_photo');?>"/>
         </div>
         <div class="pull-left info">
-          <p><?php echo $this->session->userdata('em_name');?></p>
+            <p style="font-size: 12px;"><?php echo $this->session->userdata('em_name');?></p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
