@@ -61,13 +61,13 @@ desired effect
 
   <!-- Main Header -->
   <header class="main-header">
-      <?php include_once '/template/header.php';?>
+      <?php include_once 'template/header.php';?>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
 
     <!-- sidebar: style can be found in sidebar.less -->
-      <?php include_once '/template/side_bar.php';?>
+      <?php include_once 'template/side_bar.php';?>
     <!-- /.sidebar -->
   </aside>
 
@@ -117,7 +117,7 @@ desired effect
   <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
-    <?php include_once '/template/footer.php';?>
+    <?php include_once 'template/footer.php';?>
   <!-- .Main Footer -->
 
   <!-- Control Sidebar -->
