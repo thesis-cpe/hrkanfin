@@ -28,7 +28,7 @@ class Login extends CI_Controller {
     }
 
     public function sigin() {
-        $this->load->view('singin_view');
+        $this->load->view('singin_view_rechaptha');
     }
 
     public function check_auth() {
@@ -36,16 +36,31 @@ class Login extends CI_Controller {
         if ($this->input->post('btnLogin')) {
 
             //ifใหญ่ g-recaptcha
-          /*  if ($this->input->post('g-recaptcha-response') && $this->input->post('g-recaptcha-response')) {
+            if ($this->input->post('g-recaptcha-response') && $this->input->post('g-recaptcha-response')) {
                 $secret = "6LcfABUTAAAAAIxe6Xa5-LWOniOSZ4G0nzSeNrIX";
                 //$ip = $_SERVER['REMOTE_ADDR'];
                 $ip = $this->input->server('REMOTE_ADDR');
                 //$captcha = $_POST['g-recaptcha-response'];
                 $captcha = $this->input->post('g-recaptcha-response');
-                $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip$ip");
+                //$rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip$ip");
 
-                $arr = json_decode($rsp, TRUE); 
-                if ($arr['success']) {  */
+
+                /* ที่เพิ่มเข้ามา  file_get_contents*/
+                $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip$ip";
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $contents = curl_exec($ch);
+               //เครดิต http://stackoverflow.com/questions/10982595/file-get-contents-works-on-local-but-not-on-server
+                /* .ที่เพิ่มเข้ามา */
+
+
+
+
+
+                $arr = json_decode($contents, TRUE);
+                if ($arr['success']) {
                     //ผ่านการตรวจสอบว่าเป็นคน
                     /* รับค่าตัวแปร */
                     $username = $this->input->post('user');
@@ -80,8 +95,6 @@ class Login extends CI_Controller {
                         }else{
                             $emPhoto = 'dashboard/lte/dist/img/avatar5.png';
                         }
-                        
-                        
 
                         $dataEm = array(//ตัวแปร session
                             'username' => $username,
@@ -92,6 +105,7 @@ class Login extends CI_Controller {
                             'em_id' => $resultEmSession['em_id'],
                             'date_curent' => $curentDay,
                             'em_photo' => $emPhoto
+                                
                         );
                         $this->session->set_userdata($dataEm); //สร้างตัวแปร Session
                         redirect('login');
@@ -99,14 +113,14 @@ class Login extends CI_Controller {
                         //redirect('login/sigin', 'refresh');
                         $this->load->view('template/incorect_user');
                     }
-                } /*else {
+                } else {
                     echo 'SPAM';
-                }*/
-            /*} else {  //ไม่มีการกด recaptcha
+                }
+            } else {  //ไม่มีการกด recaptcha
                 $this->load->view('template/404recaptcha');
-            } *///ตรวจ recapthap  //เครดิต https://www.youtube.com/watch?v=pPITBtE45bg
+            }///ตรวจ recapthap  //เครดิต https://www.youtube.com/watch?v=pPITBtE45bg
         }//ตรวจกดปุ่ม login
-    //}
+    }
 
     public function sigout() {
         $this->session->sess_destroy(); //ล้างค่าตัวแปร Session

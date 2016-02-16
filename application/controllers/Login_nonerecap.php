@@ -11,7 +11,7 @@
  *
  * @author Administrator
  */
-class Login extends CI_Controller {
+class Login_nonerecap extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -28,7 +28,7 @@ class Login extends CI_Controller {
     }
 
     public function sigin() {
-        $this->load->view('singin_view_rechaptha');
+        $this->load->view('singin_view');
     }
 
     public function check_auth() {
@@ -36,7 +36,7 @@ class Login extends CI_Controller {
         if ($this->input->post('btnLogin')) {
 
             //ifใหญ่ g-recaptcha
-           if ($this->input->post('g-recaptcha-response') && $this->input->post('g-recaptcha-response')) {
+          /*  if ($this->input->post('g-recaptcha-response') && $this->input->post('g-recaptcha-response')) {
                 $secret = "6LcfABUTAAAAAIxe6Xa5-LWOniOSZ4G0nzSeNrIX";
                 //$ip = $_SERVER['REMOTE_ADDR'];
                 $ip = $this->input->server('REMOTE_ADDR');
@@ -45,7 +45,7 @@ class Login extends CI_Controller {
                 $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip$ip");
 
                 $arr = json_decode($rsp, TRUE); 
-                if ($arr['success']) {  
+                if ($arr['success']) {  */
                     //ผ่านการตรวจสอบว่าเป็นคน
                     /* รับค่าตัวแปร */
                     $username = $this->input->post('user');
@@ -68,6 +68,20 @@ class Login extends CI_Controller {
                             $resultEmSession['em_start_work'] = $rowemSession->em_start_work;
                             $resultEmSession['em_id'] = $rowemSession->em_id;
                         }
+                        
+                        $getPhoto = $this->users->_sel_photo($resultEmSession['em_id']);
+                        if(!empty($getPhoto)){
+                            if(file_exists("uploads/$getPhoto[file_path]")){
+                                $emPhoto = "uploads/".$getPhoto['file_path'];
+                            }else{
+                                $emPhoto = 'dashboard/lte/dist/img/avatar5.png';
+                                        
+                            }
+                        }else{
+                            $emPhoto = 'dashboard/lte/dist/img/avatar5.png';
+                        }
+                        
+                        
 
                         $dataEm = array(//ตัวแปร session
                             'username' => $username,
@@ -76,7 +90,8 @@ class Login extends CI_Controller {
                             'em_role' => $resultEmSession['role'],
                             'em_start' => $resultEmSession['em_start_work'],
                             'em_id' => $resultEmSession['em_id'],
-                            'date_curent' => $curentDay
+                            'date_curent' => $curentDay,
+                            'em_photo' => $emPhoto
                         );
                         $this->session->set_userdata($dataEm); //สร้างตัวแปร Session
                         redirect('login');
@@ -84,14 +99,14 @@ class Login extends CI_Controller {
                         //redirect('login/sigin', 'refresh');
                         $this->load->view('template/incorect_user');
                     }
-                } else {
+                } /*else {
                     echo 'SPAM';
-                }
-            } else {  //ไม่มีการกด recaptcha
+                }*/
+            /*} else {  //ไม่มีการกด recaptcha
                 $this->load->view('template/404recaptcha');
-            }///ตรวจ recapthap  //เครดิต https://www.youtube.com/watch?v=pPITBtE45bg
+            } *///ตรวจ recapthap  //เครดิต https://www.youtube.com/watch?v=pPITBtE45bg
         }//ตรวจกดปุ่ม login
-    }
+    //}
 
     public function sigout() {
         $this->session->sess_destroy(); //ล้างค่าตัวแปร Session

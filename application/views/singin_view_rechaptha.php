@@ -18,8 +18,7 @@
         <link rel="stylesheet" href="<?php echo base_url();?>dashboard/lte/dist/css/AdminLTE.min.css">
         <!-- iCheck -->
         <link rel="stylesheet" href="<?php echo base_url();?>dashboard/lte/plugins/iCheck/square/blue.css">
-        <!--reCAPTCHA-->
-         <script src='https://www.google.com/recaptcha/api.js'></script>
+        
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -73,6 +72,8 @@
         <script src="<?php echo base_url();?>dashboard/lte/bootstrap/js/bootstrap.min.js"></script>
         <!-- iCheck -->
         <script src="<?php echo base_url();?>dashboard/lte/plugins/iCheck/icheck.min.js"></script>
+        <!--reCAPTCHA-->
+         <script src='https://www.google.com/recaptcha/api.js'></script>
         <script>
             $(function () {
                 $('input').iCheck({

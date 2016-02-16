@@ -104,11 +104,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="row">
                                 <div class="col-sm-9">
                                     <label>ชื่อกิจการ</label>
-                                    <input class="form-control" name="txtCusname" placeholder="ชื่อกิจการของลูกค้า"/>
+                                    <input required="" class="form-control" name="txtCusname" placeholder="ชื่อกิจการของลูกค้า"/>
                                 </div>
                                 <div class="col-sm-3">
                                     <label>สถานะ:</label>
-                                    <select class="form-control" name="selCusStatus">
+                                    <select required="" class="form-control" name="selCusStatus">
+                                        <option value="">เลือกสถานะบริษัท</option>
                                         <option value="เจ้าของคนเดียว">เจ้าของคนเดียว</option>
                                         <option value="หสม">หสม</option>
                                         <option value="คณะบุคคล">คณะบุคคล</option>
@@ -124,7 +125,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="row">
                                 <div class="col-sm-3">
                                     <label>&nbsp;</label>
-                                    <input class="form-control" name="txtNumTax" placeholder="เลขประจำตัวผู้เสียภาษี" type="number">
+                                    <input required="" class="form-control" name="txtNumTax" placeholder="เลขประจำตัวผู้เสียภาษี" type="number">
                                 </div>
                                 <div class="col-sm-3">
                                     <label>&nbsp;</label>
@@ -147,7 +148,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="input-group-addon">
                                             <i class="fa fa-phone"></i>
                                         </div>
-                                        <input name="txtCusTel" type="text" class="form-control" placeholder="หมายเลขโทรศัพท์">
+                                        <input required="" name="txtCusTel" type="text" class="form-control" placeholder="หมายเลขโทรศัพท์">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
@@ -243,6 +244,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <i class="fa fa-group"></i>
                                         </div>
                                         <select required="" class="form-control" name="selLevelCus">
+                                            <option value="">เลือกกลุ่มลูกค้า</option>
                                             <option value="A">A</option>
                                             <option value="B">B</option>
                                             <option value="C">C</option>
