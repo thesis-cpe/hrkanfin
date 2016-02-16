@@ -93,19 +93,133 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <!-- Main content -->
                 <section class="content">
-                    <!-- Your Page Content Here -->
-                    <!--Data Table-->
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">แนบเอกสารคุยงาน</h3>
+                      <div class="container"> 
+                    <div class="col-sm-4">
+                        <!--Box-->
+                        <div class="box box-primary direct-chat direct-chat-primary" >
+                            <div class="box-header with-border">
+                                <h3 class="box-title">ฝากข้อความ</h3>
+
+                                <div class="box-tools pull-right">
+                                    <span data-toggle="tooltip" title="3 New Messages" class="badge bg-light-blue">3</span>
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                                        <i class="fa fa-comments"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body" style="height: 400px" >
+                                <!-- Conversations are loaded here -->
+                                <div class="direct-chat-messages">
+                                    <!-- Message. Default to the left -->
+                                    <div class="direct-chat-msg">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                                            <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                                        </div>
+                                        <!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            Is this template really for free? That's unbelievable!
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                    </div>
+                                    <!-- /.direct-chat-msg -->
+
+                                    <!-- Message to the right -->
+                                    <div class="direct-chat-msg right">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                                            <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                                        </div>
+                                        <!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            You better believe it!
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                    </div>
+                                    <!-- /.direct-chat-msg -->
+                                </div>
+                                <!--/.direct-chat-messages-->
+
+                                <!-- Contacts are loaded here -->
+                                <div class="direct-chat-contacts">
+                                    <ul class="contacts-list">
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="../dist/img/user1-128x128.jpg">
+
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Count Dracula
+                                                        <small class="contacts-list-date pull-right">2/28/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">How have you been? I was...</span>
+                                                </div>
+                                                <!-- /.contacts-list-info -->
+                                            </a>
+                                        </li>
+                                        <!-- End Contact Item -->
+                                    </ul>
+                                    <!-- /.contatcts-list -->
+                                </div>
+                                <!-- /.direct-chat-pane -->
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <form action="#" method="post">
+                                    <div class="input-group">
+                                        <input type="text" name="message" placeholder="พิมพ์ข้อความ..." class="form-control">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-primary btn-flat">ส่ง</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.box-footer-->
                         </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
+                        <!--/.Box-->
+                        
+                        <!--แนบไฟล์-->
                             
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!--/.Data Table-->  
+                            
+                        <!--.แนบไฟล์-->
+                    </div> <!--/.col-sm-5-->
+                    <div class="col-sm-8">   
+                        <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">รายละเอียดงาน</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body" style="display: block;">
+              <iframe height="450" width="100%" src="http://ai.stanford.edu/~nilsson/QAI/qai.pdf"></iframe> 
+              <br>
+              
+              <div class="col-sm-5">
+                  <label>แนบไฟล์ใหม่:</label>
+                  <input  type="file" name="fileDoc"/> 
+              </div>
+              <div class="col-sm-3">
+                  <label>ลบไฟล์:</label>
+                 <br> <a href="#" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
+              </div>
+              
+            </div>
+            <!-- /.box-body -->
+          </div>
+                        
+                    </div> <!--/.col-sm--->
+                     </div> <!--/.Containner-->
+
 
 
                 </section>
@@ -114,79 +228,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.content-wrapper -->
 
             <!-- Main Footer -->
-<?php include_once 'template/footer.php'; ?>
+            <?php include_once 'template/footer.php'; ?>
             <!-- .Main Footer -->
 
             <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Create the tabs -->
-                <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                    <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <!-- Home tab content -->
-                    <div class="tab-pane active" id="control-sidebar-home-tab">
-                        <h3 class="control-sidebar-heading">Recent Activity</h3>
-                        <ul class="control-sidebar-menu">
-                            <li>
-                                <a href="javascript::;">
-                                    <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
-                                    <div class="menu-info">
-                                        <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                        <p>Will be 23 on April 24th</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.control-sidebar-menu -->
-
-                        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                        <ul class="control-sidebar-menu">
-                            <li>
-                                <a href="javascript::;">
-                                    <h4 class="control-sidebar-subheading">
-                                        Custom Template Design
-                                        <span class="label label-danger pull-right">70%</span>
-                                    </h4>
-
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.control-sidebar-menu -->
-
-                    </div>
-                    <!-- /.tab-pane -->
-                    <!-- Stats tab content -->
-                    <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-                    <!-- /.tab-pane -->
-                    <!-- Settings tab content -->
-                    <div class="tab-pane" id="control-sidebar-settings-tab">
-                        <form method="post">
-                            <h3 class="control-sidebar-heading">General Settings</h3>
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Report panel usage
-                                    <input type="checkbox" class="pull-right" checked> 
-                                </label>
-
-                                <p>
-                                    Some information about this general settings option
-                                </p>
-                            </div>
-                            <!-- /.form-group -->
-                        </form>
-                    </div>
-                    <!-- /.tab-pane -->
-                </div>
-            </aside> 
             <!-- /.control-sidebar -->
             <!-- Add the sidebar's background. This div must be placed
                  immediately after the control sidebar -->
@@ -281,5 +327,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 });
             });
         </script>
+
+        <!--include Doc-->
+      <!--  <script type="text/javascript">
+            $(document).ready(function () { 
+                $("#docview").load("https://www.google.com") ;
+            });
+        </script>  -->
     </body>
 </html>
