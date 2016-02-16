@@ -163,6 +163,7 @@ class Project_model extends CI_Model {
                 'team_salary' => $row->team_salary,
                 'em_id' => $row->em_id,
                 'project_id' => $row->project_id,
+                'team_id' => $row->team_id
             );
         }
 

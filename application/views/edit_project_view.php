@@ -223,6 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </td>
                                         <!--เพิ่มเติม-->
                                         <td>
+                                            <a target="_blank" href="<?php echo base_url();?>index.php/project/add_details/<?php echo @$teamDetail[$j]['em_id']; ?>/<?php echo @$teamDetail[$j]['team_id']; ?>" title="เพิ่มรายละเอียด" class="btn btn-sm btn-default"><span class="fa fa-tasks"></a>
                                           <a title="ลบรายการนี้" href="javascript:;" class="delete_single btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
                                         </td>
                                         </tr>
@@ -240,13 +241,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <?php endfor; ?> 
 
                                     </tbody>
-                                    <tfoot>
+                                   <!-- <tfoot>
                                         <tr>
-                                            <th><a href="javascript:;" class="deleteall btn btn-default btm-xs" title="ลบรายที่เลือก"><span class="fa fa-trash"></span></a></th>
+                                            <th> <a href="javascript:;" class="deleteall btn btn-default btm-xs" title="ลบรายที่เลือก"><span class="fa fa-trash"></span></a></th>
                                             <th colspan="6"></th>
                                            
                                         </tr>
-                                    </tfoot>
+                                    </tfoot> -->
                                 </table>
                             </div> <!--/.div table responsive-->
 

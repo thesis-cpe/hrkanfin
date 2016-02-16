@@ -304,6 +304,11 @@ class Project extends CI_Controller {
         $this->load->view('add_project_view', $dataOpenPro); 
     }
     
+    public function add_details($emId, $teamId){  //เพิ่มรายละเอียดพร้อมทำแชท
+        //echo $emId." ".$teamId;
+        $this->load->view('team_details_view');
+    }
+    
     
 
 }

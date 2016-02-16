@@ -67,13 +67,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Main Header -->
             <header class="main-header">
-                <?php include_once '/template/header.php'; ?>
+                <?php include_once 'template/header.php'; ?>
             </header>
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="main-sidebar">
 
                 <!-- sidebar: style can be found in sidebar.less -->
-                <?php include_once '/template/side_bar.php'; ?>
+                <?php include_once 'template/side_bar.php'; ?>
                 <!-- /.sidebar -->
             </aside>
 
@@ -185,10 +185,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <?php for ($i = 1,$j=0; $i <= 10,$j<10; $i++,$j++): ?>        
                                         <tr>
                                                 <!--สถานะ-->
-                                                <td><input type="checkbox" class="checkbox" id="chkBox<?php echo $i; ?>" <?php if(!empty(@$teamDetail[$j]['em_id'])){echo "checked";}?> /></td>
+                                                <td><input type="checkbox" class="checkbox" id="chkBox<?php echo $i; ?>" <?php if(!@empty($teamDetail[$j]['em_id'])){echo "checked";}?> /></td>
                                                 <td><center><?php echo $i; ?></center></td>
                                         <td>
-                                            <select class="form-control" name="selEmRole[]" id="selEmRole<?php echo $i; ?>" <?php if(empty(@$teamDetail[$j]['em_id'])){echo "disabled";}?>>
+                                            <select class="form-control" name="selEmRole[]" id="selEmRole<?php echo $i; ?>" <?php if(@empty($teamDetail[$j]['em_id'])){echo "disabled";}?>>
                                                 <option value="" disabled selected>เลือกสถานะ</option>
                                                 <option <?php if(@$teamDetail[$j]['team_role'] == "ผู้ทำบัญชี"){echo "selected";}?> value="ผู้ทำบัญชี">หัวหน้าทีม</option>
                                                 <option <?php if(@$teamDetail[$j]['team_role'] == "ผู้ปฏิบัติงาน"){echo "selected";}?> value="ผู้ปฏิบัติงาน">ผู้ปฏิบัติงาน</option>
@@ -196,7 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </td>
                                         <!--ชื่อ-นามสกุล-->
                                         <td>
-                                            <select class="form-control" name="selEmName[]" id="selEmName<?php echo $i; ?>" <?php if(empty(@$teamDetail[$j]['em_id'])){echo "disabled";}?> >
+                                            <select class="form-control" name="selEmName[]" id="selEmName<?php echo $i; ?>" <?php if(@empty($teamDetail[$j]['em_id'])){echo "disabled";}?> >
                                                 <option value="" disabled selected>เลือกพนักงาน</option>
                                                 <?php foreach ($employeeDetail as $rowem_name): ?>
                                                 <option <?php if(@$teamDetail[$j]['em_id'] == $rowem_name->em_id){echo "selected";}?> value="<?php echo $rowem_name->em_id; ?>" ><?php echo $rowem_name->em_name ?></option>
@@ -209,7 +209,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-clock-o"></i>
                                                 </div>
-                                                <input value="<?php echo @$teamDetail[$j]['team_hour']?>" name="txtCountWorkHour[]" id="txtCountWorkHour<?php echo $i; ?>" type="number" class="form-control" placeholder="ชั่วโมงการทำงาน" <?php if(empty(@$teamDetail[$j]['em_id'])){echo "disabled";}?> />
+                                                <input value="<?php echo @$teamDetail[$j]['team_hour']?>" name="txtCountWorkHour[]" id="txtCountWorkHour<?php echo $i; ?>" type="number" class="form-control" placeholder="ชั่วโมงการทำงาน" <?php if(@empty($teamDetail[$j]['em_id'])){echo "disabled";}?> />
                                             </div>
                                         </td>
                                         <!--บาท/ชั่วโมง-->
@@ -218,7 +218,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <div class="input-group-addon">
                                                     <i class="glyphicon glyphicon-usd"></i>
                                                 </div>
-                                                <input value="<?php echo @$teamDetail[$j]['team_salary']?>" name="txtBathTime[]" id="txtBathTime<?php echo $i; ?>" type="number" class="form-control" placeholder="ค่าจ้าง" <?php if(empty(@$teamDetail[$j]['em_id'])){echo "disabled";}?> />
+                                                <input value="<?php echo @$teamDetail[$j]['team_salary']?>" name="txtBathTime[]" id="txtBathTime<?php echo $i; ?>" type="number" class="form-control" placeholder="ค่าจ้าง" <?php if(@empty($teamDetail[$j]['em_id'])){echo "disabled";}?> />
                                             </div>
                                         </td>
                                         <!--เพิ่มเติม-->
