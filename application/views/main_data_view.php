@@ -129,7 +129,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                             <tbody>
                                                                 <?php foreach ($customer as $rowcustomer): ?>
                                                                     <tr>
-                                                                        <td><?php echo $rowcustomer->customer_level; ?></td>
+                                                                        <td><center><?php echo $rowcustomer->customer_level; ?></center></td>
                                                                         <!--เลขประจำตัวผู้เสียภาษีอากร-->
                                                                         <td><?php echo $rowcustomer->customer_tax_id; ?></td>
                                                                         <!--ชื่อกิจการ-->
