@@ -198,6 +198,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body" style="display: block;">
+                                    <?php 
+                                    //ต้องสร้างเงื่อนไขว่าถ้าไม่มีไฟล์ echo ไม่มีไฟล์ - 
+                                    ?>
                                     <iframe height="450" width="100%" src="http://ai.stanford.edu/~nilsson/QAI/qai.pdf"></iframe> 
                                     <br>
 
