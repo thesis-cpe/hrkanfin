@@ -91,7 +91,7 @@ class Project extends CI_Controller {
             'datOffersEmploy' => $this->input->post('datOffersEmploy'), //สัญญาจ้าง
             'txtSumMoneyEmploy' => $this->input->post('txtSumMoneyEmploy'),
             'txtNoEmploy' => $this->input->post('txtNoEmploy'),
-            /*ปี*/
+            /* ปี */
             'selYear' => $this->input->post('selYear'),
             'txtWorkTitle' => $this->input->post('txtWorkTitle')
         );
@@ -137,7 +137,7 @@ class Project extends CI_Controller {
                 }
             }
         }
-        
+
         $this->load->view('project_view_load');
     }
 
@@ -152,7 +152,7 @@ class Project extends CI_Controller {
         $projectDetail = $this->projects->_sel_pro_details($project_id); //รายละเอียดโปรเจค
         $employeeDetail = $this->users->_sel_employee_details(); //รายละเอียดพนักงาน
         $teamDetail = $this->projects->_sel_team_details($project_id); //รายละเอียดทีม
-        $proDocDetail =  $this->projects->_sel_pro_doc($project_id);
+        $proDocDetail = $this->projects->_sel_pro_doc($project_id);
         //print_r($proDocDetail);
         $data = array(
             'taxId' => $tax_id,
@@ -161,24 +161,23 @@ class Project extends CI_Controller {
             'project_detail' => $projectDetail,
             'employeeDetail' => $employeeDetail,
             'teamDetail' => $teamDetail,
-            'prodoc' => $proDocDetail ,
-            
+            'prodoc' => $proDocDetail,
         );
         //echo $data['teamDetail'][0]['team_role'];
 
 
         $this->load->view('edit_project_view', $data);
     }
-    
-    public function update_project(){
+
+    public function update_project() {
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'doc|docx|pdf|xl|xls';
         $config['max_size'] = 10000; //10 mb
 
         $this->upload->initialize($config);
         $this->load->library('upload', $config);
-       
-        
+
+
         $projectData = array(
             'hdfProId' => $this->input->post('hdfProId'),
             'txtIdWorkCustomer' => $this->input->post('txtIdWorkCustomer'),
@@ -206,22 +205,22 @@ class Project extends CI_Controller {
             'txtNoEmploy' => $this->input->post('txtNoEmploy'),
             'prodocOfferId' => $this->input->post('hdf1'), //id ใบเสนอราคา
             'prodocEmployId' => $this->input->post('hdf2'), // id สัญญาจ้าง
-            
-            /*หัวข้องาน*/
+
+            /* หัวข้องาน */
             'txtWorkTitle' => $this->input->post('txtWorkTitle')
         );
-        
-        /*อัตเดตตัวโปรเจค */ $upPro = $this->projects->_update_project($projectData);
-        /*update team*/ 
-            /*ลบของเก่า*/  $delOldTeam = $this->projects->_delteam($projectData['hdfProId']);
-                       $countEm = 0;
-                       $countEm = count($projectData['selEmName']);
-            /*เพิ่มของใหม่*/ $insertNewTeam = $this->projects->_insert_team($projectData['hdfProId'], $projectData, $countEm);
-                       $countEm = 0;
-        
-        
-        /*อัพเดตไฟล์*/
-           if ($projectData['datOffers'] != "" || $projectData['datOffersEmploy'] != "") {  //ถ้ามีการกรอกใบเสนอราคาหรือจ้างอย่างใดอย่างหนึ่ง
+
+        /* อัตเดตตัวโปรเจค */ $upPro = $this->projects->_update_project($projectData);
+        /* update team */
+        /* ลบของเก่า */ $delOldTeam = $this->projects->_delteam($projectData['hdfProId']);
+        $countEm = 0;
+        $countEm = count($projectData['selEmName']);
+        /* เพิ่มของใหม่ */ $insertNewTeam = $this->projects->_insert_team($projectData['hdfProId'], $projectData, $countEm);
+        $countEm = 0;
+
+
+        /* อัพเดตไฟล์ */
+        if ($projectData['datOffers'] != "" || $projectData['datOffersEmploy'] != "") {  //ถ้ามีการกรอกใบเสนอราคาหรือจ้างอย่างใดอย่างหนึ่ง
             if (!empty($_FILES['fileDocOfffer']['name']) || !empty($_FILES['fileDocEmploy']['name'])) {//มีไฟล์อย่างใดอย่างหนึ่ง
                 if (!empty($_FILES['fileDocOfffer']['name'])) {
                     if (!$this->upload->do_upload('fileDocOfffer')) {
@@ -230,7 +229,7 @@ class Project extends CI_Controller {
                     } else {
                         $upload_dataOffer = $this->upload->data();
                         $fileDocOfffer = $upload_dataOffer['file_name'];
-                        /*ลบของเก่าออกก่อน*/$this->projects->_del_old_prodoc_id_file($projectData['prodocOfferId']);
+                        /* ลบของเก่าออกก่อน */$this->projects->_del_old_prodoc_id_file($projectData['prodocOfferId']);
                         $insertToDocPro = $this->projects->_update_prodoc($projectData['datOffers'], $projectData['txtSumMoney'], $projectData['txtNoOffer'], $fileDocOfffer, $projectData['prodocOfferId'], 'ใบเสนอราคา');
                     }
                 }
@@ -242,7 +241,7 @@ class Project extends CI_Controller {
                         $upload_dataEmploy = $this->upload->data();
                         $fileDocEmploy = $upload_dataEmploy['file_name'];
                         //$insertToDocPro = $this->projects->_insert_prodoc($projectData, $cusIdFromproNumber, 'สัญญาจ้าง');
-                        /*ลบของเก่าออกก่อน*/$this->projects->_del_old_prodoc_id_file($projectData['prodocEmployId']);
+                        /* ลบของเก่าออกก่อน */$this->projects->_del_old_prodoc_id_file($projectData['prodocEmployId']);
                         $insertToDocPro = $this->projects->_update_prodoc($projectData['datOffersEmploy'], $projectData['txtSumMoneyEmploy'], $projectData['txtNoEmploy'], $fileDocEmploy, $projectData['prodocEmployId'], 'สัญญาจ้าง');
                     }
                 }
@@ -256,59 +255,86 @@ class Project extends CI_Controller {
                     $insertToDocPro = $this->projects->_update_prodoc($projectData['datOffersEmploy'], $projectData['txtSumMoneyEmploy'], $projectData['txtNoEmploy'], $fileDocEmploy, $projectData['prodocEmployId'], 'สัญญาจ้าง');
                 }
             }
-        } 
-        /*.อัพเดตไฟล์*/
-                       
+        }
+        /* .อัพเดตไฟล์ */
+
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
-        
-        
-        
-        
     }
-    public function del_project($proId){
+
+    public function del_project($proId) {
         $delPro = $this->projects->_delpro_cascade($proId);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
-    
-    
+
     public function add_project2() {
         //เจนรหัสใหม่
         $customer_id = $this->input->post('hdf1');
         $curentYearSub1 = $this->input->post('selYear');
         $curentYearSub = substr($curentYearSub1, 2);
         $customer_tax_id = $this->input->post('hdf2');
-        $customer_name =  $this->input->post('hdf3');
+        $customer_name = $this->input->post('hdf3');
         $selCatetagory = $this->input->post('selCate');
-        
-        
-        $newProNumber = $this->projects->_add_project($curentYearSub, $customer_id, $customer_tax_id,$selCatetagory); //ได้รหัสงานใหม่
+
+
+        $newProNumber = $this->projects->_add_project($curentYearSub, $customer_id, $customer_tax_id, $selCatetagory); //ได้รหัสงานใหม่
         /* เลือก Em Name */
         $emname = $this->users->_sel_employee_details();
-        
-        
-       
-        
+
+
+
+
         /* เอา Data ไปยัด */
-       $dataOpenPro = array(
+        $dataOpenPro = array(
             'newProNumber' => $newProNumber,
             'taxId' => $customer_tax_id,
             'customerName' => $customer_name,
             'customer_id' => $customer_id,
             'em_name' => $emname,
             'sel_year' => $curentYearSub1
-                
         );
 
-        $this->load->view('add_project_view', $dataOpenPro); 
+        $this->load->view('add_project_view', $dataOpenPro);
     }
-    
-    public function add_details($emId, $teamId){  //เพิ่มรายละเอียดพร้อมทำแชท
+
+    public function add_details($emId, $teamId) {  //เพิ่มรายละเอียดพร้อมทำแชท
         //echo $emId." ".$teamId;
-        $this->load->view('team_details_view');
+        $selDocPath = $this->projects->_sel_team_doc($emId, $teamId);
+        if(empty($selDocPath)){
+            
+            $path = base_url('uploads/pdf-sample.pdf');
+        }elseif (!empty($selDocPath)) {
+            $path = base_url('uploads')."/".$selDocPath;
+        }
+        $data = array(
+            'emId' => $emId,
+            'teamId' => $teamId,
+            'docPath' => $path
+        );
+        $this->load->view('team_details_view',$data);
     }
-    
-    
+
+    public function insert_doc_team() { //อัพโหลดไฟล์และบันทึกลง db
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'doc|docx|pdf|xl|xls';
+        $config['max_size'] = 10000; //10 mb
+
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config);
+
+        if (!empty($_FILES['fileDoc']['name'])) {
+            if (!$this->upload->do_upload('fileDoc')) {
+                $error = array('error' => $this->upload->display_errors());
+                print_r($error);
+            } else {
+                $uploadFileDoc = $this->upload->data();
+                $uploadFileDocName = $uploadFileDoc['file_name'];
+                $insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'),$this->input->post('hdf2'),$uploadFileDocName);
+            }
+        }
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
 
 }

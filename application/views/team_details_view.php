@@ -201,23 +201,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <?php 
                                     //ต้องสร้างเงื่อนไขว่าถ้าไม่มีไฟล์ echo ไม่มีไฟล์ - 
                                     ?>
-                                    <iframe height="450" width="100%" src="http://ai.stanford.edu/~nilsson/QAI/qai.pdf"></iframe> 
+                                    <iframe height="450" width="100%" src="<?php echo $docPath;?>"></iframe> 
                                     <br>
-
+                                    <?php 
+                                        if($this->session->userdata('em_role') == "ผู้ดูแลระบบ"):
+                                        echo form_open_multipart('project/insert_doc_team') ?>
                                     <div class="col-sm-6">
                                         <label>แนบไฟล์ใหม่:</label>
-                                        <?php echo form_open_multipart() ?>
                                         <ul class="list-inline">
-                                            <li><input  type="file" name="fileDoc"/> </li>
+                                            <li><input required=""  type="file" name="fileDoc"/> </li>
                                             <li><button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button></li>
+                                            
+                                            <input type="hidden" name="hdf1" value="<?php echo $emId;?>"/>
+                                            <input type="hidden" name="hdf2" value="<?php echo $teamId;?>"/>
                                         </ul>
+                                        <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb</i>
                                         
-                                        <?php echo form_close(); ?>
+                                        
                                     </div>
+                                    
                                     <div class="col-sm-offset-3 col-sm-3">
                                         <label>ลบไฟล์:</label>
                                         <br> <a href="#" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
                                     </div>
+                                    <?php echo form_close();
+                                            endif;
+                                    ?>
 
                                 </div>
                                 <!-- /.box-body -->

@@ -282,5 +282,24 @@ class Project_model extends CI_Model {
         $this->db->where('project_id',$proId);
         $this->db->delete('project');
     }
+    
+    public function _insert_team_doc($emId,$teamId,$uploadFileDocName){
+        $dataInsert = array(
+            'team_doc_path' => $uploadFileDocName,
+            'team_id' => $teamId,
+            'em_id' => $emId
+        );
+        $this->db->insert('team_doc',$dataInsert);
+    }
+    
+    public function _sel_team_doc($emId,$teamId){
+        $sel = $this->db->where('team_id',$teamId)
+                ->where('em_id',$emId)
+                ->get('team_doc')->result();
+        foreach ($sel as $row){
+            $res = $row->team_doc_path;
+        }
+        return @$res;
+    }
 
 }
