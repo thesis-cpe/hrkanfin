@@ -82,7 +82,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        เอกสารงาน
+                        เอกสารงาน <?php echo $this->session->userdata('date_curent')." ".$this->session->userdata('time_curent');?>
                      <!--   <small>รหัสงาน:<?php ?> บริษัท: พนักงาน:<?php ?></small> -->
                     </h1>
                     <!--    <ol class="breadcrumb">

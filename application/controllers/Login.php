@@ -68,13 +68,16 @@ class Login extends CI_Controller {
                     $check = $this->users->_checkUser($username, $password);
                     if ($check) { //ชื่อผู้ใช้รหัสถูกต้อง
 
-                        /* วันที่ */
+                        /* วันที่ ปัจจุบัน */
                         $today = date("d-m-Y ");
                         $todayExplode = explode("-", $today);
                         $yearThaiBank = $todayExplode[2] + 543; //ได้เป็นปีพ.ศ.
                         $curentDay = date("d/m") . "/" . $yearThaiBank; //วันที่ปัจจุบัน
                         /* .วันที่ */
-
+                        
+                        
+                        
+                        
 
                         $emSession = $this->users->_get_employee_session($username);
                         foreach ($emSession as $rowemSession) {
@@ -104,7 +107,8 @@ class Login extends CI_Controller {
                             'em_start' => $resultEmSession['em_start_work'],
                             'em_id' => $resultEmSession['em_id'],
                             'date_curent' => $curentDay,
-                            'em_photo' => $emPhoto
+                            'em_photo' => $emPhoto,
+                            
                                 
                         );
                         $this->session->set_userdata($dataEm); //สร้างตัวแปร Session
