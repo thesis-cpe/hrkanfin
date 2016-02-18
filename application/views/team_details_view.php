@@ -201,7 +201,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <?php 
                                     //ต้องสร้างเงื่อนไขว่าถ้าไม่มีไฟล์ echo ไม่มีไฟล์ - 
                                     ?>
-                                    <iframe height="450" width="100%" src="<?php echo $docPath;?>"></iframe> 
+                                    <iframe height="450" width="100%" src="<?php echo base_url("uploads/$docPath");?>"></iframe> 
                                     <br>
                                     <?php 
                                         if($this->session->userdata('em_role') == "ผู้ดูแลระบบ"):
@@ -222,7 +222,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     
                                     <div class="col-sm-offset-3 col-sm-3">
                                         <label>ลบไฟล์:</label>
-                                        <br> <a href="#" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
+                                        <br> <a href="<?php echo base_url();?>index.php/project/del_doc_team/<?php echo $emId; ?>/<?php echo $teamId;?>/<?php echo $docPath;  ?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
                                     </div>
                                     <?php echo form_close();
                                             endif;

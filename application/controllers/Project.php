@@ -303,9 +303,10 @@ class Project extends CI_Controller {
         $selDocPath = $this->projects->_sel_team_doc($emId, $teamId);
         if(empty($selDocPath)){
             
-            $path = base_url('uploads/pdf-sample.pdf');
+            //$path = base_url('uploads/pdf-sample.pdf');
+            $path = "pdf-sample.pdf";
         }elseif (!empty($selDocPath)) {
-            $path = base_url('uploads')."/".$selDocPath;
+            $path = $selDocPath;
         }
         $data = array(
             'emId' => $emId,
@@ -333,6 +334,12 @@ class Project extends CI_Controller {
                 $insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'),$this->input->post('hdf2'),$uploadFileDocName);
             }
         }
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
+    
+    public function del_doc_team($emId, $teamId, $file){
+        $delDocTeam = $this->projects->_del_doc_team($emId, $teamId, $file);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }

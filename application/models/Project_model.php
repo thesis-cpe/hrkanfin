@@ -301,5 +301,15 @@ class Project_model extends CI_Model {
         }
         return @$res;
     }
+    
+    public function _del_doc_team($emId, $teamId, $file){
+        $this->db->where('team_id',$teamId)
+                ->where('em_id',$emId);
+        $this->db->delete('team_doc');
+        //$filePath = base_url("uploads/$file");
+        if(file_exists("uploads/$file")){
+            unlink("uploads/$file");
+        }
+    }
 
 }
