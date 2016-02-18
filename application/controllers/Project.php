@@ -301,19 +301,26 @@ class Project extends CI_Controller {
     public function add_details($emId, $teamId) {  //เพิ่มรายละเอียดพร้อมทำแชท
         //echo $emId." ".$teamId;
         $selDocPath = $this->projects->_sel_team_doc($emId, $teamId);
-        if(empty($selDocPath)){
-            
+        if (empty($selDocPath)) {
+
             //$path = base_url('uploads/pdf-sample.pdf');
             $path = "pdf-sample.pdf";
-        }elseif (!empty($selDocPath)) {
+        } elseif (!empty($selDocPath)) {
             $path = $selDocPath;
         }
+        
+        /*ดึงข้อความออกมาแสดง*/
+        $dataMsn = $this->projects->_sel_msn($emId, $teamId);
+        
+        /*ข้อมูลลง วิว*/
         $data = array(
             'emId' => $emId,
             'teamId' => $teamId,
-            'docPath' => $path
+            'docPath' => $path,
+            'arrDataMsn' => $dataMsn
         );
-        $this->load->view('team_details_view',$data);
+        
+        $this->load->view('team_details_view', $data);
     }
 
     public function insert_doc_team() { //อัพโหลดไฟล์และบันทึกลง db
@@ -331,17 +338,46 @@ class Project extends CI_Controller {
             } else {
                 $uploadFileDoc = $this->upload->data();
                 $uploadFileDocName = $uploadFileDoc['file_name'];
-                $insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'),$this->input->post('hdf2'),$uploadFileDocName);
+                $insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'), $this->input->post('hdf2'), $uploadFileDocName);
             }
         }
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
-    
-    public function del_doc_team($emId, $teamId, $file){
+
+    public function del_doc_team($emId, $teamId, $file) {
         $delDocTeam = $this->projects->_del_doc_team($emId, $teamId, $file);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
+
+    public function sent_msn() {
+        echo $dateSent = $this->session->userdata('date_curent');  //วันที่ล๊อคอิน
+        echo "<br>";
+        echo $timeSent = date('G:i:s');
+        echo "<br>";
+        echo $text = $this->input->post('message');
+        echo "<br>";
+        echo $sender = $this->session->userdata('em_id');
+        echo "<br>";
+        echo $receipter = $this->input->post('hdf3');
+        echo "<br>";
+       echo  $teamId = $this->input->post('hdf4');
+        
+        $dataToInsert = array(
+            'dateSent' => $dateSent,
+            'timeSent' => $timeSent,
+            'text' => $text,
+            'sender' => $sender,
+            'receipter' => $receipter,
+            'teamId' => $teamId
+        );
+        
+        $dataMsnInsert = $this->projects->_insert_msn($dataToInsert);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
+    
+    
 
 }

@@ -112,30 +112,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <!-- /.box-header -->
                                 <div class="box-body" style="height: 400px" >
                                     <!-- Conversations are loaded here -->
-                                    
                                     <div class="direct-chat-messages">
-                                       <?php /*ดึงข้อความ*/
-                                        foreach ($arrDataMsn as $rowDataMsn):
-                                       ?> 
-                                        
                                         <!-- Message. Default to the left -->
                                         <div class="direct-chat-msg">
                                             <div class="direct-chat-info clearfix">
                                                 <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                                                <span class="direct-chat-timestamp pull-right"><?php echo $rowDataMsn->msn_date." ".$rowDataMsn->msn_time; ?></span>
+                                                <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
                                             </div>
                                             <!-- /.direct-chat-info -->
                                             <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
                                             <div class="direct-chat-text">
-                                                <?php echo $rowDataMsn->msn_text; ?>
+                                                Is this template really for free? That's unbelievable!
                                             </div>
                                             <!-- /.direct-chat-text -->
                                         </div>
                                         <!-- /.direct-chat-msg -->
-                                        
-                                        <?php
-                                       endforeach;
-                                        /*.ดึงข้อความ*/ ?>
+
                                         <!-- Message to the right -->
                                         <div class="direct-chat-msg right">
                                             <div class="direct-chat-info clearfix">

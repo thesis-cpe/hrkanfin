@@ -24,23 +24,23 @@ class Project_model extends CI_Model {
         //สร้างรหัสงานใหม่
         //$sql = "SELECT MAX(project_number) AS max_project_id FROM project WHERE customer_id = '$customer_id' AND project_year LIKE '%$curentYearSub'";
         $sql = "SELECT count(project_number) AS max_project_id FROM project WHERE customer_id = '$customer_id' AND project_year LIKE '%$curentYearSub'";
-       
-      $query = $this->db->query($sql)->result();
+
+        $query = $this->db->query($sql)->result();
         foreach ($query as $row) {
             $maxProId = $row->max_project_id; //จะได้หมายเลขโปรเจคของลูกค้าที่ล่าสุด
         }
-          $maxProIdExPlode = (explode("-", $maxProId));
+        $maxProIdExPlode = (explode("-", $maxProId));
         $sizemaxProIdExPlode = sizeof($maxProIdExPlode) - 1; //เอาอาเรย์ตัวสุดท้าย
-         $maxOfProIdExPlode = $maxProIdExPlode[$sizemaxProIdExPlode];
-         $maxOfProIdExPlodeAdd1 = $maxOfProIdExPlode + 1; 
-        
-       
+        $maxOfProIdExPlode = $maxProIdExPlode[$sizemaxProIdExPlode];
+        $maxOfProIdExPlodeAdd1 = $maxOfProIdExPlode + 1;
+
+
         //return $newProNumber = $curentYearSub . "-" . $customer_tax_id . "-" . $maxOfProIdExPlodeAdd1;
-         /*แก้รหัสงานใหม่*/
-        
-         
-        return   $newProNumber = $curentYearSub . "-" . $customer_tax_id . "-" . $selCatetagory."-".$maxOfProIdExPlodeAdd1;
-        /*.แก้รหัสงานใหม่*/
+        /* แก้รหัสงานใหม่ */
+
+
+        return $newProNumber = $curentYearSub . "-" . $customer_tax_id . "-" . $selCatetagory . "-" . $maxOfProIdExPlodeAdd1;
+        /* .แก้รหัสงานใหม่ */
     }
 
     public function _insert_project($projectData) {
@@ -269,47 +269,65 @@ class Project_model extends CI_Model {
                         ->get('project_doc')->result();
         foreach ($query as $row) {
             $file = $row->project_doc_path;
-            
         }
-        if(file_exists("uploads/$file")){
+        if (file_exists("uploads/$file")) {
             unlink("uploads/$file");
         }
-        
-        
     }
-    
-    public function _delpro_cascade($proId){
-        $this->db->where('project_id',$proId);
+
+    public function _delpro_cascade($proId) {
+        $this->db->where('project_id', $proId);
         $this->db->delete('project');
     }
-    
-    public function _insert_team_doc($emId,$teamId,$uploadFileDocName){
+
+    public function _insert_team_doc($emId, $teamId, $uploadFileDocName) {
         $dataInsert = array(
             'team_doc_path' => $uploadFileDocName,
             'team_id' => $teamId,
             'em_id' => $emId
         );
-        $this->db->insert('team_doc',$dataInsert);
+        $this->db->insert('team_doc', $dataInsert);
     }
-    
-    public function _sel_team_doc($emId,$teamId){
-        $sel = $this->db->where('team_id',$teamId)
-                ->where('em_id',$emId)
-                ->get('team_doc')->result();
-        foreach ($sel as $row){
+
+    public function _sel_team_doc($emId, $teamId) {
+        $sel = $this->db->where('team_id', $teamId)
+                        ->where('em_id', $emId)
+                        ->get('team_doc')->result();
+        foreach ($sel as $row) {
             $res = $row->team_doc_path;
         }
         return @$res;
     }
-    
-    public function _del_doc_team($emId, $teamId, $file){
-        $this->db->where('team_id',$teamId)
-                ->where('em_id',$emId);
+
+    public function _del_doc_team($emId, $teamId, $file) {
+        $this->db->where('team_id', $teamId)
+                ->where('em_id', $emId);
         $this->db->delete('team_doc');
         //$filePath = base_url("uploads/$file");
-        if(file_exists("uploads/$file")){
+        if (file_exists("uploads/$file")) {
             unlink("uploads/$file");
         }
+    }
+
+    public function _insert_msn($data) {
+        $dataInsert = array(
+            'msn_date' => $data['dateSent'],
+            'msn_time' => $data['timeSent'],
+            'msn_text' => $data['text'],
+            //'msn_file' => $data['dateSent'],
+            'msn_sent' => $data['sender'],
+            'msn_receip' => $data['receipter'],
+            'team_id' => $data['teamId'],
+        );
+
+        $this->db->insert('msn', $dataInsert);
+    }
+
+    public function _sel_msn($emId, $teamId) {
+        $query = $this->db->where('team_id', $teamId)
+                        ->get('msn')->result();
+        
+        return $query;
     }
 
 }
