@@ -324,9 +324,18 @@ class Project_model extends CI_Model {
     }
 
     public function _sel_msn($emId, $teamId) {
-        $query = $this->db->where('team_id', $teamId)
-                        ->get('msn')->result();
-        
+        /* $query = $this->db->where('team_id', $teamId)
+          ->get('msn')->result(); */
+        /* $this->db->select('*');
+          $this->db->from('msn');
+          $this->db->join('employee','employee.em_id = msn.msn_sent');
+          $query = $this->db->get()->result(); */
+        $this->db->select('*');
+        $this->db->from('msn');
+        $this->db->join('employee', 'employee.em_id = msn.msn_sent');
+        $this->db->join('file', 'file.em_id = msn.msn_sent');
+        $query = $this->db->get()->result();
+
         return $query;
     }
 

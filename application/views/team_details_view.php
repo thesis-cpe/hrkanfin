@@ -41,6 +41,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet" href="<?php echo base_url(); ?>dashboard/lte/plugins/timepicker/bootstrap-timepicker.min.css">
         <!-- Select2 -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>dashboard/lte/plugins/select2/select2.min.css">
+
+
+
+
     </head>
     <!--
     BODY TAG OPTIONS:
@@ -82,7 +86,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        เอกสารงาน <?php echo $this->session->userdata('date_curent')." ".$this->session->userdata('time_curent');?>
+                        เอกสารงาน <?php echo $this->session->userdata('date_curent') . " " . $this->session->userdata('time_curent'); ?>
                      <!--   <small>รหัสงาน:<?php ?> บริษัท: พนักงาน:<?php ?></small> -->
                     </h1>
                     <!--    <ol class="breadcrumb">
@@ -101,54 +105,56 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <h3 class="box-title">ฝากข้อความ</h3>
 
                                     <div class="box-tools pull-right">
-                                        <span data-toggle="tooltip" title="3 New Messages" class="badge bg-light-blue">3</span>
+                                      <!--  <span data-toggle="tooltip" title="3 New Messages" class="badge bg-light-blue">3</span> -->
                                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                         </button>
-                                        <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
-                                            <i class="fa fa-comments"></i></button>
-                                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                        <!-- <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                                             <i class="fa fa-comments"></i></button> -->
+                                        <!-- <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button> -->
                                     </div>
                                 </div>
                                 <!-- /.box-header -->
-                                <div class="box-body" style="height: 400px" >
+                                <div class="box-body" id="divMsn">
                                     <!-- Conversations are loaded here -->
-                                    
-                                    <div class="direct-chat-messages">
-                                       <?php /*ดึงข้อความ*/
-                                        foreach ($arrDataMsn as $rowDataMsn):
-                                       ?> 
-                                        
-                                        <!-- Message. Default to the left -->
-                                        <div class="direct-chat-msg">
-                                            <div class="direct-chat-info clearfix">
-                                                <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                                                <span class="direct-chat-timestamp pull-right"><?php echo $rowDataMsn->msn_date." ".$rowDataMsn->msn_time; ?></span>
-                                            </div>
-                                            <!-- /.direct-chat-info -->
-                                            <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                                            <div class="direct-chat-text">
-                                                <?php echo $rowDataMsn->msn_text; ?>
-                                            </div>
-                                            <!-- /.direct-chat-text -->
-                                        </div>
-                                        <!-- /.direct-chat-msg -->
-                                        
+
+                                    <div class="direct-chat-messages" style="height: 380px" >
                                         <?php
-                                       endforeach;
-                                        /*.ดึงข้อความ*/ ?>
+                                        /* ดึงข้อความ */
+                                        foreach ($arrDataMsn as $rowDataMsn):
+                                            ?> 
+
+                                            <!-- Message. Default to the left -->
+                                            <div class="direct-chat-msg">
+                                                <div class="direct-chat-info clearfix">
+                                                    <span class="direct-chat-name pull-left"><?php echo $rowDataMsn->em_name; ?></span>
+                                                    <span class="direct-chat-timestamp pull-right"><?php echo $rowDataMsn->msn_date . " " . $rowDataMsn->msn_time; ?></span>
+                                                </div>
+                                                <!-- /.direct-chat-info -->
+                                                <img class="direct-chat-img" src="<?php echo base_url("uploads/$rowDataMsn->file_path") ?>" alt="Message User Image"><!-- /.direct-chat-img -->
+                                                <div class="direct-chat-text">
+                                                    <?php echo $rowDataMsn->msn_text; ?>
+                                                </div>
+                                                <!-- /.direct-chat-text -->
+                                            </div>
+                                            <!-- /.direct-chat-msg -->
+
+                                            <?php
+                                        endforeach;
+                                        /* .ดึงข้อความ */
+                                        ?>
                                         <!-- Message to the right -->
-                                        <div class="direct-chat-msg right">
-                                            <div class="direct-chat-info clearfix">
-                                                <span class="direct-chat-name pull-right">Sarah Bullock</span>
-                                                <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-                                            </div>
-                                            <!-- /.direct-chat-info -->
-                                            <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                                            <div class="direct-chat-text">
-                                                You better believe it!
-                                            </div>
-                                            <!-- /.direct-chat-text -->
-                                        </div>
+                                        <!--    <div class="direct-chat-msg right">
+                                                <div class="direct-chat-info clearfix">
+                                                    <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                                                    <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                                                </div>
+                                               
+                                                <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image">
+                                                <div class="direct-chat-text">
+                                                    You better believe it!
+                                                </div>
+                                                
+                                            </div> -->
                                         <!-- /.direct-chat-msg -->
                                     </div>
                                     <!--/.direct-chat-messages-->
@@ -178,7 +184,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
-                                    <form action="<?php echo base_url();?>index.php/project/sent_msn" method="post">
+                                    <form action="<?php echo base_url(); ?>index.php/project/sent_msn" method="post">
                                         <div class="input-group">
                                             <input type="text" name="message" placeholder="พิมพ์ข้อความ..." class="form-control">
                                             <input type="hidden" name="hdf3" value="<?php echo $emId; ?>">
@@ -208,34 +214,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body" style="display: block;">
-                                    <?php 
+                                    <?php
                                     //ต้องสร้างเงื่อนไขว่าถ้าไม่มีไฟล์ echo ไม่มีไฟล์ - 
                                     ?>
-                                    <iframe height="450" width="100%" src="<?php echo base_url("uploads/$docPath");?>"></iframe> 
+                                    <iframe height="450" width="100%" src="<?php echo base_url("uploads/$docPath"); ?>"></iframe> 
                                     <br>
-                                    <?php 
-                                        if($this->session->userdata('em_role') == "ผู้ดูแลระบบ"):
-                                        echo form_open_multipart('project/insert_doc_team') ?>
-                                    <div class="col-sm-6">
-                                        <label>แนบไฟล์ใหม่:</label>
-                                        <ul class="list-inline">
-                                            <li><input required=""  type="file" name="fileDoc"/> </li>
-                                            <li><button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button></li>
-                                            
-                                            <input type="hidden" name="hdf1" value="<?php echo $emId;?>"/>
-                                            <input type="hidden" name="hdf2" value="<?php echo $teamId;?>"/>
-                                        </ul>
-                                        <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb</i>
-                                        
-                                        
-                                    </div>
-                                    
-                                    <div class="col-sm-offset-3 col-sm-3">
-                                        <label>ลบไฟล์:</label>
-                                        <br> <a href="<?php echo base_url();?>index.php/project/del_doc_team/<?php echo $emId; ?>/<?php echo $teamId;?>/<?php echo $docPath;  ?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
-                                    </div>
-                                    <?php echo form_close();
-                                            endif;
+                                    <?php
+                                    if ($this->session->userdata('em_role') == "ผู้ดูแลระบบ"):
+                                        echo form_open_multipart('project/insert_doc_team')
+                                        ?>
+                                        <div class="col-sm-6">
+                                            <label>แนบไฟล์ใหม่:</label>
+                                            <ul class="list-inline">
+                                                <li><input required=""  type="file" name="fileDoc"/> </li>
+                                                <li><button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button></li>
+
+                                                <input type="hidden" name="hdf1" value="<?php echo $emId; ?>"/>
+                                                <input type="hidden" name="hdf2" value="<?php echo $teamId; ?>"/>
+                                            </ul>
+                                            <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb</i>
+
+
+                                        </div>
+
+                                        <div class="col-sm-offset-3 col-sm-3">
+                                            <label>ลบไฟล์:</label>
+                                            <br> <a href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $emId; ?>/<?php echo $teamId; ?>/<?php echo $docPath; ?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
+                                        </div>
+                                        <?php
+                                        echo form_close();
+                                    endif;
                                     ?>
 
                                 </div>
@@ -266,9 +274,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- ./wrapper -->
 
         <!-- REQUIRED JS SCRIPTS -->
-
         <!-- jQuery 2.1.4 -->
         <script src="<?php echo base_url(); ?>dashboard/lte/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+        <script> /*จัดบาร์ไว้ล่างสุด*/
+            $("#divMsn").animate({scrollTop: $(document).height()}, "slow");
+            return false;
+        </script>
+
         <!-- Bootstrap 3.3.5 -->
         <script src="<?php echo base_url(); ?>dashboard/lte/bootstrap/js/bootstrap.min.js"></script>
         <!-- AdminLTE App -->
@@ -359,5 +371,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 $("#docview").load("https://www.google.com") ;
             });
         </script>  -->
+
+
     </body>
 </html>
