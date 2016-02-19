@@ -377,6 +377,26 @@ class Project extends CI_Controller {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
+    /*ทดสอบ*/
+    public function chat($emId, $teamId){
+       
+        
+        /*ดึงข้อความออกมาแสดง*/
+        $dataMsn = $this->projects->_sel_msn($emId, $teamId);
+        $path = "";
+        $data = array(
+            'emId' => $emId,
+            'teamId' => $teamId,
+            'docPath' => $path,
+            'arrDataMsn' => $dataMsn
+        );
+        
+        $this->load->view('team_details_view_ref',$data);
+    }
+    
+    
+    
+    
     
     
 

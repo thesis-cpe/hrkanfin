@@ -115,9 +115,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
-                                    
+                                    <div id="divMsn">
                                     <!-- Conversations are loaded here -->
-                                    
+
                                     <div class="direct-chat-messages" style="height: 380px" i >
                                         <?php
                                         /* ดึงข้อความ */
@@ -143,7 +143,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         endforeach;
                                         /* .ดึงข้อความ */
                                         ?>
-                                           
+                                              
                                         <!-- Message to the right -->
                                         <!--    <div class="direct-chat-msg right">
                                                 <div class="direct-chat-info clearfix">
@@ -183,7 +183,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <!-- /.contatcts-list -->
                                     </div>
                                     <!-- /.direct-chat-pane -->
-                                
+                                </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <form action="<?php echo base_url(); ?>index.php/project/sent_msn" method="post">
@@ -279,11 +279,98 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- REQUIRED JS SCRIPTS -->
         <!-- jQuery 2.1.4 -->
         <script src="<?php echo base_url(); ?>dashboard/lte/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+        <script> /*จัดบาร์ไว้ล่างสุด*/
+            $("#divMsn").animate({scrollTop: $(document).height()}, "slow");
+            return false;
+        </script>
+
+        <!-- Bootstrap 3.3.5 -->
         <script src="<?php echo base_url(); ?>dashboard/lte/bootstrap/js/bootstrap.min.js"></script>
         <!-- AdminLTE App -->
         <script src="<?php echo base_url(); ?>dashboard/lte/dist/js/app.min.js"></script>
-        
-        
+        <!-- DataTables -->
+        <script src="<?php echo base_url('dashboard/lte/plugins/datatables/jquery.dataTables.min.js'); ?>"></script>
+        <script src="<?php echo base_url('dashboard/lte/plugins/datatables/dataTables.bootstrap.min.js') ?>"></script>
+        <!-- Optionally, you can add Slimscroll and FastClick plugins.
+             Both of these plugins are recommended to enhance the
+             user experience. Slimscroll is required when using the
+             fixed layout. -->
+        <!--Data Toogle-->
+
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+        <!--Data Table1-->
+        <script>
+            $(function () {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false
+                });
+            });
+
+        </script>
+        <!--ที่เพิ่มเข้า-->
+        <!-- Select2 -->
+        <script src="<?php echo base_url(); ?>dashboard/lte/plugins/select2/select2.full.min.js"></script>
+        <!-- InputMask -->
+        <script src="<?php echo base_url(); ?>dashboard/lte/plugins/input-mask/jquery.inputmask.js"></script>
+        <script src="<?php echo base_url(); ?>dashboard/lte/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+        <script src="<?php echo base_url(); ?>dashboard/lte/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+        <!-- date-range-picker -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+        <script src="<?php echo base_url(); ?>dashboard/lte/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Page script -->
+        <script>
+            $(function () {
+                //Initialize Select2 Elements
+                $(".select2").select2();
+
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask2 mm/dd/yyyy
+                $("#datemask2").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Money Euro
+                $("[data-mask]").inputmask();
+
+                //Date range picker
+                $('#reservation').daterangepicker();
+                //Date range picker with time picker
+                $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'DD/MM/YYYY h:mm A'});
+                //Date range as a button
+                $('#daterange-btn').daterangepicker(
+                        {
+                            ranges: {
+                                'Today': [moment(), moment()],
+                                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                            },
+                            startDate: moment().subtract(29, 'days'),
+                            endDate: moment()
+                        },
+                        function (start, end) {
+                            $('#reportrange span').html(start.format('D MMM, YYYY') + ' - ' + end.format('D MMM, YYYY'));
+                        }
+                );
+
+
+
+                //Timepicker
+                $(".timepicker").timepicker({
+                    showInputs: false
+                });
+                
+               
+                
+            });
+        </script>
+            
       
          
        
