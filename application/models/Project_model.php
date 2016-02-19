@@ -318,12 +318,13 @@ class Project_model extends CI_Model {
             'msn_sent' => $data['sender'],
             'msn_receip' => $data['receipter'],
             'team_id' => $data['teamId'],
+            'fk_project_id' => $data['fk_project_id']
         );
 
         $this->db->insert('msn', $dataInsert);
     }
 
-    public function _sel_msn($emId, $teamId) {
+    public function _sel_msn($emId, $teamId, $projectId) {
         /* $query = $this->db->where('team_id', $teamId)
           ->get('msn')->result(); */
         /* $this->db->select('*');
@@ -336,12 +337,12 @@ class Project_model extends CI_Model {
         $this->db->join('file', 'file.em_id = msn.msn_sent');
         $query = $this->db->get()->result(); */
         
-        $this->db->select('*');
-        $this->db->from('msn');
         $this->db->join('employee', 'employee.em_id = msn.msn_sent');
         $this->db->join('file', 'file.em_id = msn.msn_sent');
+        //$this->db->where('team_id', $teamId);
+        $this->db->where('fk_project_id', $projectId);
         $this->db->order_by('msn_id', 'ASC');
-        $query = $this->db->get()->result();
+        $query = $this->db->get('msn')->result();
         
 
         return $query;

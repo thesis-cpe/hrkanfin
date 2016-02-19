@@ -191,6 +191,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <input type="text" name="message" placeholder="พิมพ์ข้อความ..." class="form-control">
                                             <input type="hidden" name="hdf3" value="<?php echo $emId; ?>">
                                             <input type="hidden" name="hdf4" value="<?php echo $teamId; ?>">
+                                            <input type="hidden" name="hdf5" value="<?php echo $projectId;?>">
                                             <span class="input-group-btn">
                                                 <button type="submit" class="btn btn-primary btn-flat">ส่ง</button>
                                             </span>

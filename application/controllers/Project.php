@@ -298,7 +298,7 @@ class Project extends CI_Controller {
         $this->load->view('add_project_view', $dataOpenPro);
     }
 
-    public function add_details($emId, $teamId) {  //เพิ่มรายละเอียดพร้อมทำแชท
+    public function add_details($emId, $teamId, $projectId) {  //เพิ่มรายละเอียดพร้อมทำแชท
         //echo $emId." ".$teamId;
         $selDocPath = $this->projects->_sel_team_doc($emId, $teamId);
         if (empty($selDocPath)) {
@@ -310,14 +310,15 @@ class Project extends CI_Controller {
         }
         
         /*ดึงข้อความออกมาแสดง*/
-        $dataMsn = $this->projects->_sel_msn($emId, $teamId);
+        $dataMsn = $this->projects->_sel_msn($emId, $teamId, $projectId);
         
         /*ข้อมูลลง วิว*/
         $data = array(
             'emId' => $emId,
             'teamId' => $teamId,
             'docPath' => $path,
-            'arrDataMsn' => $dataMsn
+            'arrDataMsn' => $dataMsn,
+            'projectId' => $projectId
         );
         
         $this->load->view('team_details_view', $data);
@@ -363,6 +364,7 @@ class Project extends CI_Controller {
         echo $receipter = $this->input->post('hdf3');
         echo "<br>";
        echo  $teamId = $this->input->post('hdf4');
+       $projectID = $this->input->post('hdf5');
         
         $dataToInsert = array(
             'dateSent' => $dateSent,
@@ -370,7 +372,8 @@ class Project extends CI_Controller {
             'text' => $text,
             'sender' => $sender,
             'receipter' => $receipter,
-            'teamId' => $teamId
+            'teamId' => $teamId,
+            'fk_project_id' => $projectID
         );
         
         $dataMsnInsert = $this->projects->_insert_msn($dataToInsert);
