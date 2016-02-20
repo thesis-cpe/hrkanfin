@@ -167,33 +167,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <!--/.direct-chat-messages-->
 
                                     <!-- Contacts are loaded here -->
-                                    <div class="direct-chat-contacts">
-                                        <ul class="contacts-list">
-                                            <li>
-                                                <a href="#">
-                                                    <img class="contacts-list-img" src="../dist/img/user1-128x128.jpg">
-
-                                                    <div class="contacts-list-info">
-                                                        <span class="contacts-list-name">
-                                                            Count Dracula
-                                                            <small class="contacts-list-date pull-right">2/28/2015</small>
-                                                        </span>
-                                                        <span class="contacts-list-msg">How have you been? I was...</span>
-                                                    </div>
-                                                    <!-- /.contacts-list-info -->
-                                                </a>
-                                            </li>
-                                            <!-- End Contact Item -->
-                                        </ul>
-                                        <!-- /.contatcts-list -->
-                                    </div>
+                                    
                                     <!-- /.direct-chat-pane -->
                                 
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <form action="<?php echo base_url(); ?>index.php/project/sent_msn" method="post">
+                                        
+                                        <!--/.แนบไฟล์-->
                                         <div class="input-group">
-                                            <input required="" type="text" name="message" placeholder="พิมพ์ข้อความ..." class="form-control">
+                                            <input type="file" name="fileMsn"/>
+                                        </div>
+                                        
+                                        <!--/.แนบไฟล์-->
+                                        <div style="margin-bottom: 10px"></div>
+                                        <!--พิมพ์ข้อความ-->
+                                        <div  class="input-group">
+                                           <input required="" type="text" name="message" placeholder="พิมพ์ข้อความ..." class="form-control">
                                             <input type="hidden" name="hdf3" value="<?php echo $emId; ?>">
                                             <input type="hidden" name="hdf4" value="<?php echo $teamId; ?>">
                                             <input type="hidden" name="hdf5" value="<?php echo $projectId;?>">
@@ -201,14 +191,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <button type="submit" class="btn btn-primary btn-flat">ส่ง</button>
                                             </span>
                                         </div>
+                                       <!--/.พิมพ์ข้อความ-->
                                     </form>
                                 </div>
                                 <!-- /.box-footer-->
                                 </div><!-- /.id msn-->
                             </div>
                             <!--/.Box-->
-
-
+                          
+                          <!--กล่องแนบไฟล์พร้อมข้อความ-->
+                          
+                          
+                          <!--/.กล่องแนบไฟล์พร้อมข้อความ-->
                         </div> <!--/.col-sm-5-->
                         <div class="col-sm-8">   
                             <div class="box box-default">
