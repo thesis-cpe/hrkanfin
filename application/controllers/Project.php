@@ -397,6 +397,12 @@ class Project extends CI_Controller {
         $this->load->view('team_details_view_ref',$data);
     }
     
+    public function del_msn($msnId){
+        $delMsn = $this->projects->_del_msn($msnId);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
+    
     
     
     

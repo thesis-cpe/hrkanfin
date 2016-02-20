@@ -347,5 +347,10 @@ class Project_model extends CI_Model {
 
         return $query;
     }
+    
+    public function _del_msn($msnId){
+        $this->db->where('msn_id',$msnId);
+        $this->db->delete('msn');
+    }
 
 }
