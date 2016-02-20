@@ -5,6 +5,7 @@
         <group>
             <file>file:/D:/xampp/htdocs/hrkanfin/application/controllers/Project.php</file>
             <file>file:/D:/xampp/htdocs/hrkanfin/application/models/Project_model.php</file>
+            <file>file:/D:/xampp/htdocs/hrkanfin/application/views/team_details_view.php</file>
         </group>
     </open-files>
 </project-private>

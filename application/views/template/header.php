@@ -17,10 +17,50 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
+            
+            <!--เขียนข้อความ-->
+          <li class="dropdown messages-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-send-o"></i></a>
+              
+              <!--dropdown-->
+                <ul class="dropdown-menu">
+                <li class="header">ส่งข้อความ</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                ส่วนนี้อยู่ระหว่างพัฒนา... 
+              </li>
+              <li class="footer">ส่วงล่าง</li>
+              
+            </ul>
+              <!--dropdown-->
+          </li>
           
+          
+          <!--/.เขียนข้อความ--> 
+            
+           
+          <!-- Messages: style can be found in dropdown.less-->
+            <li class="dropdown messages-menu">
+                <a  href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-success"></span> <!--จำนวนข้อความ-->
+            </a>
+            <ul class="dropdown-menu">
+                <li class="header">ข้อความ</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                ส่วนนี้อยู่ระหว่างพัฒนา...
+              </li>
+              <li class="footer"><a href="#">ดูข้อความทั้งหมด</a></li>
+              
+            </ul>
+          </li>
           <!-- /.messages-menu -->
-
+          
+         
+          
+          
+          
           <!-- Notifications Menu -->
           
           <!-- Tasks Menu -->
@@ -61,4 +101,10 @@
           
         </ul>
       </div>
+      
+     
+      
+      
+      
     </nav>
+ 

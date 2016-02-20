@@ -133,7 +133,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <!-- /.direct-chat-info -->
                                                 <img class="direct-chat-img" src="<?php echo base_url("uploads/$rowDataMsn->file_path") ?>" alt="Message User Image"><!-- /.direct-chat-img -->
                                                 <div class="direct-chat-text">
-                                                    <?php echo $rowDataMsn->msn_text; ?>
+                                                    <a target="_blank" href="http://www.google.com"><i class="fa fa-cloud-download"></i></a>
+                                                    <?php echo $rowDataMsn->msn_text; echo nbs(2); ?>
+                                                    <a style="font-size: 12px;color: grey;" target="_blank" href="http://www.google.com">...ลบ</a>
                                                 </div>
                                                 <!-- /.direct-chat-text -->
                                             </div>
@@ -188,7 +190,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="box-footer">
                                     <form action="<?php echo base_url(); ?>index.php/project/sent_msn" method="post">
                                         <div class="input-group">
-                                            <input type="text" name="message" placeholder="พิมพ์ข้อความ..." class="form-control">
+                                            <input required="" type="text" name="message" placeholder="พิมพ์ข้อความ..." class="form-control">
                                             <input type="hidden" name="hdf3" value="<?php echo $emId; ?>">
                                             <input type="hidden" name="hdf4" value="<?php echo $teamId; ?>">
                                             <input type="hidden" name="hdf5" value="<?php echo $projectId;?>">
