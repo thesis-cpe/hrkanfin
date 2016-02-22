@@ -353,6 +353,28 @@ class Project extends CI_Controller {
     }
 
     public function sent_msn() {
+        /*ไฟล์*/
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'doc|docx|pdf|xl|xls';
+        $config['max_size'] = 10000; //10 mb
+
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config);
+        
+        if(!empty($_FILES['fileMsn']['name'])){
+            if (!$this->upload->do_upload('fileMsn')) {
+                $error = array('error' => $this->upload->display_errors());
+                print_r($error);
+            } else {
+                $uploadFileDoc = $this->upload->data();
+                $uploadFileDocName = $uploadFileDoc['file_name'];
+                //$insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'), $this->input->post('hdf2'), $uploadFileDocName);
+            }
+        }else{
+            $uploadFileDocName = ""; //ถ้าไม่มีการอัพไฟล์ให้เท่ากัับว่าง
+        }
+        
+        
         echo $dateSent = $this->session->userdata('date_curent');  //วันที่ล๊อคอิน
         echo "<br>";
         echo $timeSent = date('G:i:s');
@@ -366,6 +388,8 @@ class Project extends CI_Controller {
        echo  $teamId = $this->input->post('hdf4');
        $projectID = $this->input->post('hdf5');
         
+       
+       
         $dataToInsert = array(
             'dateSent' => $dateSent,
             'timeSent' => $timeSent,
@@ -373,7 +397,9 @@ class Project extends CI_Controller {
             'sender' => $sender,
             'receipter' => $receipter,
             'teamId' => $teamId,
-            'fk_project_id' => $projectID
+            'fk_project_id' => $projectID,
+            'uploadFileDocName' => $uploadFileDocName
+                
         );
         
         $dataMsnInsert = $this->projects->_insert_msn($dataToInsert);

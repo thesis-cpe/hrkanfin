@@ -173,7 +173,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                   <!--  <form action="<?php echo base_url(); ?>index.php/project/sent_msn" method="post"> -->
-                                    <?php form_open_multipart('project/sent_msn');?>
+                                    <?php echo form_open_multipart('project/sent_msn');?>
                                         
                                         <!--/.แนบไฟล์-->
                                         <div class="input-group">

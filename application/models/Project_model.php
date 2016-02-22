@@ -314,7 +314,7 @@ class Project_model extends CI_Model {
             'msn_date' => $data['dateSent'],
             'msn_time' => $data['timeSent'],
             'msn_text' => $data['text'],
-            //'msn_file' => $data['dateSent'],
+            'msn_file' => $data['uploadFileDocName'],
             'msn_sent' => $data['sender'],
             'msn_receip' => $data['receipter'],
             'team_id' => $data['teamId'],
