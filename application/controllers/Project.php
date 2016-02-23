@@ -424,6 +424,17 @@ class Project extends CI_Controller {
     }
     
     public function del_msn($msnId){
+        $this->db->where('msn_id',$msnId);
+        $query = $this->db->get('msn')->result();
+        foreach ($query as $row){
+            $filePath = $row->msn_file;
+        }
+        if(!empty($filePath)){
+            if(file_exists("uploads/$filePath")){
+                unlink("uploads/$filePath");
+            }
+        }
+        
         $delMsn = $this->projects->_del_msn($msnId);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;

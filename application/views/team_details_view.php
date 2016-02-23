@@ -134,7 +134,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <img class="direct-chat-img" src="<?php echo base_url("uploads/$rowDataMsn->file_path") ?>" alt="Message User Image"><!-- /.direct-chat-img -->
                                                 <div class="direct-chat-text">
                                                     <?php if($rowDataMsn->msn_file): ?>
-                                                    <a target="_blank" href="<?php echo base_url();?>/uploads/<?php echo $rowDataMsn->msn_file; ?>"><i class="fa fa-cloud-download"></i></a>
+                                                    <a target="_blank" href="<?php echo base_url();?>uploads/<?php echo $rowDataMsn->msn_file; ?>"><i class="fa fa-cloud-download"></i></a>
                                                     <?php endif;?>
                                                      <?php echo $rowDataMsn->msn_text; echo nbs(2); 
                                                     if($rowDataMsn->msn_sent == $this->session->userdata('em_id')): //ถ้า session == ผู้ส่ง
