@@ -310,12 +310,12 @@ class Project extends CI_Controller {
         }
         
         /*ดึงข้อความออกมาแสดง*/
-        $dataMsn = $this->projects->_sel_msn($emId , $projectId);
+        $dataMsn = $this->projects->_sel_msn($emId,$teamId , $projectId);
         
         /*ข้อมูลลง วิว*/
         $data = array(
             'emId' => $emId,
-            //'teamId' => $teamId,
+            'teamId' => $teamId,
             'docPath' => $path,
             'arrDataMsn' => $dataMsn,
             'projectId' => $projectId
