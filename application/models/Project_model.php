@@ -324,7 +324,7 @@ class Project_model extends CI_Model {
         $this->db->insert('msn', $dataInsert);
     }
 
-    public function _sel_msn($emId, $teamId, $projectId) {
+    public function _sel_msn($emId , $teamId , $projectId) {
         /* $query = $this->db->where('team_id', $teamId)
           ->get('msn')->result(); */
         /* $this->db->select('*');

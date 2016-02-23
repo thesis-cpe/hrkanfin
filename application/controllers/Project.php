@@ -298,7 +298,7 @@ class Project extends CI_Controller {
         $this->load->view('add_project_view', $dataOpenPro);
     }
 
-    public function add_details($emId, $teamId, $projectId) {  //เพิ่มรายละเอียดพร้อมทำแชท
+    public function add_details($emId , $teamId, $projectId) {  //เพิ่มรายละเอียดพร้อมทำแชท
         //echo $emId." ".$teamId;
         $selDocPath = $this->projects->_sel_team_doc($emId, $teamId);
         if (empty($selDocPath)) {
@@ -310,12 +310,12 @@ class Project extends CI_Controller {
         }
         
         /*ดึงข้อความออกมาแสดง*/
-        $dataMsn = $this->projects->_sel_msn($emId, $teamId, $projectId);
+        $dataMsn = $this->projects->_sel_msn($emId , $projectId);
         
         /*ข้อมูลลง วิว*/
         $data = array(
             'emId' => $emId,
-            'teamId' => $teamId,
+            //'teamId' => $teamId,
             'docPath' => $path,
             'arrDataMsn' => $dataMsn,
             'projectId' => $projectId
