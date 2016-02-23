@@ -54,7 +54,7 @@
                        
                     
                     </li>
-                    <li class="footer"><a href="<?php echo site_url()?>/project">ดูข้อความทั้งหมด</a></li>
+                    <li class="footer"><a href="#">ดูข้อความทั้งหมด</a></li>
 
                 </ul>
             </li>
