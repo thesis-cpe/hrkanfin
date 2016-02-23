@@ -118,9 +118,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                     <th width="300">ชื่อกิจการ</th>
                                                                     <th width="100">โทรศัพท์</th>
                                                                     <th>อีเมล์</th>
-                                                                    <?php if($this->session->userdata('em_role') == "ผู้ดูแลระบบ"):?>
                                                                     <th>เพิ่มเติม</th>
-                                                                    <?php endif;?>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -134,7 +132,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                             <td><a title="โครงการทั้งหมดของลูกค้าท่านนี้" href="<?php echo base_url();?>index.php/project/project_customer/<?php echo $rowlistCustomer->customer_id;  ?>/<?php echo $rowlistCustomer->customer_name; ?>/<?php echo $rowlistCustomer->customer_tax_id; ?>"><?php echo $rowlistCustomer->customer_status."."." ".$rowlistCustomer->customer_name; ?></a></td>
                                                                             <td><?php echo $rowlistCustomer->customer_tel; ?></td>
                                                                             <td><?php echo $rowlistCustomer->customer_mail; ?></td>
-                                                                           <?php if($this->session->userdata('em_role') == "ผู้ดูแลระบบ"):?> 
+                                                                            
                                                                             <td>
                                                                                <!-- <a href="<?php //echo base_url();?>index.php/project/add_project/<?php //echo $rowlistCustomer->customer_id; ?>/<?php //echo $rowlistCustomer->customer_tax_id; ?>/<?php //echo $rowlistCustomer->customer_name; ?>" name="btnAddProject" title="เพิ่มโครงการ" class="btn btn-xs btn-default"><span class="fa  fa-suitcase"></span></a> -->
                                                                                 <button data-toggle="modal" data-target="#pnlAddPro<?php echo $rowlistCustomer->customer_id; ?>" class="btn btn-xs btn-default" type="button"><span class="fa fa-suitcase"></span></button>
@@ -197,7 +195,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                                  <?php echo form_close();?>
                                                                                 <!--Modal-->
                                                                             </td>
-                                                                            <?php endif;?>
                                                                         </tr>
                                                              <?php endforeach;?>
                                                             </tbody>
