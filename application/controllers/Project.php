@@ -331,6 +331,15 @@ class Project extends CI_Controller {
 
         $this->upload->initialize($config);
         $this->load->library('upload', $config);
+        
+        /*เช็คไฟล์เก่าว่ามีหรือไม่*/
+        if($this->input->post('docPath') != ""){
+            $docOldPath = $this->input->post('docPath');
+            if(file_exists("uploads/$docOldPath")){
+                unlink("uploads/$docOldPath");
+                $deleteOldFile = $this->projects->_del_old_file_team_doc($docOldPath);
+            }
+        }
 
         if (!empty($_FILES['fileDoc']['name'])) {
             if (!$this->upload->do_upload('fileDoc')) {
@@ -339,7 +348,7 @@ class Project extends CI_Controller {
             } else {
                 $uploadFileDoc = $this->upload->data();
                 $uploadFileDocName = $uploadFileDoc['file_name'];
-                $insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'), $this->input->post('hdf2'), $uploadFileDocName);
+                $insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'), $this->input->post('hdf2'), $uploadFileDocName, $this->input->post('hdfpro'));
             }
         }
         header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -396,7 +405,7 @@ class Project extends CI_Controller {
             'text' => $text,
             'sender' => $sender,
             'receipter' => $receipter,
-            'teamId' => $teamId,
+            'teamId' => $teamId,   //
             'fk_project_id' => $projectID,
             'uploadFileDocName' => $uploadFileDocName
                 

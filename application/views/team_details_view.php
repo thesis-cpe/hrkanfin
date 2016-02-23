@@ -222,12 +222,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="box-body" style="display: block;">
                                     <?php
                                     //ต้องสร้างเงื่อนไขว่าถ้าไม่มีไฟล์ echo ไม่มีไฟล์ - 
-                                    ?>
-                                    <iframe height="450" width="100%" src="<?php echo base_url("uploads/$docPath"); ?>"></iframe> 
+                                      if($docPath == "" || !file_exists("uploads/$docPath")):?>
+                                    <div height="450" width="100%">ยังไม่ได้นำเอกสารเข้าระบบ</div>    
+                                    <?php else:?>
+                                  <iframe height="450" width="100%" src="<?php echo base_url("uploads/$docPath"); ?>"></iframe>  
+                                    
+                                    <?php endif;?>
+                                    
                                     <br>
                                     <?php
                                     if ($this->session->userdata('em_role') == "ผู้ดูแลระบบ"):
-                                        echo form_open_multipart('project/insert_doc_team')
+                                        echo form_open_multipart('project/insert_doc_team');
                                         ?>
                                         <div class="col-sm-6">
                                             <label>แนบไฟล์ใหม่:</label>
@@ -236,7 +241,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <li><button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button></li>
 
                                                 <input type="hidden" name="hdf1" value="<?php echo $emId; ?>"/>
-                                              <input type="hidden" name="hdf2" value="<?php  echo $teamId; ?>"/> 
+                                              <input type="hidden" name="hdf2" value="<?php  echo $teamId; ?>"/>
+                                              <input type="hidden" name="docPath" value="<?php echo $docPath; ?>">
+                                              <input type="hidden" name="hdfpro" value="<?php  echo $projectId; ?>"/>
                                             </ul>
                                             <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb</i>
 

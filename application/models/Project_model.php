@@ -280,11 +280,12 @@ class Project_model extends CI_Model {
         $this->db->delete('project');
     }
 
-    public function _insert_team_doc($emId, $teamId, $uploadFileDocName) {
+    public function _insert_team_doc($emId, $teamId, $uploadFileDocName, $proId) {
         $dataInsert = array(
             'team_doc_path' => $uploadFileDocName,
-            'team_id' => $teamId,
-            'em_id' => $emId
+            'team_id' => $teamId,  //ต้องเปลี่ยนเป็น project_id  หรือเพิ่ม project_id โยงไป
+            'em_id' => $emId,
+            'pro_id' => $proId
         );
         $this->db->insert('team_doc', $dataInsert);
     }
@@ -351,6 +352,11 @@ class Project_model extends CI_Model {
     public function _del_msn($msnId){
         $this->db->where('msn_id',$msnId);
         $this->db->delete('msn');
+    }
+    
+    public function _del_old_file_team_doc($docOldPath){
+        $this->db->where('team_doc_path',$docOldPath);
+        $this->db->delete('team_doc');
     }
 
 }
