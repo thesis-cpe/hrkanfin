@@ -252,7 +252,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                         <div class="col-sm-offset-3 col-sm-3">
                                             <label>ลบไฟล์:</label>
-                                            <br> <a href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $emId; ?>/<?php echo $teamId; ?>/<?php echo $docPath; ?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
+                                            <br> 
+                                            <a href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $emId; ?>/<?php echo $teamId; ?>/<?php echo $docPath; ?>/<?php echo $projectId ?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
                                         </div>
                                         <?php
                                         echo form_close();

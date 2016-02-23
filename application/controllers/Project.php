@@ -355,8 +355,8 @@ class Project extends CI_Controller {
         exit;
     }
 
-    public function del_doc_team($emId, $teamId, $file) {
-        $delDocTeam = $this->projects->_del_doc_team($emId, $teamId, $file);
+    public function del_doc_team($emId, $teamId, $file, $projectId) {
+        $delDocTeam = $this->projects->_del_doc_team($emId, $teamId, $file, $projectId);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
