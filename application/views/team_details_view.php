@@ -102,7 +102,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!--Box-->
                             <div class="box box-primary direct-chat direct-chat-primary" >
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">ฝากข้อความ</h3>
+                                    <h3 class="box-title">Brainstorming Session</h3>
 
                                     <div class="box-tools pull-right">
                                       <!--  <span data-toggle="tooltip" title="3 New Messages" class="badge bg-light-blue">3</span> -->
@@ -210,7 +210,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="col-sm-8">   
                             <div class="box box-default">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">รายละเอียดงาน</h3>
+                                    <h3 class="box-title">Hilight Session</h3>
 
                                     <div class="box-tools pull-right">
                                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
