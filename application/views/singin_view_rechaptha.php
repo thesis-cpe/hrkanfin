@@ -54,7 +54,7 @@
                         <!-- /.col -->
                         <div class="col-xs-4">
                          <!--   <button name="btnLogin" type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>  -->
-                         <input name="btnLogin" type="submit" class="btn btn-primary btn-block btn-flat" value="Sign In"/>
+                         <input name="btnLogin" type="submit" class="btn btn-primary btn-block btn-flat" value="เข้าสู่ระบบ"/>
                         </div>
                         <!-- /.col -->
                     </div>
