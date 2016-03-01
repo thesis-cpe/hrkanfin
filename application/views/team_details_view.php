@@ -219,8 +219,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="box-body">
                                     <a class="btn btn-app">
                                         
-                                        <i class="fa fa-bullhorn"></i> Notifications
+                                        <i class="fa fa-bullhorn"></i> แจ้งทราบ
                                     </a>
+                                    <a class="btn btn-app">
+                <i class="fa fa-list-ul"></i> รายการไฟล์
+              </a>
                                 </div>
                                 <!-- /.box-body -->
                             </div>
