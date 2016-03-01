@@ -253,7 +253,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                     <br>
                                     <?php
-                                    if ($this->session->userdata('em_role') == "ผู้ดูแลระบบ"):
+                                
                                         echo form_open_multipart('project/insert_doc_team');
                                         ?>
                                         <div class="col-sm-6">
@@ -268,8 +268,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <input type="hidden" name="hdfpro" value="<?php echo $projectId; ?>"/>
                                             </ul>
                                             <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb </i>
-
-
                                         </div>
 
                                         <div class="col-sm-offset-3 col-sm-3">
@@ -279,7 +277,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </div>
                                         <?php
                                         echo form_close();
-                                    endif;
+                                  
                                     ?>
 
                                 </div>
