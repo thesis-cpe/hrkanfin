@@ -452,6 +452,38 @@ class Project extends CI_Controller {
     }
     
     
+      public function insert_doc_team2() { //อัพโหลดไฟล์และบันทึกลง db
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'doc|docx|pdf|xl|xls';
+        $config['max_size'] = 10000; //10 mb
+
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config);
+        
+        /*เช็คไฟล์เก่าว่ามีหรือไม่*/
+        if($this->input->post('docPath') != ""){
+            $docOldPath = $this->input->post('docPath');
+            if(file_exists("uploads/$docOldPath")){
+                unlink("uploads/$docOldPath");
+                $deleteOldFile = $this->projects->_del_old_file_team_doc($docOldPath);
+            }
+        }
+
+        if (!empty($_FILES['fileDoc']['name'])) {
+            if (!$this->upload->do_upload('fileDoc')) {
+                $error = array('error' => $this->upload->display_errors());
+                print_r($error);
+            } else {
+                $uploadFileDoc = $this->upload->data();
+                $uploadFileDocName = $uploadFileDoc['file_name'];
+                $insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'), $this->input->post('hdf2'), $uploadFileDocName, $this->input->post('hdfpro'));
+            }
+        }
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
+    
+    
     
     
     

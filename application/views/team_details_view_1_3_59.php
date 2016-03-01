@@ -115,9 +115,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
-
+                                    
                                     <!-- Conversations are loaded here -->
-
+                                    
                                     <div class="direct-chat-messages" style="height: 380px" i >
                                         <?php
                                         /* ดึงข้อความ */
@@ -133,16 +133,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <!-- /.direct-chat-info -->
                                                 <img class="direct-chat-img" src="<?php echo base_url("uploads/$rowDataMsn->file_path") ?>" alt="Message User Image"><!-- /.direct-chat-img -->
                                                 <div class="direct-chat-text">
-                                                    <?php if ($rowDataMsn->msn_file): ?>
-                                                        <a target="_blank" href="<?php echo base_url(); ?>uploads/<?php echo $rowDataMsn->msn_file; ?>"><i class="fa fa-cloud-download"></i></a>
-                                                    <?php endif; ?>
-                                                    <?php
-                                                    echo $rowDataMsn->msn_text;
-                                                    echo nbs(2);
-                                                    if ($rowDataMsn->msn_sent == $this->session->userdata('em_id')): //ถ้า session == ผู้ส่ง
-                                                        ?>
-                                                        <a style="font-size: 12px;color: grey;" href="<?php echo site_url(); ?>/project/del_msn/<?php echo $rowDataMsn->msn_id; ?>">...ลบ</a>
-                                                    <?php endif; ?>
+                                                    <?php if($rowDataMsn->msn_file): ?>
+                                                    <a target="_blank" href="<?php echo base_url();?>uploads/<?php echo $rowDataMsn->msn_file; ?>"><i class="fa fa-cloud-download"></i></a>
+                                                    <?php endif;?>
+                                                     <?php echo $rowDataMsn->msn_text; echo nbs(2); 
+                                                    if($rowDataMsn->msn_sent == $this->session->userdata('em_id')): //ถ้า session == ผู้ส่ง
+                                                    ?>
+                                                    <a style="font-size: 12px;color: grey;" href="<?php echo site_url();?>/project/del_msn/<?php echo $rowDataMsn->msn_id; ?>">...ลบ</a>
+                                                    <?php endif;?>
                                                 </div>
                                                 <!-- /.direct-chat-text -->
                                             </div>
@@ -152,7 +150,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         endforeach;
                                         /* .ดึงข้อความ */
                                         ?>
-
+                                           
                                         <!-- Message to the right -->
                                         <!--    <div class="direct-chat-msg right">
                                                 <div class="direct-chat-info clearfix">
@@ -171,62 +169,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <!--/.direct-chat-messages-->
 
                                     <!-- Contacts are loaded here -->
-
+                                    
                                     <!-- /.direct-chat-pane -->
-
-                                    <!-- /.box-body -->
-                                    <div class="box-footer">
-                                      <!--  <form action="<?php echo base_url(); ?>index.php/project/sent_msn" method="post"> -->
-                                        <?php echo form_open_multipart('project/sent_msn'); ?>
-
+                                
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                  <!--  <form action="<?php echo base_url(); ?>index.php/project/sent_msn" method="post"> -->
+                                    <?php echo form_open_multipart('project/sent_msn');?>
+                                        
                                         <!--/.แนบไฟล์-->
                                         <div class="input-group">
                                             <input type="file" name="fileMsn"/>
                                         </div>
-
+                                        
                                         <!--/.แนบไฟล์-->
                                         <div style="margin-bottom: 10px"></div>
                                         <!--พิมพ์ข้อความ-->
                                         <div  class="input-group">
-                                            <input required="" type="text" name="message" placeholder="พิมพ์ข้อความ..." class="form-control">
+                                           <input required="" type="text" name="message" placeholder="พิมพ์ข้อความ..." class="form-control">
                                             <input type="hidden" name="hdf3" value="<?php echo $emId; ?>">
-                                            <input type="hidden" name="hdf4" value="<?php echo $teamId; ?>"> 
-                                            <input type="hidden" name="hdf5" value="<?php echo $projectId; ?>">
+                                           <input type="hidden" name="hdf4" value="<?php echo $teamId; ?>"> 
+                                            <input type="hidden" name="hdf5" value="<?php echo $projectId;?>">
                                             <span class="input-group-btn">
                                                 <button type="submit" class="btn btn-primary btn-flat">ส่ง</button>
                                             </span>
                                         </div>
-                                        <!--/.พิมพ์ข้อความ-->
-                                        </form>
-                                    </div>
-                                    <!-- /.box-footer-->
+                                       <!--/.พิมพ์ข้อความ-->
+                                    </form>
+                                </div>
+                                <!-- /.box-footer-->
                                 </div><!-- /.id msn-->
                             </div>
                             <!--/.Box-->
-
-                            <!--กล่องกดด่วน-->
-                            <div class="box box-primary">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">EMS</h3>
-
-                                    <div class="box-tools pull-right">
-                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <!-- /.box-tools -->
-                                </div>
-                                <!-- /.box-header -->
-                                <div class="box-body">
-                                    <a class="btn btn-app">
-                                        
-                                        <i class="fa fa-bullhorn"></i> Notifications
-                                    </a>
-                                </div>
-                                <!-- /.box-body -->
-                            </div>
-
-
-                            <!--/.กล่องกดด่วน-->
+                          
+                          <!--กล่องแนบไฟล์พร้อมข้อความ-->
+                          
+                          
+                          <!--/.กล่องแนบไฟล์พร้อมข้อความ-->
                         </div> <!--/.col-sm-5-->
                         <div class="col-sm-8">   
                             <div class="box box-default">
@@ -243,14 +222,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="box-body" style="display: block;">
                                     <?php
                                     //ต้องสร้างเงื่อนไขว่าถ้าไม่มีไฟล์ echo ไม่มีไฟล์ - 
-                                    if ($docPath == "" || !file_exists("uploads/$docPath")):
-                                        ?>
-                                        <div height="450" width="100%">ยังไม่ได้นำเอกสารเข้าระบบ</div>    
-                                    <?php else: ?>
-                                        <iframe height="450" width="100%" src="<?php echo base_url("uploads/$docPath"); ?>"></iframe>  
-
-                                    <?php endif; ?>
-
+                                      if($docPath == "" || !file_exists("uploads/$docPath")):?>
+                                    <div height="450" width="100%">ยังไม่ได้นำเอกสารเข้าระบบ</div>    
+                                    <?php else:?>
+                                  <iframe height="450" width="100%" src="<?php echo base_url("uploads/$docPath"); ?>"></iframe>  
+                                    
+                                    <?php endif;?>
+                                    
                                     <br>
                                     <?php
                                     if ($this->session->userdata('em_role') == "ผู้ดูแลระบบ"):
@@ -261,13 +239,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <ul class="list-inline">
                                                 <li><input required=""  type="file" name="fileDoc"/> </li>
                                                 <li><button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button></li>
-
+                                                
                                                 <input type="hidden" name="hdf1" value="<?php echo $emId; ?>"/>
-                                                <input type="hidden" name="hdf2" value="<?php echo $teamId; ?>"/>
-                                                <input type="hidden" name="docPath" value="<?php echo $docPath; ?>">
-                                                <input type="hidden" name="hdfpro" value="<?php echo $projectId; ?>"/>
+                                              <input type="hidden" name="hdf2" value="<?php  echo $teamId; ?>"/>
+                                              <input type="hidden" name="docPath" value="<?php echo $docPath; ?>">
+                                              <input type="hidden" name="hdfpro" value="<?php  echo $projectId; ?>"/>
                                             </ul>
-                                            <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb </i>
+                                            <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb <a href="#">**ไฟล์ทั้งหมด</a></i>
 
 
                                         </div>
@@ -315,11 +293,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="<?php echo base_url(); ?>dashboard/lte/bootstrap/js/bootstrap.min.js"></script>
         <!-- AdminLTE App -->
         <script src="<?php echo base_url(); ?>dashboard/lte/dist/js/app.min.js"></script>
-
-
-
-
-
+        
+        
+      
+         
+       
 
 
     </body>
