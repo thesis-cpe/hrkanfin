@@ -3,7 +3,7 @@
       <!-- Sidebar user panel (optional) -->
       <div  class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url().$this->session->userdata('em_photo');?>"/>
+            <img class="img-rounded"  src="<?php echo base_url().$this->session->userdata('em_photo');?>"/>
         </div>
         <div class="pull-left info">
             <p style="font-size: 12px;"><?php echo $this->session->userdata('em_name');?></p>

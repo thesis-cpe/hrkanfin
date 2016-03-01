@@ -101,7 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <h3 class="box-title">รูปพนักงาน</h3>
                                 </div>
                                 <div class="box-body box-profile">
-                                    <img class="profile-user-img img-responsive img-circle" src="<?php echo $em_photo['file_path'];?>" title="รูปประจำตัว">
+                                    <center><img style="width: 150px; height: 150px;" class="img-responsive img-rounded" src="<?php echo $em_photo['file_path'];?>" title="รูปประจำตัว"></center>
                                     <div style="padding-top: 9px"></div>
                                     
                                     
