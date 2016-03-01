@@ -290,9 +290,8 @@ class Project_model extends CI_Model {
         $this->db->insert('team_doc', $dataInsert);
     }
 
-    public function _sel_team_doc($emId, $teamId) {
-        $sel = $this->db->where('team_id', $teamId)
-                        ->where('em_id', $emId)
+    public function _sel_team_doc($projectId) {
+        $sel = $this->db->where('pro_id', $projectId)
                         ->get('team_doc')->result();
         foreach ($sel as $row) {
             $res = $row->team_doc_path;

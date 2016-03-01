@@ -300,7 +300,7 @@ class Project extends CI_Controller {
 
     public function add_details($emId , $teamId, $projectId) {  //เพิ่มรายละเอียดพร้อมทำแชท
         //echo $emId." ".$teamId;
-        $selDocPath = $this->projects->_sel_team_doc($emId, $teamId);
+        $selDocPath = $this->projects->_sel_team_doc($projectId);
         if (empty($selDocPath)) {
 
             //$path = base_url('uploads/pdf-sample.pdf');
