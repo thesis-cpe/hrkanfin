@@ -364,7 +364,9 @@ class Project extends CI_Controller {
     public function sent_msn() {
         /*ไฟล์*/
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'doc|docx|pdf|xl|xls';
+        $config['allowed_types'] = 'doc|docx|pdf|xl|xls|jpg|jepg|png"gif';
+        $config['max_width'] = 10240;
+        $config['max_height'] = 10000;
         $config['max_size'] = 10000; //10 mb
 
         $this->upload->initialize($config);
