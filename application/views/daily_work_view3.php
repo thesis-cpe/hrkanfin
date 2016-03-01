@@ -43,7 +43,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
      <!--   <link rel="stylesheet" type="text/css" href="<?php //echo base_url('dashboard/lte/plugins/datepair-this/jquery.timepicker.css') ?>" /> -->
         <!--jasny-bootstrap
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>dashboard/jasny-bootstrap/jasny-bootstrap.min.css"/> -->
+<!--LED-->
+<style> 
+#text-led {
+   
+    color: red;
+    -webkit-animation: mymove 1s infinite; /* Chrome, Safari, Opera */
+    animation: mymove 1s infinite;
+}
 
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {color: red;}
+    to {color: blue;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    from {color: red;}
+    to {color: blue;}
+}
+</style>
+<!--/.LED-->
 
     </head>
     <!--
@@ -194,7 +215,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                                                         <td>
                                                                             <a <?php if($rowteam_data['project_ems'] =="แจ้งทราบ"):?>
-                                                                                style="color: red;"
+                                                                                id="text-led"
                                                                                 <?php endif;?>
                                                                                 
                                                                                 target="_blank" href="<?php echo base_url()?>index.php/project/add_details/<?php echo $this->session->userdata('em_id');?>/<?php echo $rowteam_data['team_id'];?>/<?php echo $rowteam_data['project_id']; ?>" title="คลิกดูรายละเอียดของงาน"> <?php  echo $rowteam_data['project_number']; ?> </a>
