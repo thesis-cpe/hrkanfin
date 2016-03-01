@@ -457,7 +457,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 //  callback ให้เรียกใช้ฟังก์ชันแสดง แผนที่ initialize
                 $("<script/>", {
                     "type": "text/javascript",
-                    src: "http://maps.google.com/maps/api/js?v=3.2&sensor=false&language=th&callback=initialize"
+                    src: "https://maps.google.com/maps/api/js?v=3.2&sensor=false&language=th&callback=initialize"
                 }).appendTo("body");
             });
 

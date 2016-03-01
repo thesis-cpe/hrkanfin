@@ -36,7 +36,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   
   
   <!--Redirect-->
-<!--  <meta http-equiv="refresh" content="3;url=<?php //echo base_url();?>index.php/main_data" /> -->
+  <meta http-equiv="refresh" content="3;url=<?php //echo base_url();?>index.php/main_data" /> 
 </head>
 <!--
 BODY TAG OPTIONS:
