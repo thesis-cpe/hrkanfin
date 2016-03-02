@@ -120,7 +120,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                 <tr>
                                                                     <th width="30">กลุ่ม</th>
                                                                     <th width="150">เลขผู้เสียภาษีอากร</th>
-                                                                    <th width="300">ชื่อกิจการ</th>
+                                                                    <th width="350">ชื่อกิจการ</th>
                                                                     <th width="100">โทรศัพท์</th>
                                                                     <th>อีเมล์</th>
                                                                     <th>เพิ่มเติม</th>

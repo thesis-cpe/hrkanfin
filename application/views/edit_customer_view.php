@@ -116,9 +116,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <option <?php if ($customer_detail['customer_status'] == "หสม") {
                         echo "selected";
                     } ?>  value="หสม">หสม</option>
+                                        
                                         <option <?php if ($customer_detail['customer_status'] == "คณะบุคคล") {
                         echo "selected";
                     } ?>   value="คณะบุคคล">คณะบุคคล</option>
+                                        
+                                        <option <?php if ($customer_detail['customer_status'] == "มูลนิธิ") {
+                        echo "selected";
+                    } ?>   value="คณะบุคคล">มูลนิธิ</option>
+                                        
                                         <option <?php if ($customer_detail['customer_status'] == "สมาคม") {
                         echo "selected";
                     } ?>  value="สมาคม">สมาคม</option>
