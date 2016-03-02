@@ -123,7 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         
                                         <option <?php if ($customer_detail['customer_status'] == "มูลนิธิ") {
                         echo "selected";
-                    } ?>   value="คณะบุคคล">มูลนิธิ</option>
+                    } ?>   value="มูลนิธิ">มูลนิธิ</option>
                                         
                                         <option <?php if ($customer_detail['customer_status'] == "สมาคม") {
                         echo "selected";
