@@ -92,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- TAB --->
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab_1" data-toggle="tab">ข้อมูลลูกค้า</a></li>
+                            <li class="active"><a href="#tab_1" data-toggle="tab">ข้อมูลโครงการ</a></li>
                             
                         </ul>
                         <div class="tab-content">
