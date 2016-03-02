@@ -20,11 +20,11 @@
             
             <!--เขียนข้อความ-->
           <li class="dropdown messages-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-send-o"></i></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-flag-o"></i></a>
               
               <!--dropdown-->
                 <ul class="dropdown-menu">
-                <li class="header">ส่งข้อความ</li>
+                <li class="header">เตือนความจำ</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 ส่วนนี้อยู่ระหว่างพัฒนา... 
