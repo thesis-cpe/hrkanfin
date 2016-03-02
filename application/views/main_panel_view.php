@@ -163,12 +163,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="inner">
                                             <h4>รายงาน</h4>
 
-                                            <a href="#">    <p>&nbsp;</p> </a>
+                                            <a href="report/customer">    <p>&nbsp;</p> </a>
                                         </div>
                                         <div class="icon">
-                                            <a href="#" class="thesisLink">   <i class="fa fa-line-chart"></i> </a>
+                                            <a href="report/customer" class="thesisLink">   <i class="fa fa-line-chart"></i> </a>
                                         </div>
-                                        <a href="#" class="small-box-footer">
+                                        <a href="report/customer" class="small-box-footer">
                                             รายงานของระบบ <i class="fa fa-arrow-circle-right"></i>
                                         </a>
                                     </div>
