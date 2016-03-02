@@ -199,6 +199,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         echo "selected";
                                                     }
                                                 ?> value="ผู้ใช้งาน">ผู้ใช้งาน</option>
+                                                <option <?php
+                                                    if ($em['em_role'] == "ผู้ใช้งานภายนอก") {
+                                                        echo "selected";
+                                                    }
+                                                ?> value="ผู้ใช้งาน">ผู้ใช้งานภายนอก</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-3">
@@ -243,7 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="row">
                                 <div class="col-sm-3">
                                     <label>เลขประจำตัวประชาชน:</label>
-                                    <input value="<?php echo $em['em_nationn_id']; ?>" class="form-control" name="txtNationId" placeholder="หมายเลข 13 หลัก" maxlength="13">
+                                    <input required="" value="<?php echo $em['em_nationn_id']; ?>" class="form-control" name="txtNationId" placeholder="หมายเลข 13 หลัก" maxlength="13">
                                 </div>
                                 <div class="col-sm-3">
                                     <label>สถานะสมรส :</label>

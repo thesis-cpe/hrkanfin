@@ -158,6 +158,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <select name="selRole" class="form-control">
                                                 <option value="ผู้ดูแลระบบ">ผู้ดูแลระบบ</option>
                                                 <option value="ผู้ใช้งาน">ผู้ใช้งาน</option>
+                                                <option value="ผู้ใช้งานภายนอก">ผู้ใช้งานภายนอก</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-3">
@@ -203,7 +204,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="row">
                                 <div class="col-sm-3">
                                     <label>เลขประจำตัวประชาชน:</label>
-                                    <input class="form-control" name="txtNationId" placeholder="หมายเลข 13 หลัก" maxlength="13">
+                                    <input required="" class="form-control" name="txtNationId" placeholder="หมายเลข 13 หลัก" maxlength="13">
                                 </div>
                                 <div class="col-sm-3">
                                     <label>สถานะสมรส :</label>
