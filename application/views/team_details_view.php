@@ -217,7 +217,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
-                                    <a class="btn btn-app">
+                                    <a href="<?php echo site_url();?>/project/ems" class="btn btn-app">
                                         
                                         <i class="fa fa-bullhorn"></i> แจ้งทราบ
                                     </a>

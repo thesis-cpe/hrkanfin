@@ -484,6 +484,11 @@ class Project extends CI_Controller {
     }
     
     
+    public function ems(){
+        echo "ทดสอบ";
+    }
+    
+    
     
     
     
