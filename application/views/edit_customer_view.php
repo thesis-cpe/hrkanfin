@@ -150,11 +150,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <div class="col-sm-3">
                                     <label>&nbsp;</label>
-                                    <textarea  name="txtAddrTh" class="form-control" cols="40" rows="1" placeholder="ที่อยู่ภาษาไทย(ขยายช่องกรอกได้)"><?php echo $customer_detail['customer_addr_th']; ?></textarea>
+                                    <textarea  name="txtAddrTh" class="form-control" cols="40" rows="4" placeholder="ที่อยู่ภาษาไทย(ขยายช่องกรอกได้)"><?php echo $customer_detail['customer_addr_th']; ?></textarea>
                                 </div>
                                 <div class="col-sm-3">
                                     <label>&nbsp;</label>
-                                    <textarea  name="txtAddrEn" class="form-control" cols="40" rows="1" placeholder="ที่อยู่ภาษาอังกฤษ(ขยายช่องกรอกได้)"><?php echo $customer_detail['customer_addr_en']; ?></textarea>
+                                    <textarea  name="txtAddrEn" class="form-control" cols="40" rows="4" placeholder="ที่อยู่ภาษาอังกฤษ(ขยายช่องกรอกได้)"><?php echo $customer_detail['customer_addr_en']; ?></textarea>
                                 </div>
                             </div>
 
@@ -247,7 +247,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <div class="col-sm-5">
                                     <label>&nbsp;</label>
-                                    <textarea name="txtConditionNam" class="form-control" cols="1" rows="1" placeholder="เงื่อนไขการลงนาม(ขยายช่องกรอกได้)"><?php echo $customer_detail['customer_condition'] ?></textarea>
+                                    <textarea name="txtConditionNam" class="form-control" cols="1" rows="4" placeholder="เงื่อนไขการลงนาม(ขยายช่องกรอกได้)"><?php echo $customer_detail['customer_condition'] ?></textarea>
                                 </div>
                             </div>
 

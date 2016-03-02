@@ -134,11 +134,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <div class="col-sm-3">
                                     <label>&nbsp;</label>
-                                    <textarea name="txtAddrTh" class="form-control" cols="40" rows="1" placeholder="ที่อยู่ภาษาไทย(ขยายช่องกรอกได้)"></textarea>
+                                    <textarea name="txtAddrTh" class="form-control" cols="40" rows="4" placeholder="ที่อยู่ภาษาไทย(ขยายช่องกรอกได้)"></textarea>
                                 </div>
                                 <div class="col-sm-3">
                                     <label>&nbsp;</label>
-                                    <textarea name="txtAddrEn" class="form-control" cols="40" rows="1" placeholder="ที่อยู่ภาษาอังกฤษ(ขยายช่องกรอกได้)"></textarea>
+                                    <textarea name="txtAddrEn" class="form-control" cols="40" rows="4" placeholder="ที่อยู่ภาษาอังกฤษ(ขยายช่องกรอกได้)"></textarea>
                                 </div>
                             </div>
 
@@ -210,7 +210,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <div class="col-sm-5">
                                     <label>&nbsp;</label>
-                                    <textarea name="txtConditionNam" class="form-control" cols="1" rows="1" placeholder="เงื่อนไขการลงนาม(ขยายช่องกรอกได้)"></textarea>
+                                    <textarea name="txtConditionNam" class="form-control" cols="1" rows="4" placeholder="เงื่อนไขการลงนาม(ขยายช่องกรอกได้)"></textarea>
                                 </div>
                             </div>
 
