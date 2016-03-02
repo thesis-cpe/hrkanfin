@@ -67,18 +67,6 @@
 
 
 
-            <!-- Notifications Menu -->
-
-            <!-- Tasks Menu -->
-
-            <!-- User Account Menu -->
-         
-            <!-- Control Sidebar Toggle Button -->
-
-
-             
-          <!-- /.messages-menu -->
-          
          
           
           
