@@ -31,6 +31,7 @@
         <div class="login-box">
             <div class="login-logo">
                 <a ><b>Authorize Access Only!</b></a>
+               
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">
@@ -63,6 +64,7 @@
 
             </div>
             <!-- /.login-box-body -->
+            <center><h5>The system is compatible with Google Chrome.</h5></center>
         </div>
         <!-- /.login-box -->
 
