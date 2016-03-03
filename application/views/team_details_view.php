@@ -307,7 +307,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <h4 class="modal-title">รายการไฟล์</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <p>ทดสอบ</p>
+                                        <!--ตารางแสดงรายการไฟล์-->
+                                        <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                            <tr>
+                                                <th>ทดสอบ</th>
+                                                <th>ทดสอบ</th>
+                                            </tr>
+                                            <tr>
+                                                <td>ทดสอบ</td>
+                                                <td>ทดสอบ</td>
+                                            </tr>
+                                        </table>
+                                        <!--/.ตารางแสดงรายการไฟล์-->
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
@@ -348,8 +359,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="<?php echo base_url(); ?>dashboard/lte/bootstrap/js/bootstrap.min.js"></script>
         <!-- AdminLTE App -->
         <script src="<?php echo base_url(); ?>dashboard/lte/dist/js/app.min.js"></script>
+        <!--Data Table-->
+        <script src="<?php echo base_url(); ?>dashboard/lte/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?php echo base_url();?>dashboard/lte/plugins/datatables/dataTables.bootstrap.min.js"></script>
 
+        <script>
+                                                                    $(function () {
+                                                                        $("#example1").DataTable();
+                                                                        $('#example2').DataTable({
+                                                                            "paging": true,
+                                                                            "lengthChange": false,
+                                                                            "searching": false,
+                                                                            "ordering": true,
+                                                                            "info": true,
+                                                                            "autoWidth": false
+                                                                        });
+                                                                    });
 
+        </script>
 
 
 
