@@ -218,19 +218,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <!-- /.box-header -->
                                 <div class="box-body">
                                     <!--ปุ่มEMS-->
-                                   <?php if($projectDetail['project_ems'] == "รับทราบ"):?>
+                                    <?php if ($projectDetail['project_ems'] == "รับทราบ"): ?>
                                         <a href="<?php echo site_url(); ?>/project/ems/<?php echo $projectId; ?>/แจ้งทราบ" class="btn btn-app">
                                             <i class="fa fa-bullhorn"></i> แจ้งทราบ
                                         </a>
-                                    <?php elseif($projectDetail['project_ems'] == "แจ้งทราบ"):?>
+                                    <?php elseif ($projectDetail['project_ems'] == "แจ้งทราบ"): ?>
                                         <a href="<?php echo site_url(); ?>/project/ems/<?php echo $projectId; ?>/รับทราบ" class="btn btn-app">
                                             <i class="fa fa-bullhorn"></i> รับทราบ
                                         </a>
-                                    <?php endif;?>
+                                    <?php endif; ?>
                                     <!--.ปุ่มEMS-->
-                                    <a class="btn btn-app">
+                                    <a class="btn btn-app" data-toggle="modal" data-target="#pnlListFile" >
                                         <i class="fa fa-list-ul"></i> รายการไฟล์
                                     </a>
+
+                                    <!--รายการไฟล์-->
+
+                                    <!--.รายการไฟล์-->
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -293,6 +297,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div>
 
                         </div> <!--/.col-sm--->
+
+                        <!--modal รายการไฟล์-->
+                        <div id="pnlListFile" class="modal fade" tabindex="-1" role="dialog" > 
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">รายการไฟล์</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>One fine body&hellip;</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                                       
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
+                        <!--/.modal รายการไฟล์-->
+
+
                     </div> <!--/.Containner-->
 
 
@@ -303,7 +330,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.content-wrapper -->
 
             <!-- Main Footer -->
-<?php include_once 'template/footer.php'; ?>
+            <?php include_once 'template/footer.php'; ?>
             <!-- .Main Footer -->
 
             <!-- Control Sidebar -->
