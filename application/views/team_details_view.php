@@ -217,13 +217,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
-                                    <a href="<?php echo site_url();?>/project/ems" class="btn btn-app">
-                                        
-                                        <i class="fa fa-bullhorn"></i> แจ้งทราบ
-                                    </a>
+                                    <!--ปุ่มEMS-->
+                                   <?php if($projectDetail['project_ems'] == "รับทราบ"):?>
+                                        <a href="<?php echo site_url(); ?>/project/ems/<?php echo $projectId; ?>/แจ้งทราบ" class="btn btn-app">
+                                            <i class="fa fa-bullhorn"></i> แจ้งทราบ
+                                        </a>
+                                    <?php elseif($projectDetail['project_ems'] == "แจ้งทราบ"):?>
+                                        <a href="<?php echo site_url(); ?>/project/ems/<?php echo $projectId; ?>/รับทราบ" class="btn btn-app">
+                                            <i class="fa fa-bullhorn"></i> รับทราบ
+                                        </a>
+                                    <?php endif;?>
+                                    <!--.ปุ่มEMS-->
                                     <a class="btn btn-app">
-                <i class="fa fa-list-ul"></i> รายการไฟล์
-              </a>
+                                        <i class="fa fa-list-ul"></i> รายการไฟล์
+                                    </a>
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -256,31 +263,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                     <br>
                                     <?php
-                                
-                                        echo form_open_multipart('project/insert_doc_team');
-                                        ?>
-                                        <div class="col-sm-6">
-                                            <label>แนบไฟล์ใหม่:</label>
-                                            <ul class="list-inline">
-                                                <li><input required=""  type="file" name="fileDoc"/> </li>
-                                                <li><button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button></li>
+                                    echo form_open_multipart('project/insert_doc_team');
+                                    ?>
+                                    <div class="col-sm-6">
+                                        <label>แนบไฟล์ใหม่:</label>
+                                        <ul class="list-inline">
+                                            <li><input required=""  type="file" name="fileDoc"/> </li>
+                                            <li><button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button></li>
 
-                                                <input type="hidden" name="hdf1" value="<?php echo $emId; ?>"/>
-                                                <input type="hidden" name="hdf2" value="<?php echo $teamId; ?>"/>
-                                                <input type="hidden" name="docPath" value="<?php echo $docPath; ?>">
-                                                <input type="hidden" name="hdfpro" value="<?php echo $projectId; ?>"/>
-                                            </ul>
-                                            <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb </i>
-                                        </div>
+                                            <input type="hidden" name="hdf1" value="<?php echo $emId; ?>"/>
+                                            <input type="hidden" name="hdf2" value="<?php echo $teamId; ?>"/>
+                                            <input type="hidden" name="docPath" value="<?php echo $docPath; ?>">
+                                            <input type="hidden" name="hdfpro" value="<?php echo $projectId; ?>"/>
+                                        </ul>
+                                        <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb </i>
+                                    </div>
 
-                                        <div class="col-sm-offset-3 col-sm-3">
-                                            <label>ลบไฟล์:</label>
-                                            <br> 
-                                            <a href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $emId; ?>/<?php echo $teamId; ?>/<?php echo $docPath; ?>/<?php echo $projectId ?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
-                                        </div>
-                                        <?php
-                                        echo form_close();
-                                  
+                                    <div class="col-sm-offset-3 col-sm-3">
+                                        <label>ลบไฟล์:</label>
+                                        <br> 
+                                        <a href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $emId; ?>/<?php echo $teamId; ?>/<?php echo $docPath; ?>/<?php echo $projectId ?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
+                                    </div>
+                                    <?php
+                                    echo form_close();
                                     ?>
 
                                 </div>
@@ -298,7 +303,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.content-wrapper -->
 
             <!-- Main Footer -->
-            <?php include_once 'template/footer.php'; ?>
+<?php include_once 'template/footer.php'; ?>
             <!-- .Main Footer -->
 
             <!-- Control Sidebar -->

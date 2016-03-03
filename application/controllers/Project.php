@@ -312,15 +312,19 @@ class Project extends CI_Controller {
         /*ดึงข้อความออกมาแสดง*/
         $dataMsn = $this->projects->_sel_msn($emId,$teamId , $projectId);
         
+        /*ดึงข้อมูลโปรเจค*/
+        $projectDetail = $this->projects->_sel_pro_details($projectId);
+        
         /*ข้อมูลลง วิว*/
         $data = array(
             'emId' => $emId,
             'teamId' => $teamId,
             'docPath' => $path,
             'arrDataMsn' => $dataMsn,
-            'projectId' => $projectId
+            'projectId' => $projectId,
+            'projectDetail' => $projectDetail
         );
-        
+       
         $this->load->view('team_details_view', $data);
     }
 
@@ -484,8 +488,11 @@ class Project extends CI_Controller {
     }
     
     
-    public function ems(){
-        echo "ทดสอบ";
+    public function ems($project_id,$command){
+     
+        $commnadEms = $this->projects->_ems($project_id,$command);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit; 
     }
     
     

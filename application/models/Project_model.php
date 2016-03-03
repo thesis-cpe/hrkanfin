@@ -145,7 +145,8 @@ class Project_model extends CI_Model {
                 'project_status' => $row->project_status,
                 'project_year' => $row->project_year,
                 'customer_id' => $row->customer_id,
-                'project_title' => $row->project_title
+                'project_title' => $row->project_title,
+                'project_ems' => $row->project_ems
             );
         }
         return $dataRe;
@@ -356,5 +357,15 @@ class Project_model extends CI_Model {
         $this->db->where('team_doc_path',$docOldPath);
         $this->db->delete('team_doc');
     }
+    
+    public function _ems($project_id,$command){
+        
+        $data = array(
+            'project_ems' => $command
+        );
+        $this->db->where('project_id',$project_id);
+        $this->db->update('project',$data);
+    }
+    
 
 }
