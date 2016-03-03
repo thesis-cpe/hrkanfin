@@ -272,11 +272,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <div class="col-sm-3">
                                     <label>&nbsp;</label>
-                                    <textarea name="txtareaAddr1" rows="1" cols="40" class="form-control" placeholder="ที่อยู่ตามทะเบียนบ้าน"><?php echo $em['em_addr'] ?></textarea>
+                                    <textarea name="txtareaAddr1" rows="2" cols="40" class="form-control" placeholder="ที่อยู่ตามทะเบียนบ้าน"><?php echo $em['em_addr'] ?></textarea>
                                 </div>
                                 <div class="col-sm-3">
                                     <label>&nbsp;</label>
-                                    <textarea name="txtareaAddr2" rows="1" cols="40" class="form-control" placeholder="ที่อยู่ปัจจุบัน"><?php echo $em['em_addr_curent'] ?></textarea>
+                                    <textarea name="txtareaAddr2" rows="2" cols="40" class="form-control" placeholder="ที่อยู่ปัจจุบัน"><?php echo $em['em_addr_curent'] ?></textarea>
                                 </div>
                             </div>
                             <br>
