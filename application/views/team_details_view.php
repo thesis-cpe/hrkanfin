@@ -307,7 +307,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <h4 class="modal-title">รายการไฟล์</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <p>One fine body&hellip;</p>
+                                        <p>ทดสอบ</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
