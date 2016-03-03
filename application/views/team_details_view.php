@@ -308,21 +308,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </div>
                                     <div class="modal-body">
                                         <!--ตารางแสดงรายการไฟล์-->
-                                        <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
-                                            <tr>
-                                                <th>ทดสอบ</th>
-                                                <th>ทดสอบ</th>
-                                            </tr>
-                                            <tr>
-                                                <td>ทดสอบ</td>
-                                                <td>ทดสอบ</td>
-                                            </tr>
+                                        <table id="example1" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>วันที่</th>
+                                                    <th>ผู้นำเข้า</th>
+                                                    <th>โน้ต</th>
+                                                    <th>ไฟล์แนบ</th>
+                                                    <th>เพิ่มเติม</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Rendering engine</td>
+                                                    <td>Rendering engine</td>
+                                                    <td>Rendering engine</td>
+                                                    <td>Rendering engine</td>
+                                                    <td>Rendering engine</td>
+
+                                                </tr>
+                                            </tbody>
                                         </table>
                                         <!--/.ตารางแสดงรายการไฟล์-->
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-                                       
+
                                     </div>
                                 </div><!-- /.modal-content -->
                             </div><!-- /.modal-dialog -->
@@ -361,20 +372,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="<?php echo base_url(); ?>dashboard/lte/dist/js/app.min.js"></script>
         <!--Data Table-->
         <script src="<?php echo base_url(); ?>dashboard/lte/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="<?php echo base_url();?>dashboard/lte/plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <script src="<?php echo base_url(); ?>dashboard/lte/plugins/datatables/dataTables.bootstrap.min.js"></script>
 
         <script>
-                                                                    $(function () {
-                                                                        $("#example1").DataTable();
-                                                                        $('#example2').DataTable({
-                                                                            "paging": true,
-                                                                            "lengthChange": false,
-                                                                            "searching": false,
-                                                                            "ordering": true,
-                                                                            "info": true,
-                                                                            "autoWidth": false
-                                                                        });
-                                                                    });
+            $(function () {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false
+                });
+            });
 
         </script>
 
