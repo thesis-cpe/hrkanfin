@@ -324,8 +324,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     <td>Rendering engine</td>
                                                     <td>Rendering engine</td>
                                                     <td>Rendering engine</td>
-                                                    <td>Rendering engine</td>
-
+                                                    <td>ลบ / นำแสดง</td>
                                                 </tr>
                                             </tbody>
                                         </table>

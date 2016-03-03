@@ -205,7 +205,7 @@ class Users_model extends CI_Model {
                 'file_path' => $row->file_path
             );
         }
-        return $dataRe;
+        return @$dataRe;
     }
     
     function _update_photo($file_id,$file_path){

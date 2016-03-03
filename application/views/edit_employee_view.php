@@ -80,7 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        เพิ่มพนักงาน
+                        แก้ไขข้อมูล
                         <small></small>
                     </h1>
                     <ol class="breadcrumb">
