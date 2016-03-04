@@ -330,7 +330,8 @@ class Project extends CI_Controller {
 
     public function insert_doc_team() { //อัพโหลดไฟล์และบันทึกลง db
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'doc|docx|pdf|xl|xls';
+        //$config['allowed_types'] = 'doc|docx|pdf|xl|xls';
+          $config['allowed_types'] = '*';
         $config['max_size'] = 10000; //10 mb
 
         $this->upload->initialize($config);
