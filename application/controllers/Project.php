@@ -368,7 +368,8 @@ class Project extends CI_Controller {
     public function sent_msn() {
         /*ไฟล์*/
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'doc|docx|pdf|xl|xls|jpg|jpeg|png|gif';
+        $config['allowed_types'] = 'doc|docx|pdf|xlsx|xls|jpg|jpeg|png|gif';
+         $config['allowed_types'] = '*';
         $config['max_width'] = 10240;
         $config['max_height'] = 10000;
         $config['max_size'] = 10000; //10 mb
@@ -496,7 +497,78 @@ class Project extends CI_Controller {
     }
     
     
+    /*chatV2*/
+       public function add_details2($emId , $teamId, $projectId) {  //เพิ่มรายละเอียดพร้อมทำแชท
+        //echo $emId." ".$teamId;
+      /*  $selDocPath = $this->projects->_sel_team_doc($projectId);
+        if (empty($selDocPath)) {
+
+            
+            $path = "pdf-sample.pdf";
+        } elseif (!empty($selDocPath)) {
+            $path = $selDocPath;
+        }  */
+        
+        /*ดึงข้อความออกมาแสดง*/
+        $dataMsn = $this->projects->_sel_msn($emId,$teamId , $projectId);
+        
+        /*ดึงข้อมูลโปรเจค*/
+        $projectDetail = $this->projects->_sel_pro_details($projectId);
+        
+        /*แสดงรายไฟล์ทั้งหมดที่อัพโหลดบนรายการไฟล์*/
+        $teamdocDetailsSMS = $this->projects->_sel_team_doc_sms($projectId);  //ได้ไฟล์ออกมา
+        
+        
+        /*ข้อมูลลง วิว*/
+        $data = array(
+            'emId' => $emId,
+            'teamId' => $teamId,
+            //'docPath' => $path,
+            'arrDataMsn' => $dataMsn,
+            'projectId' => $projectId,
+            'projectDetail' => $projectDetail,
+            'queryTeamDoc' => $teamdocDetailsSMS
+        );
+       
+        $this->load->view('team_details_view_v2', $data);
+    }
+    /*.ChatV2*/
     
+    /*insert chatBoard V2*/
+       public function insert_doc_team_v2() { //อัพโหลดไฟล์และบันทึกลง db
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'doc|docx|pdf|xl|xls';
+        $config['max_size'] = 10000; //10 mb
+
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config);
+        
+        /*เช็คไฟล์เก่าว่ามีหรือไม่*/
+        if($this->input->post('docPath') != ""){
+            $docOldPath = $this->input->post('docPath');
+            if(file_exists("uploads/$docOldPath")){
+                unlink("uploads/$docOldPath");
+                $deleteOldFile = $this->projects->_del_old_file_team_doc($docOldPath);
+            }
+        }
+
+        if (!empty($_FILES['fileDoc']['name'])) {
+            if (!$this->upload->do_upload('fileDoc')) {
+                $error = array('error' => $this->upload->display_errors());
+                print_r($error);
+            } else {
+                $uploadFileDoc = $this->upload->data();
+                $uploadFileDocName = $uploadFileDoc['file_name'];
+                $insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'), $this->input->post('hdf2'), $uploadFileDocName, $this->input->post('hdfpro'));
+            }
+        }
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
+    /*.insert chatBoard V2*/
+    
+    
+  
     
     
     

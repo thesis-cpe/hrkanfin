@@ -284,7 +284,7 @@ class Project_model extends CI_Model {
     public function _insert_team_doc($emId, $teamId, $uploadFileDocName, $proId) {
         $dataInsert = array(
             'team_doc_path' => $uploadFileDocName,
-            'team_id' => $teamId,  //ต้องเปลี่ยนเป็น project_id  หรือเพิ่ม project_id โยงไป
+            'team_id' => $teamId, //ต้องเปลี่ยนเป็น project_id  หรือเพิ่ม project_id โยงไป
             'em_id' => $emId,
             'pro_id' => $proId
         );
@@ -324,48 +324,54 @@ class Project_model extends CI_Model {
         $this->db->insert('msn', $dataInsert);
     }
 
-    public function _sel_msn($emId , $teamId , $projectId) {
+    public function _sel_msn($emId, $teamId, $projectId) {
         /* $query = $this->db->where('team_id', $teamId)
           ->get('msn')->result(); */
         /* $this->db->select('*');
           $this->db->from('msn');
           $this->db->join('employee','employee.em_id = msn.msn_sent');
           $query = $this->db->get()->result(); */
-       /* $this->db->select('*');
-        $this->db->from('msn');
-        $this->db->join('employee', 'employee.em_id = msn.msn_sent');
-        $this->db->join('file', 'file.em_id = msn.msn_sent');
-        $query = $this->db->get()->result(); */
-        
+        /* $this->db->select('*');
+          $this->db->from('msn');
+          $this->db->join('employee', 'employee.em_id = msn.msn_sent');
+          $this->db->join('file', 'file.em_id = msn.msn_sent');
+          $query = $this->db->get()->result(); */
+
         $this->db->join('employee', 'employee.em_id = msn.msn_sent');
         $this->db->join('file', 'file.em_id = msn.msn_sent');
         //$this->db->where('team_id', $teamId);
         $this->db->where('fk_project_id', $projectId);
         $this->db->order_by('msn_id', 'ASC');
         $query = $this->db->get('msn')->result();
-        
+
 
         return $query;
     }
-    
-    public function _del_msn($msnId){
-        $this->db->where('msn_id',$msnId);
+
+    public function _del_msn($msnId) {
+        $this->db->where('msn_id', $msnId);
         $this->db->delete('msn');
     }
-    
-    public function _del_old_file_team_doc($docOldPath){
-        $this->db->where('team_doc_path',$docOldPath);
+
+    public function _del_old_file_team_doc($docOldPath) {
+        $this->db->where('team_doc_path', $docOldPath);
         $this->db->delete('team_doc');
     }
-    
-    public function _ems($project_id,$command){
-        
+
+    public function _ems($project_id, $command) {
+
         $data = array(
             'project_ems' => $command
         );
-        $this->db->where('project_id',$project_id);
-        $this->db->update('project',$data);
+        $this->db->where('project_id', $project_id);
+        $this->db->update('project', $data);
     }
-    
+
+    public function _sel_team_doc_sms($projectId) {
+        $query = $this->db->join('employee', 'employee.em_id = team_doc.em_id')
+                        ->where('pro_id', $projectId)
+                        ->get('team_doc')->result();
+        return $query;
+    }
 
 }
