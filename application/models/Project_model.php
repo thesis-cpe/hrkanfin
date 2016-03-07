@@ -341,7 +341,7 @@ class Project_model extends CI_Model {
         $this->db->join('file', 'file.em_id = msn.msn_sent');
         //$this->db->where('team_id', $teamId);
         $this->db->where('fk_project_id', $projectId);
-        $this->db->order_by('msn_id', 'ASC');
+        $this->db->order_by('msn_id', 'DESC');
         $query = $this->db->get('msn')->result();
 
 
