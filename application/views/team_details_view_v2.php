@@ -312,13 +312,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                           <!--แสดงรายการไฟล์--> 
+                                           <?php foreach ($queryTeamDoc as $rowTeamDoc): ?>
                                                 <tr>
-                                                    <td>Rendering engine</td>
-                                                    <td>Rendering engine</td>
-                                                    <td>Rendering engine</td>
-                                                    <td>Rendering engine</td>
-                                                    <td>ลบ / นำแสดง</td>
+                                                    <td>-</td>
+                                                    
+                                                    <td><?php echo $rowTeamDoc->em_name; ?></td>
+                                                    
+                                                    <td>
+                                                        <?php
+                                                        if(empty($rowTeamDoc->note)){
+                                                            echo "-";
+                                                        }else{
+                                                            echo "$rowTeamDoc->note";
+                                                        }
+                                                    ?>
+                                                    </td>
+                                                    
+                                                    <td><a target="_blank" href="<?php echo base_url("uploads/$rowTeamDoc->team_doc_path");?>"><?php echo $rowTeamDoc->team_doc_path;  ?></a></td>
+                                                    
+                                                    <td><a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>" href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id;?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a></td>
                                                 </tr>
+                                            <?php endforeach; ?>
+                                           <!--/.แสดงรายการไฟล์-->      
                                             </tbody>
                                         </table>
                                         <!--/.ตารางแสดงรายการไฟล์-->
