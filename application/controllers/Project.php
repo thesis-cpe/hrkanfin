@@ -569,7 +569,12 @@ class Project extends CI_Controller {
     }
     /*.insert chatBoard V2*/
     
-    
+    public function set_show_teamdoc($teamDocId){
+       
+        $callUpdate = $this->projects->_set_show_teamdoc($teamDocId);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
   
     
     

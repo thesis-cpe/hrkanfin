@@ -331,7 +331,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     
                                                     <td><a target="_blank" href="<?php echo base_url("uploads/$rowTeamDoc->team_doc_path");?>"><?php echo $rowTeamDoc->team_doc_path;  ?></a></td>
                                                     
-                                                    <td><a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>" href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id;?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a></td>
+                                                    <td>
+                                                        <a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>" href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id;?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
+                                                        <a class="btn btn-sm btn-default" title="เลือกแสดงหน้าจอหลัก" href="#"><span class="fa fa-desktop"></span></a>
+                                                    </td>
                                                 </tr>
                                             <?php endforeach; ?>
                                            <!--/.แสดงรายการไฟล์-->      

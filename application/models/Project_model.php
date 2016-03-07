@@ -373,5 +373,16 @@ class Project_model extends CI_Model {
                         ->get('team_doc')->result();
         return $query;
     }
+    
+    /*update เลือกไฟล์ที่นำแสดงใน sms2*/
+    public function _set_show_teamdoc($teamDocId){
+        $data = array(
+            'show' => $teamDocId
+        );
+        
+        $this->db->where('team_doc_id',$teamDocId);
+        $this->db->update('team_doc',$data);
+                
+    }
 
 }
