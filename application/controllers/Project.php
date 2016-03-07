@@ -332,7 +332,7 @@ class Project extends CI_Controller {
         $config['upload_path'] = './uploads/';
         //$config['allowed_types'] = 'doc|docx|pdf|xl|xls';
           $config['allowed_types'] = '*';
-        $config['max_size'] = 10000; //10 mb
+        $config['max_size'] = 20000; //20 mb
 
         $this->upload->initialize($config);
         $this->load->library('upload', $config);

@@ -280,7 +280,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <input type="hidden" name="docPath" value="<?php echo $docPath; ?>">
                                             <input type="hidden" name="hdfpro" value="<?php echo $projectId; ?>"/>
                                         </ul>
-                                        <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb </i>
+                                        <i>*แนะนำเป็น pdf ขนาดสูงสุด 20 mb </i>
                                     </div>
 
                                     <div class="col-sm-offset-3 col-sm-3">
