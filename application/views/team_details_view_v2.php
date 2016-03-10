@@ -260,7 +260,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                    
                                    
                                     <?php
-                                    echo form_open_multipart('project/insert_doc_team');
+                                    echo form_open_multipart('project/insert_doc_team_v2');
                                     ?>
                                     <div class="col-sm-6">
                                         <label>แนบไฟล์ใหม่:</label>
@@ -273,7 +273,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <input type="hidden" name="docPath" value="<?php //echo $docPath; ?>">
                                             <input type="hidden" name="hdfpro" value="<?php echo $projectId; ?>"/>
                                         </ul>
-                                        <i>*แนะนำเป็น pdf ขนาดสูงสุด 10 mb </i>
+                                        <i>*แนะนำเป็น pdf ขนาดสูงสุด 20 mb </i>
                                     </div>
 
                                     <div class="col-sm-offset-3 col-sm-3">
@@ -332,8 +332,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     <td><a target="_blank" href="<?php echo base_url("uploads/$rowTeamDoc->team_doc_path");?>"><?php echo $rowTeamDoc->team_doc_path;  ?></a></td>
                                                     
                                                     <td>
-                                                        <a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>" href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id;?>" class="btn btn-sm btn-default"><span class="fa fa-trash"></span></a>
-                                                        <a class="btn btn-sm btn-default" title="เลือกแสดงหน้าจอหลัก" href="#"><span class="fa fa-desktop"></span></a>
+                                                        <a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>" href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id;?>" class="btn btn-xs btn-default"><span class="fa fa-trash"></span></a>
+                                                        <?php if($rowTeamDoc->show == "แสดง"):?>
+                                                        <a class="btn btn-xs btn-success" title="เลือกแสดงหน้าจอหลัก" href="<?php echo site_url();?>/project/set_show_teamdoc/<?php echo $rowTeamDoc->team_doc_id;?>/<?php echo $rowTeamDoc->pro_id; ?>"><span class="fa fa-desktop"></span></a>
+                                                        <?php elseif ($rowTeamDoc->show == ""):?>
+                                                        <a class="btn btn-xs btn-default" title="เลือกแสดงหน้าจอหลัก" href="<?php echo site_url();?>/project/set_show_teamdoc/<?php echo $rowTeamDoc->team_doc_id;?>/<?php echo $rowTeamDoc->pro_id; ?>"><span class="fa fa-desktop"></span></a>
+                                                        <?php endif;?>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

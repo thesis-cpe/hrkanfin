@@ -539,20 +539,20 @@ class Project extends CI_Controller {
     /*insert chatBoard V2*/
        public function insert_doc_team_v2() { //อัพโหลดไฟล์และบันทึกลง db
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'doc|docx|pdf|xl|xls';
-        $config['max_size'] = 10000; //10 mb
-
+        $config['allowed_types'] = '*';
+        $config['max_size'] = 20000; //20 mb
+        
         $this->upload->initialize($config);
         $this->load->library('upload', $config);
         
-        /*เช็คไฟล์เก่าว่ามีหรือไม่*/
+        /*เช็คไฟล์เก่าว่ามีหรือไม่
         if($this->input->post('docPath') != ""){
             $docOldPath = $this->input->post('docPath');
             if(file_exists("uploads/$docOldPath")){
                 unlink("uploads/$docOldPath");
                 $deleteOldFile = $this->projects->_del_old_file_team_doc($docOldPath);
             }
-        }
+        } */
 
         if (!empty($_FILES['fileDoc']['name'])) {
             if (!$this->upload->do_upload('fileDoc')) {
@@ -569,9 +569,9 @@ class Project extends CI_Controller {
     }
     /*.insert chatBoard V2*/
     
-    public function set_show_teamdoc($teamDocId){
+    public function set_show_teamdoc($teamDocId,$proid){
        
-        $callUpdate = $this->projects->_set_show_teamdoc($teamDocId);
+        $callUpdate = $this->projects->_set_show_teamdoc($teamDocId, $proid);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }

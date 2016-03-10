@@ -301,7 +301,8 @@ class Project_model extends CI_Model {
     }
 
     public function _del_doc_team($emId, $teamId, $file, $projectId) {
-        $this->db->where('pro_id', $projectId);
+        //$this->db->where('pro_id', $projectId);
+        $this->db->where('team_doc_path', $file);
         $this->db->delete('team_doc');
         //$filePath = base_url("uploads/$file");
         if (file_exists("uploads/$file")) {
@@ -375,9 +376,17 @@ class Project_model extends CI_Model {
     }
     
     /*update เลือกไฟล์ที่นำแสดงใน sms2*/
-    public function _set_show_teamdoc($teamDocId){
+    public function _set_show_teamdoc($teamDocId ,$proid){
+      
         $data = array(
-            'show' => $teamDocId
+            'show' => NULL
+        );
+        
+        $this->db->where('pro_id',$proid);
+        $this->db->update('team_doc',$data);
+        
+        $data = array(
+            'show' => "แสดง" 
         );
         
         $this->db->where('team_doc_id',$teamDocId);
