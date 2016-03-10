@@ -255,12 +255,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body" style="display: block;">
-                                   
+
                                     <!--แสดงไฟล์-->
-                                    <iframe style="height: 450px;width: 100%;" src="<?php echo base_url("uploads/$docPath");?>"></iframe>
+                                   
+                                    <?php
+                                    if (get_mime_by_extension($docPath) == ("application/pdf")): ?>
+                                     <iframe style="height: 450px;width: 100%;" src="<?php echo base_url("uploads/$docPath"); ?>"></iframe>    
+                             <?php  elseif(get_mime_by_extension($docPath) != ("application/pdf")):  ?>
+                                     ไม่ใช่ pdf
+                              <?php endif;?>
+
                                     <!--.แสดงไฟล์-->
-                                   
-                                   
+
+
                                     <?php
                                     echo form_open_multipart('project/insert_doc_team_v2');
                                     ?>
@@ -268,20 +275,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <label>แนบไฟล์ใหม่:</label>
                                         <ul class="list-inline">
                                             <li><input required=""  type="file" name="fileDoc"/> </li>
-                                            <li><button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button></li>
+                                          <!--  <li><button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button></li> -->
 
                                             <input type="hidden" name="hdf1" value="<?php echo $emId; ?>"/>
                                             <input type="hidden" name="hdf2" value="<?php echo $teamId; ?>"/>
-                                            <input type="hidden" name="docPath" value="<?php //echo $docPath; ?>">
+                                            <input type="hidden" name="docPath" value="<?php //echo $docPath;  ?>">
                                             <input type="hidden" name="hdfpro" value="<?php echo $projectId; ?>"/>
                                         </ul>
                                         <i>*แนะนำเป็น pdf ขนาดสูงสุด 20 mb </i>
                                     </div>
 
                                     <div class="col-sm-offset-3 col-sm-3">
-                                        <label>ลบไฟล์:</label>
+                                        <label>อัพโหลดไฟล์:</label>
                                         <br> 
-                                       
+                                        <button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button>
                                     </div>
                                     <?php
                                     echo form_close();
@@ -314,36 +321,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                           <!--แสดงรายการไฟล์--> 
-                                           <?php foreach ($queryTeamDoc as $rowTeamDoc): ?>
-                                                <tr>
-                                                    <td>-</td>
-                                                    
-                                                    <td><?php echo $rowTeamDoc->em_name; ?></td>
-                                                    
-                                                    <td>
-                                                        <?php
-                                                        if(empty($rowTeamDoc->note)){
-                                                            echo "-";
-                                                        }else{
-                                                            echo "$rowTeamDoc->note";
-                                                        }
-                                                    ?>
-                                                    </td>
-                                                    
-                                                    <td><a target="_blank" href="<?php echo base_url("uploads/$rowTeamDoc->team_doc_path");?>"><?php echo $rowTeamDoc->team_doc_path;  ?></a></td>
-                                                    
-                                                    <td>
-                                                        <a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>" href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id;?>" class="btn btn-xs btn-default"><span class="fa fa-trash"></span></a>
-                                                        <?php if($rowTeamDoc->show == "แสดง"):?>
-                                                        <a class="btn btn-xs btn-success" title="เลือกแสดงหน้าจอหลัก" href="<?php echo site_url();?>/project/set_show_teamdoc/<?php echo $rowTeamDoc->team_doc_id;?>/<?php echo $rowTeamDoc->pro_id; ?>"><span class="fa fa-desktop"></span></a>
-                                                        <?php elseif ($rowTeamDoc->show == ""):?>
-                                                        <a class="btn btn-xs btn-default" title="เลือกแสดงหน้าจอหลัก" href="<?php echo site_url();?>/project/set_show_teamdoc/<?php echo $rowTeamDoc->team_doc_id;?>/<?php echo $rowTeamDoc->pro_id; ?>"><span class="fa fa-desktop"></span></a>
-                                                        <?php endif;?>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                           <!--/.แสดงรายการไฟล์-->      
+                                                <!--แสดงรายการไฟล์--> 
+                                                <?php foreach ($queryTeamDoc as $rowTeamDoc): ?>
+                                                    <tr>
+                                                        <td>-</td>
+
+                                                        <td><?php echo $rowTeamDoc->em_name; ?></td>
+
+                                                        <td>
+                                                            <?php
+                                                            if (empty($rowTeamDoc->note)) {
+                                                                echo "-";
+                                                            } else {
+                                                                echo "$rowTeamDoc->note";
+                                                            }
+                                                            ?>
+                                                        </td>
+
+                                                        <td><a target="_blank" href="<?php echo base_url("uploads/$rowTeamDoc->team_doc_path"); ?>"><?php echo $rowTeamDoc->team_doc_path; ?></a></td>
+
+                                                        <td>
+                                                            <a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>" href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id; ?>" class="btn btn-xs btn-default"><span class="fa fa-trash"></span></a>
+                                                            <?php if ($rowTeamDoc->show == "แสดง"): ?>
+                                                                <a class="btn btn-xs btn-success" title="เลือกแสดงหน้าจอหลัก" href="<?php echo site_url(); ?>/project/set_show_teamdoc/<?php echo $rowTeamDoc->team_doc_id; ?>/<?php echo $rowTeamDoc->pro_id; ?>"><span class="fa fa-desktop"></span></a>
+                                                            <?php elseif ($rowTeamDoc->show == ""): ?>
+                                                                <a class="btn btn-xs btn-default" title="เลือกแสดงหน้าจอหลัก" href="<?php echo site_url(); ?>/project/set_show_teamdoc/<?php echo $rowTeamDoc->team_doc_id; ?>/<?php echo $rowTeamDoc->pro_id; ?>"><span class="fa fa-desktop"></span></a>
+                                                            <?php endif; ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                                <!--/.แสดงรายการไฟล์-->      
                                             </tbody>
                                         </table>
                                         <!--/.ตารางแสดงรายการไฟล์-->

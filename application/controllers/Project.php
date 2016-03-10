@@ -19,6 +19,7 @@ class Project extends CI_Controller {
         $this->load->model('Project_model', 'projects');
         $this->load->model('Customer_model', 'customers');
         $this->load->model('users_model', 'users');
+        $this->load->helper('file');
     }
 
     public function index() {
@@ -501,7 +502,8 @@ class Project extends CI_Controller {
     
     /*chatV2*/
        public function add_details2($emId , $teamId, $projectId) {  //เพิ่มรายละเอียดพร้อมทำแชท
-        //echo $emId." ".$teamId;
+           
+//echo $emId." ".$teamId;
       /*  $selDocPath = $this->projects->_sel_team_doc($projectId);
         if (empty($selDocPath)) {
 
@@ -523,6 +525,8 @@ class Project extends CI_Controller {
         /*แสดงรายไฟล์ทั้งหมดที่อัพโหลดบนรายการไฟล์*/
         $teamdocDetailsSMS = $this->projects->_sel_team_doc_sms($projectId);  //ได้ไฟล์ออกมา
         
+       
+       
         
         /*ข้อมูลลง วิว*/
         $data = array(
