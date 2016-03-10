@@ -257,13 +257,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="box-body" style="display: block;">
 
                                     <!--แสดงไฟล์-->
-                                   
-                                    <?php
-                                    if (get_mime_by_extension($docPath) == ("application/pdf")): ?>
-                                     <iframe style="height: 450px;width: 100%;" src="<?php echo base_url("uploads/$docPath"); ?>"></iframe>    
-                             <?php  elseif(get_mime_by_extension($docPath) != ("application/pdf")):  ?>
-                                     ไม่ใช่ pdf
-                              <?php endif;?>
+
+                                    <?php if (get_mime_by_extension($docPath) == ("application/pdf")): ?>
+                                        <iframe style="height: 450px;width: 100%;" src="<?php echo base_url("uploads/$docPath"); ?>"></iframe>    
+                                    <?php elseif (get_mime_by_extension($docPath) != ("application/pdf")): ?>
+                                      <center>  <a class="btn btn-app">
+                                            <i class="fa fa-hdd-o"></i> ดูเอกสาร
+                                          </a></center>
+                                    <?php endif; ?>
 
                                     <!--.แสดงไฟล์-->
 
@@ -279,7 +280,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                             <input type="hidden" name="hdf1" value="<?php echo $emId; ?>"/>
                                             <input type="hidden" name="hdf2" value="<?php echo $teamId; ?>"/>
-                                            <input type="hidden" name="docPath" value="<?php //echo $docPath;  ?>">
+                                            <input type="hidden" name="docPath" value="<?php //echo $docPath;   ?>">
                                             <input type="hidden" name="hdfpro" value="<?php echo $projectId; ?>"/>
                                         </ul>
                                         <i>*แนะนำเป็น pdf ขนาดสูงสุด 20 mb </i>
