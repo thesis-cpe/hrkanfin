@@ -511,6 +511,9 @@ class Project extends CI_Controller {
             $path = $selDocPath;
         }  */
         
+        /*ดึงไฟล์ออกมาแสดง*/
+       $selDocPath = $this->projects->_sel_team_doc2($projectId);
+       
         /*ดึงข้อความออกมาแสดง*/
         $dataMsn = $this->projects->_sel_msn($emId,$teamId , $projectId);
         
@@ -525,7 +528,7 @@ class Project extends CI_Controller {
         $data = array(
             'emId' => $emId,
             'teamId' => $teamId,
-            //'docPath' => $path,
+            'docPath' => $selDocPath,
             'arrDataMsn' => $dataMsn,
             'projectId' => $projectId,
             'projectDetail' => $projectDetail,

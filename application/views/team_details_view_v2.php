@@ -256,7 +256,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <!-- /.box-header -->
                                 <div class="box-body" style="display: block;">
                                    
-                                    
+                                    <!--แสดงไฟล์-->
+                                    <iframe style="height: 450px;width: 100%;" src="<?php echo base_url("uploads/$docPath");?>"></iframe>
+                                    <!--.แสดงไฟล์-->
                                    
                                    
                                     <?php

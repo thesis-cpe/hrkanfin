@@ -374,24 +374,36 @@ class Project_model extends CI_Model {
                         ->get('team_doc')->result();
         return $query;
     }
-    
-    /*update เลือกไฟล์ที่นำแสดงใน sms2*/
-    public function _set_show_teamdoc($teamDocId ,$proid){
-      
+
+    /* update เลือกไฟล์ที่นำแสดงใน sms2 */
+
+    public function _set_show_teamdoc($teamDocId, $proid) {
+
         $data = array(
             'show' => NULL
         );
-        
-        $this->db->where('pro_id',$proid);
-        $this->db->update('team_doc',$data);
-        
+
+        $this->db->where('pro_id', $proid);
+        $this->db->update('team_doc', $data);
+
         $data = array(
-            'show' => "แสดง" 
+            'show' => "แสดง"
         );
-        
-        $this->db->where('team_doc_id',$teamDocId);
-        $this->db->update('team_doc',$data);
-                
+
+        $this->db->where('team_doc_id', $teamDocId);
+        $this->db->update('team_doc', $data);
+    }
+
+    /* selTeamDoc สำหรับ MSN V2 */
+
+    public function _sel_team_doc2($projectId) {
+        $sel = $this->db->where('pro_id', $projectId)
+                        ->where('show', 'แสดง')
+                        ->get('team_doc')->result();
+        foreach ($sel as $row) {
+            $res = $row->team_doc_path;
+        }
+        return @$res;
     }
 
 }
