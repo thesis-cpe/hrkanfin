@@ -261,9 +261,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <?php if (get_mime_by_extension($docPath) == ("application/pdf")): ?>
                                         <iframe style="height: 450px;width: 100%;" src="<?php echo base_url("uploads/$docPath"); ?>"></iframe>    
                                     <?php elseif (get_mime_by_extension($docPath) != ("application/pdf")): ?>
-                                      <center>  <a class="btn btn-app">
-                                            <i class="fa fa-hdd-o"></i> ดูเอกสาร
-                                          </a></center>
+                                        <center> 
+                                            <a target="_blank" href="<?php echo base_url("uploads/$docPath"); ?>" class="btn btn-app ">
+                                                <i class="fa fa-hdd-o"></i> ดูเอกสาร
+                                            </a>
+                                        </center>
                                     <?php endif; ?>
 
                                     <!--.แสดงไฟล์-->
@@ -277,10 +279,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <ul class="list-inline">
                                             <li><input required=""  type="file" name="fileDoc"/> </li>
                                           <!--  <li><button title="อัพโหลด" type="submit" class="btn btn-sm btn-default"><span class="fa fa-upload"></span></button></li> -->
-
+                                            <br>
+                                            <br>
+                                            <li><textarea name="textNote" placeholder="ใส่รายละเอียดของไฟล์ที่นี่..." class="form-control" cols="50" rows="2"></textarea></li>
                                             <input type="hidden" name="hdf1" value="<?php echo $emId; ?>"/>
                                             <input type="hidden" name="hdf2" value="<?php echo $teamId; ?>"/>
-                                            <input type="hidden" name="docPath" value="<?php //echo $docPath;   ?>">
+                                            <input type="hidden" name="docPath" value="<?php //echo $docPath;    ?>">
                                             <input type="hidden" name="hdfpro" value="<?php echo $projectId; ?>"/>
                                         </ul>
                                         <i>*แนะนำเป็น pdf ขนาดสูงสุด 20 mb </i>
@@ -325,7 +329,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <!--แสดงรายการไฟล์--> 
                                                 <?php foreach ($queryTeamDoc as $rowTeamDoc): ?>
                                                     <tr>
-                                                        <td>-</td>
+                                                        <td><?php
+                                                            if (empty($rowTeamDoc->date)) {
+                                                                echo "-";
+                                                            } else {
+                                                                echo $rowTeamDoc->date;
+                                                            }
+                                                            ?></td>
 
                                                         <td><?php echo $rowTeamDoc->em_name; ?></td>
 
@@ -343,14 +353,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                                         <td>
                                                             <a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>" href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id; ?>" class="btn btn-xs btn-default"><span class="fa fa-trash"></span></a>
-                                                            <?php if ($rowTeamDoc->show == "แสดง"): ?>
+    <?php if ($rowTeamDoc->show == "แสดง"): ?>
                                                                 <a class="btn btn-xs btn-success" title="เลือกแสดงหน้าจอหลัก" href="<?php echo site_url(); ?>/project/set_show_teamdoc/<?php echo $rowTeamDoc->team_doc_id; ?>/<?php echo $rowTeamDoc->pro_id; ?>"><span class="fa fa-desktop"></span></a>
                                                             <?php elseif ($rowTeamDoc->show == ""): ?>
                                                                 <a class="btn btn-xs btn-default" title="เลือกแสดงหน้าจอหลัก" href="<?php echo site_url(); ?>/project/set_show_teamdoc/<?php echo $rowTeamDoc->team_doc_id; ?>/<?php echo $rowTeamDoc->pro_id; ?>"><span class="fa fa-desktop"></span></a>
                                                             <?php endif; ?>
                                                         </td>
                                                     </tr>
-                                                <?php endforeach; ?>
+<?php endforeach; ?>
                                                 <!--/.แสดงรายการไฟล์-->      
                                             </tbody>
                                         </table>
@@ -377,7 +387,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.content-wrapper -->
 
             <!-- Main Footer -->
-            <?php include_once 'template/footer.php'; ?>
+<?php include_once 'template/footer.php'; ?>
             <!-- .Main Footer -->
 
             <!-- Control Sidebar -->

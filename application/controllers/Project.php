@@ -299,7 +299,7 @@ class Project extends CI_Controller {
         $this->load->view('add_project_view', $dataOpenPro);
     }
 
-    public function add_details($emId , $teamId, $projectId) {  //เพิ่มรายละเอียดพร้อมทำแชท
+    public function add_details($emId, $teamId, $projectId) {  //เพิ่มรายละเอียดพร้อมทำแชท
         //echo $emId." ".$teamId;
         $selDocPath = $this->projects->_sel_team_doc($projectId);
         if (empty($selDocPath)) {
@@ -309,14 +309,14 @@ class Project extends CI_Controller {
         } elseif (!empty($selDocPath)) {
             $path = $selDocPath;
         }
-        
-        /*ดึงข้อความออกมาแสดง*/
-        $dataMsn = $this->projects->_sel_msn($emId,$teamId , $projectId);
-        
-        /*ดึงข้อมูลโปรเจค*/
+
+        /* ดึงข้อความออกมาแสดง */
+        $dataMsn = $this->projects->_sel_msn($emId, $teamId, $projectId);
+
+        /* ดึงข้อมูลโปรเจค */
         $projectDetail = $this->projects->_sel_pro_details($projectId);
-        
-        /*ข้อมูลลง วิว*/
+
+        /* ข้อมูลลง วิว */
         $data = array(
             'emId' => $emId,
             'teamId' => $teamId,
@@ -325,23 +325,23 @@ class Project extends CI_Controller {
             'projectId' => $projectId,
             'projectDetail' => $projectDetail
         );
-       
+
         $this->load->view('team_details_view', $data);
     }
 
     public function insert_doc_team() { //อัพโหลดไฟล์และบันทึกลง db
         $config['upload_path'] = './uploads/';
         //$config['allowed_types'] = 'doc|docx|pdf|xl|xls';
-          $config['allowed_types'] = '*';
+        $config['allowed_types'] = '*';
         $config['max_size'] = 20000; //20 mb
 
         $this->upload->initialize($config);
         $this->load->library('upload', $config);
-        
-        /*เช็คไฟล์เก่าว่ามีหรือไม่*/
-        if($this->input->post('docPath') != ""){
+
+        /* เช็คไฟล์เก่าว่ามีหรือไม่ */
+        if ($this->input->post('docPath') != "") {
             $docOldPath = $this->input->post('docPath');
-            if(file_exists("uploads/$docOldPath")){
+            if (file_exists("uploads/$docOldPath")) {
                 unlink("uploads/$docOldPath");
                 $deleteOldFile = $this->projects->_del_old_file_team_doc($docOldPath);
             }
@@ -368,19 +368,19 @@ class Project extends CI_Controller {
     }
 
     public function sent_msn() {
-        /*ไฟล์*/
+        /* ไฟล์ */
         $config['upload_path'] = './uploads/';
         //$config['allowed_types'] = 'doc|docx|pdf|xlsx|xls|jpg|jpeg|png|gif';
-       // $config['allowed_types'] = '*';
-         $config['allowed_types'] = '*';
+        // $config['allowed_types'] = '*';
+        $config['allowed_types'] = '*';
         $config['max_width'] = 10240;
         $config['max_height'] = 10000;
         $config['max_size'] = 20000; //20 mb
 
         $this->upload->initialize($config);
         $this->load->library('upload', $config);
-        
-        if(!empty($_FILES['fileMsn']['name'])){
+
+        if (!empty($_FILES['fileMsn']['name'])) {
             if (!$this->upload->do_upload('fileMsn')) {
                 $error = array('error' => $this->upload->display_errors());
                 print_r($error);
@@ -389,11 +389,11 @@ class Project extends CI_Controller {
                 $uploadFileDocName = $uploadFileDoc['file_name'];
                 //$insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'), $this->input->post('hdf2'), $uploadFileDocName);
             }
-        }else{
+        } else {
             $uploadFileDocName = ""; //ถ้าไม่มีการอัพไฟล์ให้เท่ากัับว่าง
         }
-        
-        
+
+
         echo $dateSent = $this->session->userdata('date_curent');  //วันที่ล๊อคอิน
         echo "<br>";
         echo $timeSent = date('G:i:s');
@@ -404,32 +404,33 @@ class Project extends CI_Controller {
         echo "<br>";
         echo $receipter = $this->input->post('hdf3');
         echo "<br>";
-       echo  $teamId = $this->input->post('hdf4');
-       $projectID = $this->input->post('hdf5');
-        
-       
-       
+        echo $teamId = $this->input->post('hdf4');
+        $projectID = $this->input->post('hdf5');
+
+
+
         $dataToInsert = array(
             'dateSent' => $dateSent,
             'timeSent' => $timeSent,
             'text' => $text,
             'sender' => $sender,
             'receipter' => $receipter,
-            'teamId' => $teamId,   //
+            'teamId' => $teamId, //
             'fk_project_id' => $projectID,
             'uploadFileDocName' => $uploadFileDocName
-                
         );
-        
+
         $dataMsnInsert = $this->projects->_insert_msn($dataToInsert);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
-    /*ทดสอบ*/
-    public function chat($emId, $teamId){
-       
-        
-        /*ดึงข้อความออกมาแสดง*/
+
+    /* ทดสอบ */
+
+    public function chat($emId, $teamId) {
+
+
+        /* ดึงข้อความออกมาแสดง */
         $dataMsn = $this->projects->_sel_msn($emId, $teamId);
         $path = "";
         $data = array(
@@ -438,40 +439,39 @@ class Project extends CI_Controller {
             'docPath' => $path,
             'arrDataMsn' => $dataMsn
         );
-        
-        $this->load->view('team_details_view_ref',$data);
+
+        $this->load->view('team_details_view_ref', $data);
     }
-    
-    public function del_msn($msnId){
-        $this->db->where('msn_id',$msnId);
+
+    public function del_msn($msnId) {
+        $this->db->where('msn_id', $msnId);
         $query = $this->db->get('msn')->result();
-        foreach ($query as $row){
+        foreach ($query as $row) {
             $filePath = $row->msn_file;
         }
-        if(!empty($filePath)){
-            if(file_exists("uploads/$filePath")){
+        if (!empty($filePath)) {
+            if (file_exists("uploads/$filePath")) {
                 unlink("uploads/$filePath");
             }
         }
-        
+
         $delMsn = $this->projects->_del_msn($msnId);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
-    
-    
-      public function insert_doc_team2() { //อัพโหลดไฟล์และบันทึกลง db
+
+    public function insert_doc_team2() { //อัพโหลดไฟล์และบันทึกลง db
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'doc|docx|pdf|xl|xls';
         $config['max_size'] = 10000; //10 mb
 
         $this->upload->initialize($config);
         $this->load->library('upload', $config);
-        
-        /*เช็คไฟล์เก่าว่ามีหรือไม่*/
-        if($this->input->post('docPath') != ""){
+
+        /* เช็คไฟล์เก่าว่ามีหรือไม่ */
+        if ($this->input->post('docPath') != "") {
             $docOldPath = $this->input->post('docPath');
-            if(file_exists("uploads/$docOldPath")){
+            if (file_exists("uploads/$docOldPath")) {
                 unlink("uploads/$docOldPath");
                 $deleteOldFile = $this->projects->_del_old_file_team_doc($docOldPath);
             }
@@ -490,45 +490,43 @@ class Project extends CI_Controller {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
-    
-    
-    public function ems($project_id,$command){
-     
-        $commnadEms = $this->projects->_ems($project_id,$command);
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit; 
-    }
-    
-    
-    /*chatV2*/
-       public function add_details2($emId , $teamId, $projectId) {  //เพิ่มรายละเอียดพร้อมทำแชท
-           
-//echo $emId." ".$teamId;
-      /*  $selDocPath = $this->projects->_sel_team_doc($projectId);
-        if (empty($selDocPath)) {
 
-            
-            $path = "pdf-sample.pdf";
-        } elseif (!empty($selDocPath)) {
-            $path = $selDocPath;
-        }  */
-        
-        /*ดึงไฟล์ออกมาแสดง*/
-       $selDocPath = $this->projects->_sel_team_doc2($projectId);
-       
-        /*ดึงข้อความออกมาแสดง*/
-        $dataMsn = $this->projects->_sel_msn($emId,$teamId , $projectId);
-        
-        /*ดึงข้อมูลโปรเจค*/
+    public function ems($project_id, $command) {
+
+        $commnadEms = $this->projects->_ems($project_id, $command);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
+
+    /* chatV2 */
+
+    public function add_details2($emId, $teamId, $projectId) {  //เพิ่มรายละเอียดพร้อมทำแชท
+//echo $emId." ".$teamId;
+        /*  $selDocPath = $this->projects->_sel_team_doc($projectId);
+          if (empty($selDocPath)) {
+
+
+          $path = "pdf-sample.pdf";
+          } elseif (!empty($selDocPath)) {
+          $path = $selDocPath;
+          } */
+
+        /* ดึงไฟล์ออกมาแสดง */
+        $selDocPath = $this->projects->_sel_team_doc2($projectId);
+
+        /* ดึงข้อความออกมาแสดง */
+        $dataMsn = $this->projects->_sel_msn($emId, $teamId, $projectId);
+
+        /* ดึงข้อมูลโปรเจค */
         $projectDetail = $this->projects->_sel_pro_details($projectId);
-        
-        /*แสดงรายไฟล์ทั้งหมดที่อัพโหลดบนรายการไฟล์*/
+
+        /* แสดงรายไฟล์ทั้งหมดที่อัพโหลดบนรายการไฟล์ */
         $teamdocDetailsSMS = $this->projects->_sel_team_doc_sms($projectId);  //ได้ไฟล์ออกมา
-        
-       
-       
-        
-        /*ข้อมูลลง วิว*/
+
+
+
+
+        /* ข้อมูลลง วิว */
         $data = array(
             'emId' => $emId,
             'teamId' => $teamId,
@@ -538,28 +536,40 @@ class Project extends CI_Controller {
             'projectDetail' => $projectDetail,
             'queryTeamDoc' => $teamdocDetailsSMS
         );
-       
+
         $this->load->view('team_details_view_v2', $data);
     }
-    /*.ChatV2*/
-    
-    /*insert chatBoard V2*/
-       public function insert_doc_team_v2() { //อัพโหลดไฟล์และบันทึกลง db
+
+    /* .ChatV2 */
+
+    /* insert chatBoard V2 */
+
+    public function insert_doc_team_v2() { //อัพโหลดไฟล์และบันทึกลง db
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = '*';
         $config['max_size'] = 20000; //20 mb
-        
+
         $this->upload->initialize($config);
         $this->load->library('upload', $config);
-        
-        /*เช็คไฟล์เก่าว่ามีหรือไม่
-        if($this->input->post('docPath') != ""){
-            $docOldPath = $this->input->post('docPath');
-            if(file_exists("uploads/$docOldPath")){
-                unlink("uploads/$docOldPath");
-                $deleteOldFile = $this->projects->_del_old_file_team_doc($docOldPath);
-            }
-        } */
+
+        /* เช็คไฟล์เก่าว่ามีหรือไม่
+          if($this->input->post('docPath') != ""){
+          $docOldPath = $this->input->post('docPath');
+          if(file_exists("uploads/$docOldPath")){
+          unlink("uploads/$docOldPath");
+          $deleteOldFile = $this->projects->_del_old_file_team_doc($docOldPath);
+          }
+          } */
+
+
+        /* วันที่ ปัจจุบัน */
+        $today = date("d-m-Y ");
+        $todayExplode = explode("-", $today);
+        $yearThaiBank = $todayExplode[2] + 543; //ได้เป็นปีพ.ศ.
+        $curentDay = date("d/m") . "/" . $yearThaiBank; //วันที่ปัจจุบัน
+        /* .วันที่ */
+
+
 
         if (!empty($_FILES['fileDoc']['name'])) {
             if (!$this->upload->do_upload('fileDoc')) {
@@ -568,23 +578,20 @@ class Project extends CI_Controller {
             } else {
                 $uploadFileDoc = $this->upload->data();
                 $uploadFileDocName = $uploadFileDoc['file_name'];
-                $insertDb = $this->projects->_insert_team_doc($this->input->post('hdf1'), $this->input->post('hdf2'), $uploadFileDocName, $this->input->post('hdfpro'));
+                $insertDb = $this->projects->_insert_team_docV2($this->input->post('hdf1'), $this->input->post('hdf2'), $uploadFileDocName, $this->input->post('hdfpro'), $this->input->post('textNote'), $curentDay);
             }
         }
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
-    /*.insert chatBoard V2*/
-    
-    public function set_show_teamdoc($teamDocId,$proid){
-       
+
+    /* .insert chatBoard V2 */
+
+    public function set_show_teamdoc($teamDocId, $proid) {
+
         $callUpdate = $this->projects->_set_show_teamdoc($teamDocId, $proid);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
-  
-    
-    
-    
 
 }

@@ -405,5 +405,17 @@ class Project_model extends CI_Model {
         }
         return @$res;
     }
+    
+     public function _insert_team_docV2($emId, $teamId, $uploadFileDocName, $proId, $note, $date) {
+        $dataInsert = array(
+            'team_doc_path' => $uploadFileDocName,
+            'team_id' => $teamId, //ต้องเปลี่ยนเป็น project_id  หรือเพิ่ม project_id โยงไป
+            'em_id' => $emId,
+            'pro_id' => $proId,
+            'note' => $note,
+            'date' => $date
+        );
+        $this->db->insert('team_doc', $dataInsert);
+    }
 
 }
