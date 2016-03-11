@@ -34,7 +34,10 @@
               <li><a href="<?php echo base_url()?>index.php/report/customer"><i class="fa fa-circle-o"></i>ลูกค้า</a></li>
               <li><a href="<?php echo base_url()?>index.php/report/employee"><i class="fa fa-circle-o"></i>พนักงาน</a></li>
           </ul>
-        </li>  
+        </li>
+        
+        <!--เมนู help-->
+        <li><a href="<?php echo base_url()?>index.php/manual"><i class="fa fa-book"></i> <span>คู่มือ</span></a></li>
       </ul>  
       <!-- /.sidebar-menu -->
     </section>
