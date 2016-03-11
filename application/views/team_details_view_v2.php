@@ -261,11 +261,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <?php if (get_mime_by_extension($docPath) == ("application/pdf")): ?>
                                         <iframe style="height: 450px;width: 100%;" src="<?php echo base_url("uploads/$docPath"); ?>"></iframe>    
                                     <?php elseif (get_mime_by_extension($docPath) != ("application/pdf")): ?>
+                                       
+                                        <?php if(empty($docPath)){
+                                            echo "<center ><a>ไม่มีไฟล์ในระบบ</a></center>";
+                                            
+                                        }elseif (!empty($docPath)) {  ?>
+                                        
                                         <center> 
                                             <a target="_blank" href="<?php echo base_url("uploads/$docPath"); ?>" class="btn btn-app ">
                                                 <i class="fa fa-hdd-o"></i> ดูเอกสาร
                                             </a>
                                         </center>
+                                                
+                                         <?php   }?>
+                                        
+                                        
+                                        
                                     <?php endif; ?>
 
                                     <!--.แสดงไฟล์-->
