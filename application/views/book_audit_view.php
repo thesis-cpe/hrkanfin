@@ -41,7 +41,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 color: #00A3CB;
             }
         </style>
-
+        <!-- DataTables -->
+        <link rel="stylesheet" href="<?php echo base_url('dashboard/lte/plugins/datatables/dataTables.bootstrap.css') ?>">
     </head>
     <!--
     BODY TAG OPTIONS:
@@ -103,9 +104,63 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            
-                       
-                          
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th width="80px">วันที่</th>
+                                        <th>หัวข้อ</th>
+                                        <th width="200px">ผู้เขียน</th>
+                                        <th width="100px">เพิ่มเติม</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>11/3/59</td>
+                                        <td ><a href="#" data-toggle="modal" data-target="#pnl1">แมวน้อยน่ารัก</a></td>
+                                        <td >วิทยานิพนธ์ แท่นทอง</td>
+                                        <td>
+                                            <!--กลุ่ม ปุ่ม-->
+                                            <div class="btn-group">
+                                                <button  type="button" class="btn btn-default btn-sm">แก้ไข</button>
+                                                <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">ลบ</a></li>
+                                                </ul>
+                                            </div>
+                                            <!--./กลุ่ม ปุ่ม-->
+                                        </td>
+                                        <!--Modal ดู VDO-->
+                                <div id="pnl1" class="modal fade" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog modal-lg" style="margin-top: 0px; width: 100%;margin-bottom: 0px;margin-left: 0px;margin-right: 0px">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title">เนื้อหา</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div style="padding-left: 5px;padding-right: 5px;">
+                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
+                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
+                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
+                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
+                                <!--.Modal ดู VDO-->
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -139,6 +194,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
              Both of these plugins are recommended to enhance the
              user experience. Slimscroll is required when using the
              fixed layout. -->
+        <!--Data Table-->
+        <script src="<?php echo base_url(); ?>dashboard/lte/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?php echo base_url(); ?>dashboard/lte/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+        <script>
+            $(function () {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false
+                });
+            });
+
+        </script>
+
     </body>
 </html>
 
