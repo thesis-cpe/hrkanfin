@@ -263,7 +263,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <?php elseif (get_mime_by_extension($docPath) != ("application/pdf")): ?>
                                        
                                         <?php if(empty($docPath)){
-                                            echo "<center ><a>ไม่มีไฟล์ในระบบ</a></center>";
+                                            echo "<center ><a>ไม่มีไฟล์ในระบบ หรือ ไม่มีไฟล์เลือกแสดง</a></center>";
                                             
                                         }elseif (!empty($docPath)) {  ?>
                                         
@@ -363,12 +363,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         <td><a target="_blank" href="<?php echo base_url("uploads/$rowTeamDoc->team_doc_path"); ?>"><?php echo $rowTeamDoc->team_doc_path; ?></a></td>
 
                                                         <td>
-                                                            <a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>" href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id; ?>" class="btn btn-xs btn-default"><span class="fa fa-trash"></span></a>
-    <?php if ($rowTeamDoc->show == "แสดง"): ?>
+                                                       <!--     <a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>" href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id; ?>" class="btn btn-xs btn-default"><span class="fa fa-trash"></span></a> -->
+    
+                                                                
+                                                                <!--กลุ่มปุ่ม-->
+                                                                <div class="btn-group">
+                                                                 
+                                                                    
+                                                                      <?php if ($rowTeamDoc->show == "แสดง"): ?>
                                                                 <a class="btn btn-xs btn-success" title="เลือกแสดงหน้าจอหลัก" href="<?php echo site_url(); ?>/project/set_show_teamdoc/<?php echo $rowTeamDoc->team_doc_id; ?>/<?php echo $rowTeamDoc->pro_id; ?>"><span class="fa fa-desktop"></span></a>
                                                             <?php elseif ($rowTeamDoc->show == ""): ?>
                                                                 <a class="btn btn-xs btn-default" title="เลือกแสดงหน้าจอหลัก" href="<?php echo site_url(); ?>/project/set_show_teamdoc/<?php echo $rowTeamDoc->team_doc_id; ?>/<?php echo $rowTeamDoc->pro_id; ?>"><span class="fa fa-desktop"></span></a>
                                                             <?php endif; ?>
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                    <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown">
+                                                                      <span class="caret"></span>
+                                                                      <span class="sr-only">Toggle Dropdown</span>
+                                                                    </button>
+                                                                    <ul class="dropdown-menu" role="menu">
+                                                                      <li><a title="ลบไฟล์ <?php echo $rowTeamDoc->team_doc_path; ?>"  href="<?php echo base_url(); ?>index.php/project/del_doc_team/<?php echo $rowTeamDoc->em_id; ?>/<?php echo $rowTeamDoc->team_id; ?>/<?php echo $rowTeamDoc->team_doc_path; ?>/<?php echo $rowTeamDoc->pro_id; ?>">ลบ</a></li>
+
+                                                                    </ul>
+                                                                  </div>
+                                                                <!--.กลุ่มปุ่ม-->
                                                         </td>
                                                     </tr>
 <?php endforeach; ?>
