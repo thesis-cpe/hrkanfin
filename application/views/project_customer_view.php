@@ -130,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                     <!--หัวข้องาน-->
                                                                     <td><?php echo $rowdetails->project_title;?></td>
                                                                     <!--รหัสโครงการ-->
-                                                                    <td><a target="_blank" href="<?php echo site_url()?>/project/add_details/<?php echo $this->session->userdata('em_id');?>/0/<?php echo $rowdetails->project_id;?>" title="คลิกดูรายละเอียดงาน"><?php echo $rowdetails->project_number;?></a></td>
+                                                                    <td><a target="_blank" href="<?php echo site_url()?>/project/add_details2/<?php echo $this->session->userdata('em_id');?>/0/<?php echo $rowdetails->project_id;?>" title="คลิกดูรายละเอียดงาน"><?php echo $rowdetails->project_number;?></a></td>
                                                                     <!--วันที่นำเข้า-->
                                                                     <td><?php echo $rowdetails->project_receip;?></td>
                                                                     <!--วันเริ่มโครงการ-->

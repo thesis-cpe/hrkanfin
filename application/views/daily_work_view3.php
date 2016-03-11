@@ -218,7 +218,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                                 id="text-led"
                                                                                 <?php endif;?>
                                                                                 
-                                                                                target="_blank" href="<?php echo base_url()?>index.php/project/add_details/<?php echo $this->session->userdata('em_id');?>/<?php echo $rowteam_data['team_id'];?>/<?php echo $rowteam_data['project_id']; ?>" title="คลิกดูรายละเอียดของงาน"> <?php  echo $rowteam_data['project_number']; ?> </a>
+                                                                                target="_blank" href="<?php echo base_url()?>index.php/project/add_details2/<?php echo $this->session->userdata('em_id');?>/<?php echo $rowteam_data['team_id'];?>/<?php echo $rowteam_data['project_id']; ?>" title="คลิกดูรายละเอียดของงาน"> <?php  echo $rowteam_data['project_number']; ?> </a>
                                                                             <input disabled="" id="hdfProjectNumber<?php echo $i; ?>" type="hidden" name="hdfProjectNumber[]" value="<?php echo $rowteam_data['project_number']; ?>">
                                                                         </td>
 
