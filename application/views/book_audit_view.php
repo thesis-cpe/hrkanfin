@@ -97,14 +97,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <section class="content">
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">คู่มือการทำบัญชี</h3>
+                            <h3 class="box-title">คู่มือการทำบัญชี</h3> <a style="float: right;"><span class="fa fa-plus"></span>เพิ่มเนื้อหา</a>
                             
 
                             <!-- /.box-tools -->
-                            
-                        </div>
+                         </div>
+                        
                         <!-- /.box-header -->
                         <div class="box-body">
+                            
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
