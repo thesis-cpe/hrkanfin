@@ -97,10 +97,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <section class="content">
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">คลังสื่อ</h3>
-
+                            <h3 class="box-title">คู่มือการทำบัญชี</h3>
+                            
 
                             <!-- /.box-tools -->
+                            
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
