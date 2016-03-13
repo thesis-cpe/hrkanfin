@@ -25,4 +25,8 @@ class Manual extends CI_Controller {
     public function audit(){
         $this->load->view('book_audit_view');
     }
+    
+    public function add_audit_content(){
+     echo   $this->input->post('txtSumerNote');
+    }
 }

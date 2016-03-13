@@ -43,7 +43,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </style>
         <!-- DataTables -->
         <link rel="stylesheet" href="<?php echo base_url('dashboard/lte/plugins/datatables/dataTables.bootstrap.css') ?>">
-    </head>
+        <!--Editor-->
+      <!--  <link rel="stylesheet" type="text/css" href="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+        <link rel="stylesheet" type="text/css" href="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+        <link rel="stylesheet" type="text/css" href="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-summernote/summernote.css"> -->
+
+<!-- include summernote css/js-->
+<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet"> -->
+<link href="<?php echo base_url()?>dashboard/summernote/summernote.css" rel="stylesheet">
+<!--Overide-->
+
+      
+    </head> 
     <!--
     BODY TAG OPTIONS:
     =================
@@ -97,15 +108,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <section class="content">
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">คู่มือการทำบัญชี</h3> <a style="float: right;"><span class="fa fa-plus"></span>เพิ่มเนื้อหา</a>
-                            
+                            <h3 class="box-title">คู่มือการทำบัญชี</h3> <a data-toggle="modal" data-target="#pnl2" href="#" style="float: right;"><span class="fa fa-plus"></span>เพิ่มเนื้อหา</a>
+
 
                             <!-- /.box-tools -->
-                         </div>
-                        
+                        </div>
+
                         <!-- /.box-header -->
                         <div class="box-body">
-                            
+
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -160,7 +171,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </div><!-- /.modal-dialog -->
                                 </div><!-- /.modal -->
                                 <!--.Modal ดู VDO-->
+
+
                                 </tr>
+
+                                <!--Modal add content-->
+                               
+                                <div id="pnl2" class="modal fade" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog modal-lg" >
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title">เนื้อหา</h4>
+                                            </div>
+                                             <?php echo form_open("manual/add_audit_content"); ?>
+                                            <div class="modal-body">
+                                                
+                                                    <!--Editor-->
+                                                    <div id="summernote"></div>
+                                                    <!--.Editor-->
+                                               
+<button type="submit" class="btn btn-default" >บันทึก</button> 
+                                            </div>
+                                            <?php echo form_close(); ?>
+                                            <div class="modal-footer">
+                                         <!--    <button type="submit" class="btn btn-default" >บันทึก</button>  -->
+
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
+                                
+                                <!--Modal add content-->
                                 </tbody>
                             </table>
                         </div>
@@ -180,6 +222,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Add the sidebar's background. This div must be placed
                  immediately after the control sidebar -->
             <div class="control-sidebar-bg"></div>
+           
         </div>
         <!-- ./wrapper -->
 
@@ -215,6 +258,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         </script>
 
+        <!--
+        <script type="text/javascript" src="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+        <script type="text/javascript" src="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+        <script src="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+        <script src="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+        <script src="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
+       -->
+       <script src="<?php echo base_url()?>/dashboard/summernote/summernote.js"></script>
+        <script> 
+            $(document).ready(function() {
+          $('#summernote').summernote();
+        });
+        </script> 
     </body>
 </html>
 
