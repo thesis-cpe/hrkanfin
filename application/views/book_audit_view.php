@@ -152,31 +152,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <!--./กลุ่ม ปุ่ม-->
                                         </td>
                                         <!--Modal ดู VDO-->
-                                <div id="pnl1" class="modal fade" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog modal-lg" style="margin-top: 0px; width: 100%;margin-bottom: 0px;margin-left: 0px;margin-right: 0px">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title">เนื้อหา</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div style="padding-left: 5px;padding-right: 5px;">
-                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
+                                            <div id="pnl1" class="modal fade" tabindex="-1" role="dialog">
+                                                <!--    <div class="modal-dialog modal-lg" style="margin-top: 0px; width: 100%;margin-bottom: 0px;margin-left: 0px;margin-right: 0px"> -->
+                                                <div class="modal-dialog modal-lg">        
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">เนื้อหา</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div style="padding-left: 5px;padding-right: 5px;">
+                                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
+                                                             </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
 
-                                                </div>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-
-                                            </div>
-                                        </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                                </div><!-- /.modal -->
-                                <!--.Modal ดู VDO-->
-
-
-                                </tr>
+                                                        </div>
+                                                    </div><!-- /.modal-content -->
+                                                </div><!-- /.modal-dialog -->
+                                            </div><!-- /.modal -->
+                                            <!--.Modal ดู VDO-->
+                                    </tr>
 
                                 <!--Modal add content-->
 
@@ -200,10 +197,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     <div class="col-sm-12">
                                                         <!--Editor-->
                                                         <fieldset>
-
-                                                            <textarea  class="input-block-level" id="summernote" name="content" rows="18" cols="10">
-                                                            </textarea>
-
+                                                            <textarea  class="input-block-level" id="summernote" name="content" rows="18" cols="10"></textarea>
                                                         </fieldset>
                                                         <!--.Editor-->
                                                     </div>
@@ -297,7 +291,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     $.ajax({
                         data: data,
                         type: "POST",
-                        //url: "<?php //echo base_url('manual/add_audit_content') ?>",
+                        //url: "<?php //echo base_url('manual/add_audit_content')  ?>",
                         cache: false,
                         contentType: false,
                         processData: false,
