@@ -37,7 +37,7 @@
         </li>
         
         <!--เมนู help-->
-        <li><a href="<?php echo base_url()?>index.php/manual"><i class="fa fa-book"></i> <span>คู่มือ</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/manual/audit"><i class="fa fa-book"></i> <span>คู่มือ</span></a></li>
       </ul>  
       <!-- /.sidebar-menu -->
     </section>

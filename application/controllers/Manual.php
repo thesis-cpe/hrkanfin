@@ -14,6 +14,7 @@
 class Manual extends CI_Controller {
     public function __construct() {
         parent::__construct();
+          $this->load->model('manual_model', 'manual');
     }
     
     public function index(){
@@ -27,6 +28,16 @@ class Manual extends CI_Controller {
     }
     
     public function add_audit_content(){
-     echo   $this->input->post('txtSumerNote');
+       // echo $this->input->post('content');
+        
+        $data = array(
+            'date' => '14/3/2559',
+            'title' => $this->input->post('txtTitle'),
+            'data' =>  $this->input->post('content'),
+            'writer' => $this->session->userdata('em_id'),
+            'cate' => '1'
+        );
+        $insert = $this->manual->_add_content($data);
+   
     }
 }

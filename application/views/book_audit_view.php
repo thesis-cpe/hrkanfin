@@ -44,16 +44,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- DataTables -->
         <link rel="stylesheet" href="<?php echo base_url('dashboard/lte/plugins/datatables/dataTables.bootstrap.css') ?>">
         <!--Editor-->
-      <!--  <link rel="stylesheet" type="text/css" href="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
-        <link rel="stylesheet" type="text/css" href="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
-        <link rel="stylesheet" type="text/css" href="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-summernote/summernote.css"> -->
+        <!--  <link rel="stylesheet" type="text/css" href="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+          <link rel="stylesheet" type="text/css" href="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+          <link rel="stylesheet" type="text/css" href="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-summernote/summernote.css"> -->
 
-<!-- include summernote css/js-->
-<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet"> -->
-<link href="<?php echo base_url()?>dashboard/summernote/summernote.css" rel="stylesheet">
-<!--Overide-->
+        <!-- include summernote css/js-->
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet"> -->
 
-      
+        <!--summer Note-->
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/blackboard.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.min.css">
+
+        <link href="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+
+
     </head> 
     <!--
     BODY TAG OPTIONS:
@@ -157,9 +162,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <div class="modal-body">
                                                 <div style="padding-left: 5px;padding-right: 5px;">
                                                     <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
-                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
-                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
-                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
+
                                                 </div>
 
                                             </div>
@@ -176,7 +179,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </tr>
 
                                 <!--Modal add content-->
-                               
+
                                 <div id="pnl2" class="modal fade" tabindex="-1" role="dialog">
                                     <div class="modal-dialog modal-lg" >
                                         <div class="modal-content">
@@ -184,24 +187,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 <h4 class="modal-title">เนื้อหา</h4>
                                             </div>
-                                             <?php echo form_open("manual/add_audit_content"); ?>
+                                            <?php echo form_open("manual/add_audit_content"); ?>
                                             <div class="modal-body">
-                                                
-                                                    <!--Editor-->
-                                                    <div id="summernote"></div>
-                                                    <!--.Editor-->
-                                               
-<button type="submit" class="btn btn-default" >บันทึก</button> 
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <input placeholder="หัวเรื่อง" name="txtTitle" type="text" class="form form-control input-sm"/>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <!--Editor-->
+                                                        <fieldset>
+
+                                                            <textarea  class="input-block-level" id="summernote" name="content" rows="18" cols="10">
+                                                            </textarea>
+
+                                                        </fieldset>
+                                                        <!--.Editor-->
+                                                    </div>
+                                                </div>
+
+
+                                                <button type="submit" class="btn btn-default" >บันทึก</button> 
                                             </div>
                                             <?php echo form_close(); ?>
                                             <div class="modal-footer">
-                                         <!--    <button type="submit" class="btn btn-default" >บันทึก</button>  -->
+                                                <!--    <button type="submit" class="btn btn-default" >บันทึก</button>  -->
 
                                             </div>
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
                                 </div><!-- /.modal -->
-                                
+
                                 <!--Modal add content-->
                                 </tbody>
                             </table>
@@ -222,7 +241,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Add the sidebar's background. This div must be placed
                  immediately after the control sidebar -->
             <div class="control-sidebar-bg"></div>
-           
+
         </div>
         <!-- ./wrapper -->
 
@@ -257,20 +276,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
             });
 
         </script>
+        <!--summer note-->
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+        <script>
+            /*http://mycodde.blogspot.com/2014/09/summernote-wyswig-editor-php-tutorial.html*/
 
-        <!--
-        <script type="text/javascript" src="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
-        <script type="text/javascript" src="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-        <script src="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
-        <script src="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
-        <script src="https://bi.kanfin.com/metronic/theme/assets/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
-       -->
-       <script src="<?php echo base_url()?>/dashboard/summernote/summernote.js"></script>
-        <script> 
-            $(document).ready(function() {
-          $('#summernote').summernote();
-        });
-        </script> 
+            $(document).ready(function () {
+                $('#summernote').summernote({
+                    height: 400,
+                    onImageUpload: function (files, editor, welEditable) {
+                        sendFile(files[0], editor, welEditable);
+                    }
+                });
+                function sendFile(file, editor, welEditable) {
+                    data = new FormData();
+                    data.append("file", file);//You can append as many data as you want. Check mozilla docs for this
+                    $.ajax({
+                        data: data,
+                        type: "POST",
+                        //url: "<?php //echo base_url('manual/add_audit_content') ?>",
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (url) {
+                            editor.insertImage(welEditable, url);
+                        }
+                    });
+                }
+            });
+        </script>
+
+
+
     </body>
 </html>
 
