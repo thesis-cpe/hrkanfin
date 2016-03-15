@@ -57,4 +57,9 @@ class Manual extends CI_Controller {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
+    
+    /*แก้ไข audit content*/
+    public function edit_audit(){
+        
+    }
 }
