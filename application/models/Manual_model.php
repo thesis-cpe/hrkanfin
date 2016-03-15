@@ -28,5 +28,10 @@ class Manual_model extends CI_Model {
         $this->db->where('manual_list_id',$id);
         $this->db->delete('manual_list');
     }
+    
+    public function _update_content($data,$id) {
+        $this->db->where('manual_list_id',$id);
+        $this->db->update('manual_list', $data);
+    }
 
 }

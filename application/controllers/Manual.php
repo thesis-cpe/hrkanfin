@@ -12,10 +12,11 @@
  * @author Veriton
  */
 class Manual extends CI_Controller {
+    
     public function __construct() {
         parent::__construct();
           $this->load->model('manual_model', 'manual');
-    }
+     }
     
     public function index(){
         echo "อยู่ในระหว่างพัฒนา...";
@@ -34,9 +35,16 @@ class Manual extends CI_Controller {
     
     public function add_audit_content(){
        // echo $this->input->post('content');
+          /* วันที่ ปัจจุบัน */
+                        $today = date("d-m-Y ");
+                        $todayExplode = explode("-", $today);
+                        $yearThaiBank = $todayExplode[2] + 543; //ได้เป็นปีพ.ศ.
+                        $curentDay = date("d/m") . "/" . $yearThaiBank; //วันที่ปัจจุบัน
+                       
+           /* .วันที่ */
         
         $data = array(
-            'date' => '14/3/2559',
+            'date' => $curentDay,
             'title' => $this->input->post('txtTitle'),
             'data' =>  $this->input->post('content'),
             'writer' => $this->session->userdata('em_id'),
@@ -60,6 +68,26 @@ class Manual extends CI_Controller {
     
     /*แก้ไข audit content*/
     public function edit_audit(){
+         /* วันที่ ปัจจุบัน */
+                        $today = date("d-m-Y ");
+                        $todayExplode = explode("-", $today);
+                        $yearThaiBank = $todayExplode[2] + 543; //ได้เป็นปีพ.ศ.
+                        $curentDay = date("d/m") . "/" . $yearThaiBank; //วันที่ปัจจุบัน
+                       
+           /* .วันที่ */  
         
+        $data = array(
+            'date' => $curentDay,
+            'title' => $this->input->post('txtTitle'),
+            'data' =>  $this->input->post('content'),
+            'writer' => $this->session->userdata('em_id'),
+            'cate' => '1'
+        );
+        $id = $this->input->post('hdf');
+        $update = $this->manual->_update_content($data,$id);
+       
+        /*redirect*/      
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
     }
 }

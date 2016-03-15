@@ -166,7 +166,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <section class="content-header">
                     <h1>
                         คู่มือ
-                        <small>บัญชี</small>
+                        <small>บัญชี [ทดสอบระบบ]</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> สื่อการสอนการทำบัญชี</a></li>
@@ -244,7 +244,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                                     <!--Modal แก้ไขเนื้อหา-->
-                                    <?php echo form_open('manual/edit_audit'); ?>
+                                    
                                     <div id="EditContent<?php echo $rowManualList->manual_list_id; ?>" class="modal fade" tabindex="-1" role="dialog">
                                         <div class="modal-dialog modal-lg" >
                                             <div class="modal-content">
@@ -252,7 +252,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                     <h4 class="modal-title">แก้ไข <?php echo $rowManualList->title; ?></h4>
                                                 </div>
-                                                <?php echo form_open("manual/add_audit_content"); ?>
+                                               <?php echo form_open('manual/edit_audit'); ?>
                                                 <div class="modal-body">
 
                                                     <div class="row">
@@ -268,6 +268,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                 <textarea  class="input-block-level" id="summernoteEdit<?php echo $rowManualList->manual_list_id; ?>" name="content" rows="18" cols="10">
                                                                     <?php echo $rowManualList->data; ?>
                                                                 </textarea>
+                                                                <input type="hidden" name="hdf" value="<?php echo $rowManualList->manual_list_id; ?>"/>
                                                             </fieldset>
                                                             <!--.Editor-->
                                                         </div>
