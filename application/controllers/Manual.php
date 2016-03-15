@@ -43,6 +43,18 @@ class Manual extends CI_Controller {
             'cate' => '1'
         );
         $insert = $this->manual->_add_content($data);
+       
+        /*redirect*/      
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
    
+    }
+    
+    /*ลบ manual audit*/
+    public function del_audit_content($id){
+        
+        $delManual = $this->manual->_del_manual_list($id);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
     }
 }

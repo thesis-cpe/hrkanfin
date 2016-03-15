@@ -23,5 +23,10 @@ class Manual_model extends CI_Model {
          $query = $this->db->get('manual_list')->result();
          return $query;
     }
+    /*ลบไฟล์คู่มือ*/
+    public function _del_manual_list($id){
+        $this->db->where('manual_list_id',$id);
+        $this->db->delete('manual_list');
+    }
 
 }

@@ -149,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="#">ลบ</a></li>
+                                                    <li><a href="<?php echo site_url("manual/del_audit_content/$rowManualList->manual_list_id");?>">ลบ</a></li>
                                                 </ul>
                                             </div>
                                             <!--./กลุ่ม ปุ่ม-->
@@ -195,7 +195,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <input placeholder="หัวเรื่อง" name="txtTitle" type="text" class="form form-control input-sm"/>
+                                                        <input required="" placeholder="หัวเรื่อง" name="txtTitle" type="text" class="form form-control input-sm"/>
                                                     </div>
                                                 </div>
                                                 <br>
