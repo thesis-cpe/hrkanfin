@@ -257,7 +257,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                                     <div class="row">
                                                         <div class="col-sm-12">
-                                                            <input required="" placeholder="หัวเรื่อง" name="txtTitle" type="text" class="form form-control input-sm"/>
+                                                            <input required="" placeholder="หัวเรื่อง" name="txtTitle" type="text" class="form form-control input-sm" value="<?php echo $rowManualList->title; ?>"/>
                                                         </div>
                                                     </div>
                                                     <br>
@@ -265,7 +265,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         <div class="col-sm-12">
                                                             <!--Editor-->
                                                             <fieldset>
-                                                                <textarea  class="input-block-level" id="summernoteEdit<?php echo $rowManualList->manual_list_id; ?>" name="content" rows="18" cols="10"></textarea>
+                                                                <textarea  class="input-block-level" id="summernoteEdit<?php echo $rowManualList->manual_list_id; ?>" name="content" rows="18" cols="10">
+                                                                    <?php echo $rowManualList->data; ?>
+                                                                </textarea>
                                                             </fieldset>
                                                             <!--.Editor-->
                                                         </div>
