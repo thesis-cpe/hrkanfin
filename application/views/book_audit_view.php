@@ -335,11 +335,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <div class="modal-body">
 
                                                 <div class="row">
-                                                    <div class="col-sm-12">
+                                                    <div class="col-sm-9">
                                                         <input required="" placeholder="หัวเรื่อง" name="txtTitle" type="text" class="form form-control input-sm"/>
                                                     </div>
+                                                    <div class="col-sm-3">
+                                                        <input  placeholder="หัวเรื่อง" name="fileManual" type="file" class="form form-control input-sm"/>
+                                                    </div>
                                                 </div>
+                                               
                                                 <br>
+                                                
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <!--Editor-->
