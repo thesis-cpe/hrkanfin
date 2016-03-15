@@ -113,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <section class="content">
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">คู่มือการทำบัญชี</h3> <a data-toggle="modal" data-target="#pnl2" href="#" style="float: right;"><span class="fa fa-plus"></span>เพิ่มเนื้อหา</a>
+                            <h3 class="box-title">คู่มือการทำบัญชี</h3> <a data-toggle="modal" data-target="#pnlAddContent" href="#" style="float: right;"><span class="fa fa-plus"></span>เพิ่มเนื้อหา</a>
 
 
                             <!-- /.box-tools -->
@@ -133,10 +133,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>11/3/59</td>
-                                        <td ><a href="#" data-toggle="modal" data-target="#pnl1">แมวน้อยน่ารัก</a></td>
-                                        <td >วิทยานิพนธ์ แท่นทอง</td>
+                               
+                                    <!--จาก DB-->
+                                  <?php foreach ($selManualList as $rowManualList): ?>
+                                     <tr>
+                                        <td><?php echo $rowManualList->date;  ?></td>
+                                        <td><a href="#" data-toggle="modal" data-target="#content<?php echo $rowManualList->manual_list_id; ?>"><?php echo $rowManualList->title; ?></a></td>
+                                        <td><?php echo $rowManualList->em_name;  ?></td>
                                         <td>
                                             <!--กลุ่ม ปุ่ม-->
                                             <div class="btn-group">
@@ -152,17 +155,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <!--./กลุ่ม ปุ่ม-->
                                         </td>
                                         <!--Modal ดู VDO-->
-                                            <div id="pnl1" class="modal fade" tabindex="-1" role="dialog">
+                                            <div id="content<?php echo $rowManualList->manual_list_id; ?>" class="modal fade" tabindex="-1" role="dialog">
                                                 <!--    <div class="modal-dialog modal-lg" style="margin-top: 0px; width: 100%;margin-bottom: 0px;margin-left: 0px;margin-right: 0px"> -->
                                                 <div class="modal-dialog modal-lg">        
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                            <h4 class="modal-title">เนื้อหา</h4>
+                                                            <h4 class="modal-title"><?php echo $rowManualList->title; ?></h4>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div style="padding-left: 5px;padding-right: 5px;">
-                                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/tntOCGkgt98" frameborder="0" allowfullscreen></iframe>
+                                                                <?php echo $rowManualList->data; ?>
                                                              </div>
                                                         </div>
                                                         <div class="modal-footer">
@@ -174,10 +177,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div><!-- /.modal -->
                                             <!--.Modal ดู VDO-->
                                     </tr>
-
+                                    <?php endforeach; ?>
+                                    <!--/.จาก DB-->
+                                    
+                                    
                                 <!--Modal add content-->
 
-                                <div id="pnl2" class="modal fade" tabindex="-1" role="dialog">
+                                <div id="pnlAddContent" class="modal fade" tabindex="-1" role="dialog">
                                     <div class="modal-dialog modal-lg" >
                                         <div class="modal-content">
                                             <div class="modal-header">

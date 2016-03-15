@@ -24,7 +24,12 @@ class Manual extends CI_Controller {
     }
     
     public function audit(){
-        $this->load->view('book_audit_view');
+        /*แสดงรายการที่มี*/
+        $selManualList = $this->manual->_sel_manual_list();
+        $data = array(
+            'selManualList' => $selManualList
+        );
+        $this->load->view('book_audit_view',$data);
     }
     
     public function add_audit_content(){
