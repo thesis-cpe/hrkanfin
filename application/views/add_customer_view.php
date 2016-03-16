@@ -199,6 +199,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <option value="หุ้นส่วนผู้จัดการ">หุ้นส่วนผู้จัดการ</option>
                                             <option value="กรรมการผู้จัดการ">กรรมการผู้จัดการ</option>
                                             <option value="ประธานมูลนิธิ">ประธานมูลนิธิ</option>
+                                            <option value="ผู้อำนวยการ">ผู้อำนวยการ</option>
                                         </select>
                                     </div>
                                 </div>
@@ -360,7 +361,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             $(document).ready(function () {
                 $("#btnAdd").click(function () {
                     $("#olNameCon").append("<label>&nbsp;</label><input type='text' name='txtNameCon[]' id='txtNameCon1' class='form-control' placeholder='ชื่อผู้มีอำนาจลงนาม'/>");
-                    $("#selStatus").append("<label>&nbsp;</label><select class='form-control' name='selStatusCondition[]' id='selStatusCondition1'><option value='เจ้าของกิจการ'>เจ้าของกิจการ</option><option value='หุ้นส่วนผู้จัดการ'>หุ้นส่วนผู้จัดการ</option><option value='กรรมการผู้จัดการ'>กรรมการผู้จัดการ</option><option value='ประธานมูลนิธิ'>ประธานมูลนิธิ</option></select>");
+                    $("#selStatus").append("<label>&nbsp;</label><select class='form-control' name='selStatusCondition[]' id='selStatusCondition1'><option value='เจ้าของกิจการ'>เจ้าของกิจการ</option><option value='หุ้นส่วนผู้จัดการ'>หุ้นส่วนผู้จัดการ</option><option value='กรรมการผู้จัดการ'>กรรมการผู้จัดการ</option><option value='ประธานมูลนิธิ'>ประธานมูลนิธิ</option><option value='ผู้อำนวยการ'>ผู้อำนวยการ</option></select>");
                 });
             });
         </script>
