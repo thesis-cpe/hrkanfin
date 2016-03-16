@@ -33,6 +33,8 @@ class Manual extends CI_Controller {
         );
         $this->load->view('book_audit_view', $data);
     }
+    
+
 
     public function add_audit_content() {
         
