@@ -1,43 +1,49 @@
 <section class="sidebar">
 
-      <!-- Sidebar user panel (optional) -->
-      <div  class="user-panel">
+    <!-- Sidebar user panel (optional) -->
+    <div  class="user-panel">
         <div class="pull-left image">
-            <img class="img-rounded"  src="<?php echo base_url().$this->session->userdata('em_photo');?>"/>
+            <img class="img-rounded"  src="<?php echo base_url() . $this->session->userdata('em_photo'); ?>"/>
         </div>
         <div class="pull-left info">
-            <p style="font-size: 12px;"><?php echo $this->session->userdata('em_name');?></p>
-          <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            <p style="font-size: 12px;"><?php echo $this->session->userdata('em_name'); ?></p>
+            <!-- Status -->
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
-      </div>
+    </div>
 
-    
 
-      <!-- Sidebar Menu -->
-      <ul  class="sidebar-menu">
+
+    <!-- Sidebar Menu -->
+    <ul  class="sidebar-menu">
         <li class="header">เมนูหลัก</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="<?php echo base_url()?>index.php/main_panel"><i class="fa fa-tachometer"></i> <span>ส่วนควบคุมหลัก</span></a></li>
-        <?php if($this->session->userdata('em_role')== "ผู้ดูแลระบบ"):?> 
-        <li><a href="<?php echo base_url()?>index.php/main_data"><i class="fa fa-database"></i> <span>ข้อมูลหลัก</span></a></li>
-        <li><a href="<?php echo base_url()?>index.php/project"><i class="fa fa-group"></i> <span>โครงการ</span></a></li>
-        <?php endif;?>
-        <li><a href="<?php echo base_url()?>index.php/dailywork"><i class="fa fa-tasks"></i> <span>งานประจำวัน</span></a></li>
+        <li><a href="<?php echo base_url() ?>index.php/main_panel"><i class="fa fa-tachometer"></i> <span>ส่วนควบคุมหลัก</span></a></li>
+        <?php if ($this->session->userdata('em_role') == "ผู้ดูแลระบบ"): ?> 
+            <li><a href="<?php echo base_url() ?>index.php/main_data"><i class="fa fa-database"></i> <span>ข้อมูลหลัก</span></a></li>
+            <li><a href="<?php echo base_url() ?>index.php/project"><i class="fa fa-group"></i> <span>โครงการ</span></a></li>
+        <?php endif; ?>
+        <li><a href="<?php echo base_url() ?>index.php/dailywork"><i class="fa fa-tasks"></i> <span>งานประจำวัน</span></a></li>
       <!--  <li><a href="report.php"><i class="fa fa-line-chart"></i> <span>รายงาน</span></a></li>  -->
-       
-        
-        
-       <li class="treeview">
-          <a href="#"><i class="fa fa-line-chart"></i> <span>รายงาน</span> <i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
-              <li><a href="<?php echo base_url()?>index.php/report/customer"><i class="fa fa-circle-o"></i>ลูกค้า</a></li>
-              <li><a href="<?php echo base_url()?>index.php/report/employee"><i class="fa fa-circle-o"></i>พนักงาน</a></li>
-          </ul>
+
+
+
+        <li class="treeview">
+            <a href="#"><i class="fa fa-line-chart"></i> <span>รายงาน</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a href="<?php echo base_url() ?>index.php/report/customer"><i class="fa fa-circle-o"></i>ลูกค้า</a></li>
+                <li><a href="<?php echo base_url() ?>index.php/report/employee"><i class="fa fa-circle-o"></i>พนักงาน</a></li>
+            </ul>
         </li>
-        
+
         <!--เมนู help-->
-        <li><a href="<?php echo base_url()?>index.php/manual/audit"><i class="fa fa-book"></i> <span>คู่มือ</span></a></li>
-      </ul>  
-      <!-- /.sidebar-menu -->
-    </section>
+        <li class="treeview">
+            <a href="#"><i class="fa fa-book"></i> <span>คู่มือ</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a href="<?php echo base_url() ?>index.php/manual/audit"><i class="fa fa-circle-o"></i> <span>งานบัญชี</span></a></li>
+                <li><a href="<?php echo base_url() ?>index.php/manual/computer"><i class="fa fa-circle-o"></i> <span>คอมพิวเตอร์</span></a></li>
+            </ul>
+        </li>
+    </ul>  
+    <!-- /.sidebar-menu -->
+</section>

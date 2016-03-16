@@ -168,10 +168,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <section class="content-header">
                     <h1>
                         คู่มือ
-                        <small>บัญชี [ทดสอบระบบ]</small>
+                        <small>คอมพิวเตอร์ [วิธีแก้ไขปัญหาคอมพิวเตอร์เบื้องต้น]</small>
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> สื่อการสอนการทำบัญชี</a></li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> </a></li>
                         <!-- <li class="active">Here</li> -->
                     </ol>
                 </section>
@@ -180,7 +180,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <section class="content">
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">คู่มือการทำบัญชี</h3> <a data-toggle="modal" data-target="#pnlAddContent" href="#" style="float: right;"><span class="fa fa-plus"></span>เพิ่มเนื้อหา</a>
+                            <h3 class="box-title">เนื้อหา</h3> <a data-toggle="modal" data-target="#pnlAddContent" href="#" style="float: right;"><span class="fa fa-plus"></span>เพิ่มเนื้อหา</a>
 
 
                             <!-- /.box-tools -->
