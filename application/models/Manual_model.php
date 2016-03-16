@@ -52,5 +52,18 @@ class Manual_model extends CI_Model {
         );
         $this->db->insert('manual_file', $id);
     }
+    
+    /*ส่วนคู่มือ com*/
+     public function _sel_manual_list_com() {
+        $this->db->join('employee', 'employee.em_id = manual_list.writer');
+        $this->db->where('cate', '2');
+        $this->db->order_by('manual_list_id', 'DESC');
+        $query = $this->db->get('manual_list')->result();
+        return $query;
+    }
+    
+     public function _add_content_com($data) {
+        $this->db->insert('manual_list', $data);
+    }
 
 }

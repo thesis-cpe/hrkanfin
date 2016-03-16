@@ -123,5 +123,67 @@ class Manual extends CI_Controller {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
+    
+    /*ส่วนคู่มือ com*/
+     public function computer() {
+        /* แสดงรายการที่มี */
+        $selManualList = $this->manual->_sel_manual_list_com();
+        $data = array(
+            'selManualList' => $selManualList
+        );
+        $this->load->view('book_com_view', $data);
+    }
+    
+    public function add_com_content() {
+        
+        /* วันที่ ปัจจุบัน */
+        $today = date("d-m-Y ");
+        $todayExplode = explode("-", $today);
+        $yearThaiBank = $todayExplode[2] + 543; //ได้เป็นปีพ.ศ.
+        $curentDay = date("d/m") . "/" . $yearThaiBank; //วันที่ปัจจุบัน
+
+        /* .วันที่ */
+
+         /* .แนบไฟล์ */
+
+        $data = array(
+            'date' => $curentDay,
+            'title' => $this->input->post('txtTitle'),
+            'data' => $this->input->post('content'),
+            'writer' => $this->session->userdata('em_id'),
+            'cate' => '2'
+        );
+        $insert = $this->manual->_add_content_com($data); //เอาลง manual_list
+
+         /* redirect */
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
+    
+    public function edit_com() {
+        /* วันที่ ปัจจุบัน */
+        $today = date("d-m-Y ");
+        $todayExplode = explode("-", $today);
+        $yearThaiBank = $todayExplode[2] + 543; //ได้เป็นปีพ.ศ.
+        $curentDay = date("d/m") . "/" . $yearThaiBank; //วันที่ปัจจุบัน
+
+        /* .วันที่ */
+
+        $data = array(
+            'date' => $curentDay,
+            'title' => $this->input->post('txtTitle'),
+            'data' => $this->input->post('content'),
+            'writer' => $this->session->userdata('em_id'),
+            'cate' => '2'
+        );
+        $id = $this->input->post('hdf');
+        $update = $this->manual->_update_content($data, $id);
+
+        /* redirect */
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
+    
+    
 
 }
