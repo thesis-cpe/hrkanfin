@@ -140,6 +140,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <option <?php if ($customer_detail['customer_status'] == "ร้าน") {
                         echo "selected";
                     } ?>  value="ร้าน">ร้าน</option>
+                                        <option <?php if ($customer_detail['customer_status'] == "สถานศึกษา") {
+                        echo "selected";
+                    } ?>  value="สถานศึกษา">สถานศึกษา</option>
                                         
                                     </select>
                                 </div>

@@ -119,6 +119,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <option value="บจก">บจก</option>
                                         <option value="บมจ">บมจ</option>
                                         <option value="บมจ">ร้าน</option>
+                                        <option value="สถานศึกษา">สถานศึกษา</option>
                                     </select>
                                 </div>
                             </div>
