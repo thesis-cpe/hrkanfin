@@ -3,9 +3,9 @@
     <!-- Logo -->
     <a style="background-color: #03A9F4;"  href="<?php echo base_url()?>index.php/main_panel" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span style="background-color: #03A9F4;" class="logo-mini"><b>K</b>AN</span>
+      <span style="background-color: #03A9F4;font-size: 16px;" class="logo-mini"><b>G</b>.ACC</span>
       <!-- logo for regular state and mobile devices -->
-      <span style="background-color: #03A9F4;" class="logo-lg"><b>KAN.ACCOUNT</b></span>
+      <span style="background-color: #03A9F4;" class="logo-lg"><b>GOLD.ACCOUNT</b></span>
     </a>
 
     <!-- Header Navbar -->
