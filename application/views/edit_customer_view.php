@@ -235,6 +235,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <option <?php if($rowSign['status'] == "หุ้นส่วนผู้จัดการ"){echo "selected";}?> value="หุ้นส่วนผู้จัดการ">หุ้นส่วนผู้จัดการ</option>
                                             <option <?php if($rowSign['status'] == "กรรมการผู้จัดการ"){echo "selected";}?> value="กรรมการผู้จัดการ">กรรมการผู้จัดการ</option>
                                             <option <?php if($rowSign['status'] == "ประธานมูลนิธิ"){echo "selected";}?> value="ประธานมูลนิธิ">ประธานมูลนิธิ</option>
+                                            <option <?php if($rowSign['status'] == "ผู้อำนวยการ"){echo "selected";}?> value="ผู้อำนวยการ">ผู้อำนวยการ</option>
                                         </select><label id="lb2">&nbsp;</label>
                                     <?php endforeach;
                                     }else{ ?>
@@ -243,6 +244,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <option value="หุ้นส่วนผู้จัดการ">หุ้นส่วนผู้จัดการ</option>
                                             <option  value="กรรมการผู้จัดการ">กรรมการผู้จัดการ</option>
                                             <option value="ประธานมูลนิธิ">ประธานมูลนิธิ</option>
+                                            <option value="ผู้อำนวยการ">ผู้อำนวยการ</option>
                                         </select><label >&nbsp;</label>
                                    <?php }
                                     ?>
@@ -403,7 +405,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             $(document).ready(function () {
                 $("#btnAdd").click(function () {
                     $("#olNameCon").append("<label id='lb1'>&nbsp;</label><input type='text' name='txtNameCon[]' id='txtNameCon1' class='form-control' placeholder='ชื่อผู้มีอำนาจลงนาม'/>");
-                    $("#selStatus").append("<label id='lb2'>&nbsp;</label><select class='form-control' name='selStatusCondition[]' id='selStatusCondition1'><option value='เจ้าของกิจการ'>เจ้าของกิจการ</option><option value='หุ้นส่วนผู้จัดการ'>หุ้นส่วนผู้จัดการ</option><option value='กรรมการผู้จัดการ'>กรรมการผู้จัดการ</option><option value='ประธานมูลนิธิ'>ประธานมูลนิธิ</option></select>"); 
+                    $("#selStatus").append("<label id='lb2'>&nbsp;</label><select class='form-control' name='selStatusCondition[]' id='selStatusCondition1'><option value='เจ้าของกิจการ'>เจ้าของกิจการ</option><option value='หุ้นส่วนผู้จัดการ'>หุ้นส่วนผู้จัดการ</option><option value='กรรมการผู้จัดการ'>กรรมการผู้จัดการ</option><option value='ประธานมูลนิธิ'>ประธานมูลนิธิ</option><option value='ผู้อำนวยการ'>ผู้อำนวยการ</option></select>"); 
                 });
             });
         </script>
