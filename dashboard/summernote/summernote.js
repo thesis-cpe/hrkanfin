@@ -1816,8 +1816,7 @@
   var editor = renderer.create('<div class="note-editor note-frame panel panel-default"/>');
   var toolbar = renderer.create('<div class="note-toolbar panel-heading"/>');
   var editingArea = renderer.create('<div class="note-editing-area"/>');
-  //var codable = renderer.create('<textarea class="note-codable"/>');
-    var codable = renderer.create('<textarea name="txtSumerNote" class="note-codable" />');
+  var codable = renderer.create('<textarea class="note-codable"/>');
   var editable = renderer.create('<div class="note-editable panel-body" contentEditable="true"/>');
   var statusbar = renderer.create([
     '<div class="note-statusbar">',
@@ -6225,6 +6224,7 @@
         var youtubeId = ytMatch[1];
         $video = $('<iframe>')
             .attr('frameborder', 0)
+            .attr('allowfullscreen', '')
             .attr('src', '//www.youtube.com/embed/' + youtubeId)
             .attr('width', '640').attr('height', '360');
       } else if (igMatch && igMatch[0].length) {

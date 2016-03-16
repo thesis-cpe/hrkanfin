@@ -94,8 +94,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
-        
+      <!--  <script src="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script> -->
+        <script src="<?php echo base_url();?>dashboard/summernote/summernote.js"></script>
         <script>
             /*http://mycodde.blogspot.com/2014/09/summernote-wyswig-editor-php-tutorial.html*/
 
@@ -341,7 +341,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         <input required="" placeholder="หัวเรื่อง" name="txtTitle" type="text" class="form form-control input-sm"/>
                                                     </div>
                                                     <div class="col-sm-3">
-                                                        <input  placeholder="หัวเรื่อง" name="fileManual" type="file" class="form form-control input-sm"/>
+                                                    <!--    <input  placeholder="หัวเรื่อง" name="fileManual" type="file" class="form form-control input-sm"/> -->
                                                     </div>
                                                 </div>
                                                
