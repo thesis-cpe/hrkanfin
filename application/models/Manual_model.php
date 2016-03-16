@@ -20,6 +20,7 @@ class Manual_model extends CI_Model {
     public function _sel_manual_list() {
         $this->db->join('employee', 'employee.em_id = manual_list.writer');
         $this->db->where('cate', '1');
+        $this->db->order_by('manual_list_id', 'DESC');
         $query = $this->db->get('manual_list')->result();
         return $query;
     }
